@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=3 uid="uid://buhyov4ntwj2b"]
+[gd_scene load_steps=10 format=3 uid="uid://buhyov4ntwj2b"]
 
 [ext_resource type="Texture2D" uid="uid://dy0adsgg7oug1" path="res://game/escenarios/escenario_1/parallax/02_fondo.jpg" id="1_k4ji2"]
 [ext_resource type="Texture2D" uid="uid://mal3jv1ik207" path="res://game/escenarios/escenario_1/parallax/03_fondo.png" id="2_inntc"]
@@ -7,6 +7,8 @@
 [ext_resource type="Texture2D" uid="uid://cqvjip6ghlsg4" path="res://game/escenarios/escenario_1/parallax/06_fondo.png" id="5_qswbg"]
 [ext_resource type="Texture2D" uid="uid://bxblmqh3hjw2l" path="res://game/escenarios/escenario_1/parallax/07_fondo.png" id="6_iivvr"]
 [ext_resource type="Script" uid="uid://dv3ihfwvl6vg2" path="res://game/escenarios/escenario_1/parallax/camera_2d.gd" id="7_inntc"]
+[ext_resource type="PackedScene" uid="uid://rndfut7w0d76" path="res://game/personajes/principales/joseph.tscn" id="8_d2hdu"]
+[ext_resource type="PackedScene" uid="uid://yftpqvxgasnp" path="res://game/escenarios/escenario_1/tiles/tilemapescenario1.tscn" id="9_qswbg"]
 
 [node name="ParallaxEscenario1" type="Node2D"]
 
@@ -67,3 +69,9 @@ visible = false
 anchor_mode = 0
 zoom = Vector2(0.91, 0.91)
 script = ExtResource("7_inntc")
+
+[node name="Joseph" parent="." instance=ExtResource("8_d2hdu")]
+position = Vector2(550, 498)
+
+[node name="Tilemapescenario1" parent="." instance=ExtResource("9_qswbg")]
+position = Vector2(73, 613)
