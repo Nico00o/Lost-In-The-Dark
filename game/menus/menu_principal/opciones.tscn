@@ -1,0 +1,131 @@
+[gd_scene load_steps=19 format=3 uid="uid://b65julec2m02x"]
+
+[ext_resource type="Script" uid="uid://d2h4lndm2skud" path="res://Menu Proyect/opciones.gd" id="1_kgqy0"]
+[ext_resource type="Texture2D" uid="uid://b3l2urckoj7js" path="res://Fondo para menu/Animacion e Fondo/8 FPS/1 Ani.png" id="1_xdxkg"]
+[ext_resource type="Texture2D" uid="uid://xjx2e8hv5gf7" path="res://Fondo para menu/Animacion e Fondo/8 FPS/2 Ani.png" id="2_kgqy0"]
+[ext_resource type="Texture2D" uid="uid://ch7riljam5ipn" path="res://Fondo para menu/Animacion e Fondo/8 FPS/3 Ani.png" id="3_0cr04"]
+[ext_resource type="Texture2D" uid="uid://c7vrjk4pmbfx7" path="res://Fondo para menu/Animacion e Fondo/8 FPS/4 Ani.png" id="4_eh4iy"]
+[ext_resource type="Texture2D" uid="uid://djn4o77qdhqu3" path="res://Fondo para menu/Animacion e Fondo/8 FPS/5 Ani.png" id="5_u7omv"]
+[ext_resource type="Texture2D" uid="uid://b5723hv6in6b8" path="res://Fondo para menu/Animacion e Fondo/8 FPS/6 Ani.png" id="6_j1nye"]
+[ext_resource type="Texture2D" uid="uid://chuyem5d727dn" path="res://Fondo para menu/Animacion e Fondo/8 FPS/7 Ani.png" id="7_j6ybg"]
+[ext_resource type="Texture2D" uid="uid://diaitlbgotvn1" path="res://Fondo para menu/Animacion e Fondo/8 FPS/8 Ani.png" id="8_8hd7x"]
+[ext_resource type="Texture2D" uid="uid://dpkbk5w6owsj0" path="res://Fondo para menu/Titulo.jpeg_0001.png" id="9_p4y2m"]
+[ext_resource type="Texture2D" uid="uid://bfa3musrq3ppo" path="res://Boton Atras/Boton Vacio.png" id="11_kgqy0"]
+[ext_resource type="Texture2D" uid="uid://btldvuisj33od" path="res://Boton Atras/Boton Atras_0001.png" id="15_0cr04"]
+[ext_resource type="Texture2D" uid="uid://3mtam1fjx656" path="res://Fondo para menu/Volumen.png" id="16_0cr04"]
+[ext_resource type="Texture2D" uid="uid://cn8fqy8qd6bus" path="res://Boton Atras/Boton Atras_0002.png" id="16_eh4iy"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_o1j4c"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_xdxkg")
+}, {
+"duration": 1.0,
+"texture": ExtResource("2_kgqy0")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_0cr04")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_eh4iy")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_u7omv")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_j1nye")
+}, {
+"duration": 1.0,
+"texture": ExtResource("7_j6ybg")
+}, {
+"duration": 1.0,
+"texture": ExtResource("8_8hd7x")
+}],
+"loop": true,
+"name": &"Animacion Escenario",
+"speed": 5.5
+}]
+
+[sub_resource type="StyleBoxLine" id="StyleBoxLine_tfq7e"]
+color = Color(1, 0.142953, 0.101453, 1)
+thickness = 8
+
+[sub_resource type="StyleBoxLine" id="StyleBoxLine_xdxkg"]
+color = Color(1, 1, 1, 1)
+thickness = 8
+
+[sub_resource type="StyleBoxLine" id="StyleBoxLine_kgqy0"]
+color = Color(1, 1, 1, 1)
+thickness = 8
+
+[node name="Menu de Opciones" type="Node2D"]
+script = ExtResource("1_kgqy0")
+
+[node name="Animacion de Fondo" type="AnimatedSprite2D" parent="."]
+position = Vector2(576, 320)
+scale = Vector2(0.897911, 0.898286)
+sprite_frames = SubResource("SpriteFrames_o1j4c")
+animation = &"Animacion Escenario"
+autoplay = "Animacion Escenario"
+
+[node name="Titulo" type="TextureRect" parent="."]
+offset_left = 208.0
+offset_top = 48.0
+offset_right = 604.0
+offset_bottom = 167.0
+scale = Vector2(1.9334, 1.4453)
+texture = ExtResource("9_p4y2m")
+
+[node name="MainButtons" type="VBoxContainer" parent="."]
+anchors_preset = -1
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -104.0
+offset_top = 232.0
+offset_right = 450.0
+offset_bottom = 667.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(2.50022, 2.63713)
+theme_override_constants/separation = 0
+
+[node name="TextureButton" type="TextureButton" parent="MainButtons"]
+custom_minimum_size = Vector2(30, 25)
+layout_mode = 2
+size_flags_horizontal = 4
+texture_normal = ExtResource("11_kgqy0")
+
+[node name="Boton Atras" type="TextureButton" parent="MainButtons"]
+custom_minimum_size = Vector2(20, 0)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+texture_normal = ExtResource("15_0cr04")
+texture_hover = ExtResource("16_eh4iy")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+offset_left = 400.0
+offset_top = 280.0
+offset_right = 784.0
+offset_bottom = 320.0
+scale = Vector2(0.588184, 0.795349)
+
+[node name="HSlider" type="HSlider" parent="VBoxContainer"]
+layout_mode = 2
+theme_override_styles/slider = SubResource("StyleBoxLine_tfq7e")
+theme_override_styles/grabber_area = SubResource("StyleBoxLine_xdxkg")
+theme_override_styles/grabber_area_highlight = SubResource("StyleBoxLine_kgqy0")
+max_value = 50.0
+
+[node name="TextureRect" type="TextureRect" parent="."]
+offset_left = 616.0
+offset_top = 264.0
+offset_right = 776.0
+offset_bottom = 304.0
+scale = Vector2(1.09296, 1.25415)
+texture = ExtResource("16_0cr04")
+
+[connection signal="pressed" from="MainButtons/Boton Atras" to="." method="_on_boton_atras_pressed"]

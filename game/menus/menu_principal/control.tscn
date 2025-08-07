@@ -1,0 +1,117 @@
+[gd_scene load_steps=18 format=3 uid="uid://dpbl5gawt04nk"]
+
+[ext_resource type="Script" uid="uid://dcx1u8i25r0rj" path="res://Menu Proyect/control.gd" id="1_be43x"]
+[ext_resource type="Texture2D" uid="uid://b3l2urckoj7js" path="res://Fondo para menu/Animacion e Fondo/8 FPS/1 Ani.png" id="2_fumme"]
+[ext_resource type="Texture2D" uid="uid://xjx2e8hv5gf7" path="res://Fondo para menu/Animacion e Fondo/8 FPS/2 Ani.png" id="3_fumme"]
+[ext_resource type="Texture2D" uid="uid://dpkbk5w6owsj0" path="res://Fondo para menu/Titulo.jpeg_0001.png" id="3_qx0cj"]
+[ext_resource type="Texture2D" uid="uid://ch7riljam5ipn" path="res://Fondo para menu/Animacion e Fondo/8 FPS/3 Ani.png" id="4_8fdyp"]
+[ext_resource type="Texture2D" uid="uid://2b3c01nl33o3" path="res://Fondo para menu/Boton Jugar_0001.png" id="4_o3owj"]
+[ext_resource type="Texture2D" uid="uid://gdp6n7kh8j8i" path="res://Fondo para menu/Boton Jugar_0002.png" id="5_3y2i1"]
+[ext_resource type="Texture2D" uid="uid://c7vrjk4pmbfx7" path="res://Fondo para menu/Animacion e Fondo/8 FPS/4 Ani.png" id="5_nq7e7"]
+[ext_resource type="Texture2D" uid="uid://d0xyehrq2ocrg" path="res://Fondo para menu/Boton Opciones_0001.png" id="6_b83tu"]
+[ext_resource type="Texture2D" uid="uid://djn4o77qdhqu3" path="res://Fondo para menu/Animacion e Fondo/8 FPS/5 Ani.png" id="6_jmnik"]
+[ext_resource type="Texture2D" uid="uid://b5aj6w0305s7g" path="res://Fondo para menu/Boton Salir_0001.png" id="7_3y2i1"]
+[ext_resource type="Texture2D" uid="uid://bahd0oj57mvmb" path="res://Fondo para menu/Boton Opciones_0002.png" id="7_b83tu"]
+[ext_resource type="Texture2D" uid="uid://b5723hv6in6b8" path="res://Fondo para menu/Animacion e Fondo/8 FPS/6 Ani.png" id="7_pyr50"]
+[ext_resource type="Texture2D" uid="uid://dg8s3aob36i8l" path="res://Fondo para menu/Boton Salir_0002.png" id="8_3y2i1"]
+[ext_resource type="Texture2D" uid="uid://chuyem5d727dn" path="res://Fondo para menu/Animacion e Fondo/8 FPS/7 Ani.png" id="8_aquut"]
+[ext_resource type="Texture2D" uid="uid://diaitlbgotvn1" path="res://Fondo para menu/Animacion e Fondo/8 FPS/8 Ani.png" id="9_8fdyp"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_pyr50"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_fumme")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_fumme")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_8fdyp")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_nq7e7")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_jmnik")
+}, {
+"duration": 1.0,
+"texture": ExtResource("7_pyr50")
+}, {
+"duration": 1.0,
+"texture": ExtResource("8_aquut")
+}, {
+"duration": 1.0,
+"texture": ExtResource("9_8fdyp")
+}],
+"loop": true,
+"name": &"Animacion Escenario",
+"speed": 5.5
+}]
+
+[node name="Menu" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_be43x")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+position = Vector2(576, 320)
+scale = Vector2(0.897911, 0.898286)
+sprite_frames = SubResource("SpriteFrames_pyr50")
+animation = &"Animacion Escenario"
+autoplay = "Animacion Escenario"
+frame_progress = 0.409051
+
+[node name="TextureRect2" type="TextureRect" parent="."]
+layout_mode = 1
+offset_left = 208.0
+offset_top = 48.0
+offset_right = 604.0
+offset_bottom = 167.0
+scale = Vector2(1.9334, 1.4453)
+texture = ExtResource("3_qx0cj")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -608.0
+offset_top = -416.0
+offset_right = -54.0
+offset_bottom = 19.0001
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(2.21605, 2.65172)
+theme_override_constants/separation = 0
+
+[node name="TextureButton" type="TextureButton" parent="VBoxContainer"]
+custom_minimum_size = Vector2(20, 0)
+layout_mode = 2
+size_flags_horizontal = 4
+texture_normal = ExtResource("4_o3owj")
+texture_hover = ExtResource("5_3y2i1")
+
+[node name="TextureButton2" type="TextureButton" parent="VBoxContainer"]
+custom_minimum_size = Vector2(20, 0)
+layout_mode = 2
+size_flags_horizontal = 4
+texture_normal = ExtResource("6_b83tu")
+texture_hover = ExtResource("7_b83tu")
+
+[node name="TextureButton3" type="TextureButton" parent="VBoxContainer"]
+custom_minimum_size = Vector2(20, 0)
+layout_mode = 2
+size_flags_horizontal = 4
+texture_normal = ExtResource("7_3y2i1")
+texture_hover = ExtResource("8_3y2i1")
+
+[connection signal="pressed" from="VBoxContainer/TextureButton" to="." method="_on_texture_button_pressed"]
+[connection signal="pressed" from="VBoxContainer/TextureButton2" to="." method="_on_texture_button_2_pressed"]
+[connection signal="pressed" from="VBoxContainer/TextureButton3" to="." method="_on_texture_button_3_pressed"]
