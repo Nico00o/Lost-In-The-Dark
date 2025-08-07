@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://diaitlbgotvn1"
-path="res://.godot/imported/8 Ani.png-fb2e7fde70448e53cbdfaabfee39f954.ctex"
+uid="uid://gkxj0iegnpkr"
+path="res://.godot/imported/111.png-945d87a717ffe2000b1de10e491d9208.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://game/menus/menu_principal/Animacion de Fondo/8 Ani.png"
-dest_files=["res://.godot/imported/8 Ani.png-fb2e7fde70448e53cbdfaabfee39f954.ctex"]
+source_file="res://game/escenarios/escenario_1/tiles/111.png"
+dest_files=["res://.godot/imported/111.png-945d87a717ffe2000b1de10e491d9208.ctex"]
 
 [params]
 

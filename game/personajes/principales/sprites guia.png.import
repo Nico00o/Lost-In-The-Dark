@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://diaitlbgotvn1"
-path="res://.godot/imported/8 Ani.png-fb2e7fde70448e53cbdfaabfee39f954.ctex"
+uid="uid://chrmn0emft72d"
+path="res://.godot/imported/sprites guia.png-a52f91c3af0d4f18e46ec841de266688.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://game/menus/menu_principal/Animacion de Fondo/8 Ani.png"
-dest_files=["res://.godot/imported/8 Ani.png-fb2e7fde70448e53cbdfaabfee39f954.ctex"]
+source_file="res://game/personajes/principales/sprites guia.png"
+dest_files=["res://.godot/imported/sprites guia.png-a52f91c3af0d4f18e46ec841de266688.ctex"]
 
 [params]
 

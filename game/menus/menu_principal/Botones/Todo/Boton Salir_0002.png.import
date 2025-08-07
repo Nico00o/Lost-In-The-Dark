@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://dg8s3aob36i8l"
-path="res://.godot/imported/Boton Salir_0002.png-7a116279ed4cdf81d392b4e35a0bf776.ctex"
+path="res://.godot/imported/Boton Salir_0002.png-d253404694e3385a780814f8bf5c8a09.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Fondo para menu/Boton Salir_0002.png"
-dest_files=["res://.godot/imported/Boton Salir_0002.png-7a116279ed4cdf81d392b4e35a0bf776.ctex"]
+source_file="res://game/menus/menu_principal/Botones/Todo/Boton Salir_0002.png"
+dest_files=["res://.godot/imported/Boton Salir_0002.png-d253404694e3385a780814f8bf5c8a09.ctex"]
 
 [params]
 
