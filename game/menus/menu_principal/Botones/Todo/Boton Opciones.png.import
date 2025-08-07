@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://co6y85eff3odo"
-path="res://.godot/imported/Boton Opciones.png-60b7d9bf1ae3c45f4ff6d78fae8d6bff.ctex"
+path="res://.godot/imported/Boton Opciones.png-bac186099aff0a97ed82dacb6b7ab803.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Fondo para menu/Boton Opciones.png"
-dest_files=["res://.godot/imported/Boton Opciones.png-60b7d9bf1ae3c45f4ff6d78fae8d6bff.ctex"]
+source_file="res://game/menus/menu_principal/Botones/Todo/Boton Opciones.png"
+dest_files=["res://.godot/imported/Boton Opciones.png-bac186099aff0a97ed82dacb6b7ab803.ctex"]
 
 [params]
 

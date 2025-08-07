@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://c7vrjk4pmbfx7"
-path="res://.godot/imported/4 Ani.png-8940712f70302336e7176e4b3be48982.ctex"
+path="res://.godot/imported/4 Ani.png-a660a6db0f3397a2e2bf57b9d571a1ad.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Fondo para menu/Animacion e Fondo/8 FPS/4 Ani.png"
-dest_files=["res://.godot/imported/4 Ani.png-8940712f70302336e7176e4b3be48982.ctex"]
+source_file="res://game/menus/menu_principal/Animacion de Fondo/4 Ani.png"
+dest_files=["res://.godot/imported/4 Ani.png-a660a6db0f3397a2e2bf57b9d571a1ad.ctex"]
 
 [params]
 

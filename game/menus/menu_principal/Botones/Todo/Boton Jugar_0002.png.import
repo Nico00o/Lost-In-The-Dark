@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://gdp6n7kh8j8i"
-path="res://.godot/imported/Boton Jugar_0002.png-821bea4df56fa3684f642c8a899981a6.ctex"
+path="res://.godot/imported/Boton Jugar_0002.png-2d238fc245b5e9a3ce77a9a695da70e0.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Fondo para menu/Boton Jugar_0002.png"
-dest_files=["res://.godot/imported/Boton Jugar_0002.png-821bea4df56fa3684f642c8a899981a6.ctex"]
+source_file="res://game/menus/menu_principal/Botones/Todo/Boton Jugar_0002.png"
+dest_files=["res://.godot/imported/Boton Jugar_0002.png-2d238fc245b5e9a3ce77a9a695da70e0.ctex"]
 
 [params]
 
