@@ -13,9 +13,9 @@ if exist ".git\index.lock" (
 git add .
 
 :msgInput
-set /p msg="Escribí el mensaje del commit: "
+set /p msg="Escribi el mensaje del commit: "
 if "%msg%"=="" (
-    echo El mensaje no puede estar vacío, por favor ingresa uno.
+    echo El mensaje no puede estar vacio, por favor ingresa uno.
     goto msgInput
 )
 
@@ -26,7 +26,7 @@ if errorlevel 1 (
     echo Commit realizado con éxito.
 )
 
-set /p confirm="¿Querés subir los cambios ahora? (S/N): "
+set /p confirm="¿Queres subir los cambios ahora? (S/N): "
 if /i "%confirm%" NEQ "S" (
     echo Operación cancelada.
     pause
