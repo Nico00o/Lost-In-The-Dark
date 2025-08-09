@@ -21,6 +21,9 @@ echo       Agregando archivos
 echo ================================
 git add .
 
+:: Obtener fecha y hora actual en variable FECHA
+for /f "usebackq delims=" %%a in (`powershell -NoProfile -Command "Get-Date -Format 'yyyy-MM-dd HH:mm:ss'"`) do set FECHA=%%a
+
 :msgInput
 set /p msg="Escribi el mensaje del commit: "
 if "%msg%"=="" (
@@ -28,15 +31,18 @@ if "%msg%"=="" (
     goto msgInput
 )
 
+:: Construir mensaje completo para el commit
+set COMMIT_MSG=%FECHA% - %msg%
+
 echo.
 echo ================================
 echo        Realizando commit        
 echo ================================
-git commit -m "%msg%"
+git commit -m "%COMMIT_MSG%"
 if errorlevel 1 (
     echo No se pudo hacer commit. Hay que verificar cambios
 ) else (
-    echo Commit realizado con exito
+    echo Commit realizado con exito: %COMMIT_MSG%
 )
 
 echo.
