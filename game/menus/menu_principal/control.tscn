@@ -15,7 +15,7 @@
 [ext_resource type="Texture2D" uid="uid://dg8s3aob36i8l" path="res://game/menus/menu_principal/Botones/Todo/Boton Salir_0002.png" id="8_3y2i1"]
 [ext_resource type="Texture2D" uid="uid://chuyem5d727dn" path="res://game/menus/menu_principal/Animacion de Fondo/7 Ani.png" id="8_aquut"]
 [ext_resource type="Texture2D" uid="uid://diaitlbgotvn1" path="res://game/menus/menu_principal/Animacion de Fondo/8 Ani.png" id="9_8fdyp"]
-[ext_resource type="Texture2D" uid="uid://bqqbr0rp6y8l1" path="res://game/menus/menu_principal/Titulo/Titulo.jpeg_0001.png" id="16_2pqay"]
+[ext_resource type="Texture2D" uid="uid://bcjjt4csvlhhk" path="res://game/menus/menu_principal/Titulo/Titulo.jpeg_0001.png" id="16_2pqay"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_pyr50"]
 animations = [{

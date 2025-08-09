@@ -1,7 +1,8 @@
-[gd_scene load_steps=28 format=3 uid="uid://rndfut7w0d76"]
+[gd_scene load_steps=29 format=3 uid="uid://rndfut7w0d76"]
 
 [ext_resource type="Script" uid="uid://v454ky07c6q0" path="res://game/personajes/principales/joseph.gd" id="1_gun7r"]
 [ext_resource type="Texture2D" uid="uid://chrmn0emft72d" path="res://game/personajes/principales/sprites guia.png" id="1_veqea"]
+[ext_resource type="Script" uid="uid://b64lty0ugytbr" path="res://game/personajes/principales/camera_2d.gd" id="3_38owd"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_gun7r"]
 atlas = ExtResource("1_veqea")
@@ -183,19 +184,26 @@ animations = [{
 }]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_h3tuq"]
-size = Vector2(29, 145.5)
+size = Vector2(27.7273, 195.337)
 
 [node name="Joseph" type="CharacterBody2D"]
 script = ExtResource("1_gun7r")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
-position = Vector2(26, 18)
-scale = Vector2(1.40625, 1.28125)
+position = Vector2(20, 18)
+scale = Vector2(1.79152, 1.78587)
 sprite_frames = SubResource("SpriteFrames_yf346")
 animation = &"disparar"
 autoplay = "reposo"
 frame_progress = 0.559788
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(21, 15)
+position = Vector2(-3.49999, 14.5)
+rotation = -3.14159
+scale = Vector2(2.2, -0.926606)
 shape = SubResource("RectangleShape2D_h3tuq")
+
+[node name="Camera2D" type="Camera2D" parent="."]
+zoom = Vector2(0.53, 0.53)
+limit_left = 0
+script = ExtResource("3_38owd")
