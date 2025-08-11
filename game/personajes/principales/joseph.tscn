@@ -184,21 +184,21 @@ animations = [{
 }]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_h3tuq"]
-size = Vector2(27.7273, 195.337)
+size = Vector2(23.1818, 189.941)
 
 [node name="Joseph" type="CharacterBody2D"]
 script = ExtResource("1_gun7r")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 position = Vector2(20, 18)
-scale = Vector2(1.79152, 1.78587)
+scale = Vector2(1.65, 1.644)
 sprite_frames = SubResource("SpriteFrames_yf346")
 animation = &"disparar"
 autoplay = "reposo"
 frame_progress = 0.559788
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(-3.49999, 14.5)
+position = Vector2(14.4998, 17.0001)
 rotation = -3.14159
 scale = Vector2(2.2, -0.926606)
 shape = SubResource("RectangleShape2D_h3tuq")
