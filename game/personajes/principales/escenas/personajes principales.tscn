@@ -1,0 +1,13 @@
+[gd_scene load_steps=4 format=3 uid="uid://f686u3vbjnlv"]
+
+[ext_resource type="Script" uid="uid://cnkjae0ln3mkn" path="res://game/personajes/principales/escenas/personajes_principales.gd" id="1_xmp0y"]
+[ext_resource type="PackedScene" uid="uid://ucwlxgw7swo7" path="res://game/personajes/principales/marius.tscn" id="2_xmp0y"]
+[ext_resource type="PackedScene" uid="uid://rndfut7w0d76" path="res://game/personajes/principales/joseph.tscn" id="3_1vk3c"]
+
+[node name="PersonajesPrincipales" type="Node2D"]
+script = ExtResource("1_xmp0y")
+
+[node name="Marius" parent="." instance=ExtResource("2_xmp0y")]
+
+[node name="Joseph" parent="." instance=ExtResource("3_1vk3c")]
+position = Vector2(-125, -28)

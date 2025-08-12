@@ -1,11 +1,22 @@
-extends Camera2D
+extends Node2D
 
+@onready var joseph = $Joseph
+@onready var marius = $Marius
 
-# Called when the node enters the scene tree for the first time.
+var showing_joseph := true
+
 func _ready():
-	top_level = true
-	global_position.y = 630
+	print("Escena personajes_principales lista")
+	joseph.visible = true
+	marius.visible = false
 
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta):
-	global_position.x = get_parent().global_position.x
+func _input(event):
+	if event is InputEventKey and event.pressed and event.keycode == KEY_TAB:
+		print("Tab presionado, cambiando personaje")
+		toggle_character()
+
+func toggle_character():
+	showing_joseph = !showing_joseph
+	joseph.visible = showing_joseph
+	marius.visible = not showing_joseph
+	print("Mostrando Joseph?", showing_joseph)

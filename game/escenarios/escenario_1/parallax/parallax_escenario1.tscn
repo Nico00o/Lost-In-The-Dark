@@ -13,11 +13,6 @@
 
 [node name="ParallaxEscenario1" type="Node2D"]
 
-[node name="Camera2D" type="Camera2D" parent="."]
-anchor_mode = 0
-zoom = Vector2(0.51, 0.51)
-limit_left = 0
-
 [node name="ParallaxBackground" type="ParallaxBackground" parent="."]
 
 [node name="ParallaxLayer" type="ParallaxLayer" parent="ParallaxBackground"]
@@ -79,15 +74,14 @@ layer = 100
 z_index = 96
 z_as_relative = false
 motion_scale = Vector2(1.2, 1.2)
-motion_mirroring = Vector2(4096, 0)
 
 [node name="04Foreground" type="Sprite2D" parent="ParallaxBackground2/ParallaxLayer"]
 texture = ExtResource("7_qswbg")
 centered = false
 
 [node name="03Foreground" type="Sprite2D" parent="ParallaxBackground2/ParallaxLayer"]
-visible = false
-position = Vector2(4094, 1)
+position = Vector2(4094, -26)
+scale = Vector2(1, 1.02109)
 texture = ExtResource("8_iivvr")
 centered = false
 
