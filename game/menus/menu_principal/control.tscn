@@ -1,48 +1,48 @@
 [gd_scene load_steps=18 format=3 uid="uid://dpbl5gawt04nk"]
 
 [ext_resource type="Script" uid="uid://dcx1u8i25r0rj" path="res://game/menus/menu_principal/control.gd" id="1_be43x"]
-[ext_resource type="Texture2D" uid="uid://b3l2urckoj7js" path="res://game/menus/menu_principal/Animacion de Fondo/1 Ani.png" id="2_fumme"]
-[ext_resource type="Texture2D" uid="uid://xjx2e8hv5gf7" path="res://game/menus/menu_principal/Animacion de Fondo/2 Ani.png" id="3_fumme"]
-[ext_resource type="Texture2D" uid="uid://ch7riljam5ipn" path="res://game/menus/menu_principal/Animacion de Fondo/3 Ani.png" id="4_8fdyp"]
+[ext_resource type="Texture2D" uid="uid://b3l2urckoj7js" path="res://game/menus/menu_principal/Animacion de Fondo/1 Ani.png" id="2_2pqay"]
+[ext_resource type="Texture2D" uid="uid://xjx2e8hv5gf7" path="res://game/menus/menu_principal/Animacion de Fondo/2 Ani.png" id="3_l0edh"]
 [ext_resource type="Texture2D" uid="uid://2b3c01nl33o3" path="res://game/menus/menu_principal/Botones/Todo/Boton Jugar_0001.png" id="4_o3owj"]
+[ext_resource type="Texture2D" uid="uid://ch7riljam5ipn" path="res://game/menus/menu_principal/Animacion de Fondo/3 Ani.png" id="4_oqxm8"]
 [ext_resource type="Texture2D" uid="uid://gdp6n7kh8j8i" path="res://game/menus/menu_principal/Botones/Todo/Boton Jugar_0002.png" id="5_3y2i1"]
-[ext_resource type="Texture2D" uid="uid://c7vrjk4pmbfx7" path="res://game/menus/menu_principal/Animacion de Fondo/4 Ani.png" id="5_nq7e7"]
+[ext_resource type="Texture2D" uid="uid://c7vrjk4pmbfx7" path="res://game/menus/menu_principal/Animacion de Fondo/4 Ani.png" id="5_33e08"]
 [ext_resource type="Texture2D" uid="uid://d0xyehrq2ocrg" path="res://game/menus/menu_principal/Botones/Todo/Boton Opciones_0001.png" id="6_b83tu"]
-[ext_resource type="Texture2D" uid="uid://djn4o77qdhqu3" path="res://game/menus/menu_principal/Animacion de Fondo/5 Ani.png" id="6_jmnik"]
+[ext_resource type="Texture2D" uid="uid://djn4o77qdhqu3" path="res://game/menus/menu_principal/Animacion de Fondo/5 Ani.png" id="6_dp7mh"]
 [ext_resource type="Texture2D" uid="uid://b5aj6w0305s7g" path="res://game/menus/menu_principal/Botones/Todo/Boton Salir_0001.png" id="7_3y2i1"]
+[ext_resource type="Texture2D" uid="uid://b5723hv6in6b8" path="res://game/menus/menu_principal/Animacion de Fondo/6 Ani.png" id="7_6lgoc"]
 [ext_resource type="Texture2D" uid="uid://bahd0oj57mvmb" path="res://game/menus/menu_principal/Botones/Todo/Boton Opciones_0002.png" id="7_b83tu"]
-[ext_resource type="Texture2D" uid="uid://b5723hv6in6b8" path="res://game/menus/menu_principal/Animacion de Fondo/6 Ani.png" id="7_pyr50"]
 [ext_resource type="Texture2D" uid="uid://dg8s3aob36i8l" path="res://game/menus/menu_principal/Botones/Todo/Boton Salir_0002.png" id="8_3y2i1"]
-[ext_resource type="Texture2D" uid="uid://chuyem5d727dn" path="res://game/menus/menu_principal/Animacion de Fondo/7 Ani.png" id="8_aquut"]
-[ext_resource type="Texture2D" uid="uid://diaitlbgotvn1" path="res://game/menus/menu_principal/Animacion de Fondo/8 Ani.png" id="9_8fdyp"]
+[ext_resource type="Texture2D" uid="uid://chuyem5d727dn" path="res://game/menus/menu_principal/Animacion de Fondo/7 Ani.png" id="8_qaf1x"]
+[ext_resource type="Texture2D" uid="uid://diaitlbgotvn1" path="res://game/menus/menu_principal/Animacion de Fondo/8 Ani.png" id="9_q1kvu"]
 [ext_resource type="Texture2D" uid="uid://bcjjt4csvlhhk" path="res://game/menus/menu_principal/Titulo/Titulo.jpeg_0001.png" id="16_2pqay"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_pyr50"]
 animations = [{
 "frames": [{
 "duration": 1.0,
-"texture": ExtResource("2_fumme")
+"texture": ExtResource("2_2pqay")
 }, {
 "duration": 1.0,
-"texture": ExtResource("3_fumme")
+"texture": ExtResource("3_l0edh")
 }, {
 "duration": 1.0,
-"texture": ExtResource("4_8fdyp")
+"texture": ExtResource("4_oqxm8")
 }, {
 "duration": 1.0,
-"texture": ExtResource("5_nq7e7")
+"texture": ExtResource("5_33e08")
 }, {
 "duration": 1.0,
-"texture": ExtResource("6_jmnik")
+"texture": ExtResource("6_dp7mh")
 }, {
 "duration": 1.0,
-"texture": ExtResource("7_pyr50")
+"texture": ExtResource("7_6lgoc")
 }, {
 "duration": 1.0,
-"texture": ExtResource("8_aquut")
+"texture": ExtResource("8_qaf1x")
 }, {
 "duration": 1.0,
-"texture": ExtResource("9_8fdyp")
+"texture": ExtResource("9_q1kvu")
 }],
 "loop": true,
 "name": &"Animacion Escenario",
@@ -61,12 +61,13 @@ grow_vertical = 2
 script = ExtResource("1_be43x")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
-position = Vector2(644.168, 359.809)
-scale = Vector2(1.00442, 1.00887)
+position = Vector2(637, 361.5)
+scale = Vector2(1.00156, 0.995833)
 sprite_frames = SubResource("SpriteFrames_pyr50")
 animation = &"Animacion Escenario"
 autoplay = "Animacion Escenario"
 frame_progress = 0.409051
+metadata/_edit_group_ = true
 
 [node name="VBoxContainer" type="VBoxContainer" parent="."]
 layout_mode = 1
