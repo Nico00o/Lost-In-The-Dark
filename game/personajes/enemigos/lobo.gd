@@ -39,7 +39,7 @@ func _physics_process(delta):
 func _on_area_de_ataque_body_entered(body: Node2D):
 	# Verificamos si el objeto que entró es nuestro personaje.
 	# Asegúrate de que "PersonajePrincipal" es el nombre exacto de tu nodo de personaje.
-	if body.name == "joseph":
+	if body.name == "PersonajePrincipal":
 		# Si es el personaje, lo guardamos como nuestro objetivo.
 		objetivo = body
 
@@ -47,7 +47,7 @@ func _on_area_de_ataque_body_entered(body: Node2D):
 # Esta función se activa cuando un objeto sale del AreaDeAtaque.
 func _on_area_de_ataque_body_exited(body: Node2D):
 	# Si el personaje se fue, dejamos de perseguirlo.
-	if body.name == "joseph":
+	if body.name == "Personajeprincipal":
 		objetivo = null
 
 
