@@ -1,4 +1,4 @@
-[gd_scene load_steps=18 format=3 uid="uid://dpbl5gawt04nk"]
+[gd_scene load_steps=20 format=3 uid="uid://dpbl5gawt04nk"]
 
 [ext_resource type="Script" uid="uid://dcx1u8i25r0rj" path="res://game/menus/menu_principal/control.gd" id="1_be43x"]
 [ext_resource type="Texture2D" uid="uid://b3l2urckoj7js" path="res://game/menus/menu_principal/Animacion de Fondo/1 Ani.png" id="2_2pqay"]
@@ -16,6 +16,8 @@
 [ext_resource type="Texture2D" uid="uid://chuyem5d727dn" path="res://game/menus/menu_principal/Animacion de Fondo/7 Ani.png" id="8_qaf1x"]
 [ext_resource type="Texture2D" uid="uid://diaitlbgotvn1" path="res://game/menus/menu_principal/Animacion de Fondo/8 Ani.png" id="9_q1kvu"]
 [ext_resource type="Texture2D" uid="uid://bcjjt4csvlhhk" path="res://game/menus/menu_principal/Titulo/Titulo.jpeg_0001.png" id="16_2pqay"]
+[ext_resource type="AudioStream" uid="uid://cks3qrs3now1h" path="res://game/sonidos/musica/musicamenu.wav" id="17_l0edh"]
+[ext_resource type="Script" uid="uid://cp6bq5s2r1lib" path="res://game/menus/menu_principal/audio_stream_player_2d.gd" id="18_oqxm8"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_pyr50"]
 animations = [{
@@ -59,6 +61,13 @@ offset_bottom = 19.0
 grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_be43x")
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("17_l0edh")
+volume_db = 4.0
+autoplay = true
+bus = &"Musica"
+script = ExtResource("18_oqxm8")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 position = Vector2(637, 361.5)
