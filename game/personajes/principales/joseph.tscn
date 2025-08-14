@@ -189,14 +189,14 @@ size = Vector2(23.1818, 189.941)
 script = ExtResource("1_gun7r")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
-position = Vector2(20, 18)
+position = Vector2(323, 133)
 scale = Vector2(1.65, 1.644)
 sprite_frames = SubResource("SpriteFrames_yf346")
 animation = &"correr"
 autoplay = "reposo"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(14.4998, 17.0001)
+position = Vector2(319, 137)
 rotation = -3.14159
 scale = Vector2(2.2, -0.926606)
 shape = SubResource("RectangleShape2D_h3tuq")

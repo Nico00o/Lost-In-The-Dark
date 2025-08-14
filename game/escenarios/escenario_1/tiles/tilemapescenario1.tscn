@@ -1,9 +1,8 @@
-[gd_scene load_steps=9 format=4 uid="uid://yftpqvxgasnp"]
+[gd_scene load_steps=8 format=4 uid="uid://yftpqvxgasnp"]
 
 [ext_resource type="Texture2D" uid="uid://cru6acsft7raf" path="res://game/escenarios/escenario_1/tiles/tilemap/1_3.png" id="1_nlrvd"]
 [ext_resource type="Texture2D" uid="uid://cbdvytjkcuuic" path="res://game/escenarios/escenario_1/tiles/tilemap/1_2.png" id="2_k47jk"]
 [ext_resource type="Texture2D" uid="uid://d0e4kdlkagwpg" path="res://game/escenarios/escenario_1/tiles/tilemap/1_1.png" id="3_lck5p"]
-[ext_resource type="PackedScene" uid="uid://dkfjbvn7f14yk" path="res://game/personajes/enemigos/lobo.tscn" id="4_k47jk"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_atw2d"]
 texture = ExtResource("1_nlrvd")
@@ -185,6 +184,3 @@ z_index = 10
 y_sort_enabled = true
 tile_map_data = PackedByteArray("AAAZAA0ABwAXACEAAAAZAAoABwAXABgAAAAZAAgABwAXABgAACAZAAYABwAXABgAAAAZAAMABwAXAA0AAAAZAAAABwAXAA0AACAZAP3/BwAXAAIAAAAZAPr/BwAXAAIAACA=")
 tile_set = SubResource("TileSet_rp2hk")
-
-[node name="lobo" parent="." instance=ExtResource("4_k47jk")]
-position = Vector2(1167, 548)

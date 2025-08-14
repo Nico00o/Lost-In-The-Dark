@@ -1,6 +1,6 @@
 [gd_scene load_steps=21 format=3 uid="uid://dkfjbvn7f14yk"]
 
-[ext_resource type="Script" uid="uid://c1f6m7ld7h7ja" path="res://game/personajes/enemigos/lobo.gd" id="1_j4t1n"]
+[ext_resource type="Script" uid="uid://c1f6m7ld7h7ja" path="res://game/personajes/enemigos/scripts/lobo.gd" id="1_j4t1n"]
 [ext_resource type="Texture2D" uid="uid://b7sadprtvbh5h" path="res://game/personajes/principales/sprite-sheet (5).png" id="1_q6a2u"]
 [ext_resource type="Texture2D" uid="uid://dumv8li5lfk57" path="res://game/personajes/principales/spriters lobo.png" id="2_j4t1n"]
 
@@ -121,11 +121,11 @@ animations = [{
 }]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_spc0n"]
-radius = 89.0
-height = 190.0
+radius = 88.0
+height = 178.0
 
-[sub_resource type="CircleShape2D" id="CircleShape2D_p7eb7"]
-radius = 180.05
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_foq8o"]
+size = Vector2(692, 178)
 
 [node name="lobo" type="CharacterBody2D"]
 script = ExtResource("1_j4t1n")
@@ -134,10 +134,9 @@ script = ExtResource("1_j4t1n")
 position = Vector2(2, -3.8147e-06)
 scale = Vector2(1.1875, 1.67188)
 sprite_frames = SubResource("SpriteFrames_b80ys")
-animation = &"atacar"
+animation = &"reposo"
 autoplay = "reposo"
-frame = 1
-frame_progress = 0.941932
+frame_progress = 0.339508
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(3, -3)
@@ -146,8 +145,8 @@ shape = SubResource("CapsuleShape2D_spc0n")
 [node name="Areataque" type="Area2D" parent="."]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Areataque"]
-position = Vector2(2, -1)
-shape = SubResource("CircleShape2D_p7eb7")
+position = Vector2(-1, -2)
+shape = SubResource("RectangleShape2D_foq8o")
 
 [connection signal="body_entered" from="Areataque" to="." method="_on_areataque_body_entered"]
 [connection signal="body_exited" from="Areataque" to="." method="_on_areataque_body_exited"]

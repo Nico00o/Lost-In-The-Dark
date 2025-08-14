@@ -1,14 +1,12 @@
 extends CharacterBody2D
 
-
-
 @export var velocidad_mov : float = 200.0
 @export var gravedad : float = 900.0
 @export var fuerza_salto : float = 400.0
 @export var step_height : int = 8  # altura máxima que puede subir automáticamente
 
 @onready var animate_sprite = $AnimatedSprite2D
-signal died
+
 
 var is_active = false
 var is_alive = true
@@ -39,7 +37,7 @@ func _physics_process(delta):
 
 	update_animations()
 
-func auto_step_move(delta):
+func auto_step_move(_delta):
 	var original_position = position
 	move_and_slide()
 
