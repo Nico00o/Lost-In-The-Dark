@@ -42,9 +42,11 @@ animations = [{
 "speed": 5.5
 }]
 
-[node name="Pausa" type="Node2D"]
-process_mode = 1
+[node name="Pausa" type="CanvasLayer"]
+process_mode = 3
 physics_interpolation_mode = 1
+scale = Vector2(1.54, 1.54)
+transform = Transform2D(1.54, 0, 0, 1.54, 0, 0)
 script = ExtResource("1_korf2")
 
 [node name="Fondo" type="AnimatedSprite2D" parent="."]
@@ -60,13 +62,13 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = 448.0
-offset_top = 288.0
-offset_right = 840.0
-offset_bottom = 600.0
+offset_left = -208.182
+offset_top = -176.234
+offset_right = 183.818
+offset_bottom = 135.766
 grow_horizontal = 2
 grow_vertical = 2
-scale = Vector2(1.17514, 1.22314)
+scale = Vector2(1.16979, 1.59042)
 pivot_offset = Vector2(200, 152)
 size_flags_horizontal = 4
 size_flags_vertical = 4

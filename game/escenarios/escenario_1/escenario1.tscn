@@ -1,11 +1,16 @@
-[gd_scene load_steps=5 format=3 uid="uid://dh0eytik2vdkn"]
+[gd_scene load_steps=7 format=3 uid="uid://dh0eytik2vdkn"]
 
 [ext_resource type="PackedScene" uid="uid://buhyov4ntwj2b" path="res://game/escenarios/escenario_1/parallax/parallax_escenario1.tscn" id="1_6ofg3"]
+[ext_resource type="PackedScene" uid="uid://uxnd23h2vq6k" path="res://game/accesorios/barra de vida/barra devida.tscn" id="1_uxtjq"]
 [ext_resource type="PackedScene" uid="uid://yftpqvxgasnp" path="res://game/escenarios/escenario_1/tiles/tilemapescenario1.tscn" id="2_3j1ud"]
 [ext_resource type="PackedScene" uid="uid://f686u3vbjnlv" path="res://game/personajes/principales/escenas/personajes principales.tscn" id="3_3j1ud"]
 [ext_resource type="PackedScene" uid="uid://dkfjbvn7f14yk" path="res://game/personajes/enemigos/escenas/lobo.tscn" id="3_75aa8"]
+[ext_resource type="PackedScene" uid="uid://o555jbqws6us" path="res://game/menus/menu_principal/Causa.tscn" id="5_75aa8"]
 
 [node name="Escenario1" type="Node2D"]
+
+[node name="BarraDevida" parent="." instance=ExtResource("1_uxtjq")]
+layer = 120
 
 [node name="ParallaxEscenario1" parent="." instance=ExtResource("1_6ofg3")]
 
@@ -18,6 +23,7 @@ position = Vector2(2175, 878)
 [node name="PersonajesPrincipales" parent="." groups=["personajes"] instance=ExtResource("3_3j1ud")]
 
 [node name="Camera2D2" type="Camera2D" parent="PersonajesPrincipales"]
+scale = Vector2(1.37209, 3.89145)
 anchor_mode = 0
 ignore_rotation = false
 zoom = Vector2(0.54, 0.54)
@@ -25,3 +31,9 @@ limit_left = 0
 limit_top = 0
 limit_bottom = 0
 limit_smoothed = true
+
+[node name="Pausa" parent="." instance=ExtResource("5_75aa8")]
+layer = 128
+visible = false
+scale = Vector2(1, 1)
+transform = Transform2D(1, 0, 0, 1, 0, 0)

@@ -1,0 +1,13 @@
+[gd_scene load_steps=2 format=3 uid="uid://uxnd23h2vq6k"]
+
+[ext_resource type="Texture2D" uid="uid://bfial181gppnp" path="res://game/accesorios/barra de vida/marius barra de vida.png" id="1_scm4n"]
+
+[node name="BarraDevida" type="CanvasLayer"]
+
+[node name="MariusBarraDeVida" type="Sprite2D" parent="."]
+light_mask = 3
+visibility_layer = 3
+z_index = 500
+scale = Vector2(0.3, 0.3)
+texture = ExtResource("1_scm4n")
+centered = false
