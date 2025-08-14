@@ -1,6 +1,7 @@
 extends CharacterBody2D
 
 @export var velocidad = 150.0
+@export var gravedad : float = 900.0
 var objetivo: Node2D = null
 @onready var animated_sprite = $AnimatedSprite2D
 

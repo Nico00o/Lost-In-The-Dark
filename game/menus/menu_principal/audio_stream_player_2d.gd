@@ -1,4 +1,4 @@
-extends AudioStreamPlayer
+extends AudioStreamPlayer2D
 
 func _ready():
 	if get_tree().get_root().has_node("MusicaFondo"):

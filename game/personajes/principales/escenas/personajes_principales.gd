@@ -8,7 +8,7 @@ signal personaje_cambiado(show_joseph)
 
 var showing_joseph := true
 var deadzone: float = 500
-var camera_smooth: float = 0.05
+var camera_smooth: float = 0.1
 var camera_fixed_y: float = 300
 
 func _ready():

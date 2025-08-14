@@ -23,13 +23,14 @@ position = Vector2(2175, 878)
 [node name="PersonajesPrincipales" parent="." groups=["personajes"] instance=ExtResource("3_3j1ud")]
 
 [node name="Camera2D2" type="Camera2D" parent="PersonajesPrincipales"]
+position = Vector2(-4285, 163)
 scale = Vector2(1.37209, 3.89145)
 anchor_mode = 0
 ignore_rotation = false
 zoom = Vector2(0.54, 0.54)
 limit_left = 0
 limit_top = 0
-limit_bottom = 0
+limit_bottom = 720
 limit_smoothed = true
 
 [node name="Pausa" parent="." instance=ExtResource("5_75aa8")]
