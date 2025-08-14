@@ -1,0 +1,115 @@
+[gd_scene load_steps=11 format=3 uid="uid://o555jbqws6us"]
+
+[ext_resource type="Script" uid="uid://dvl5c4tthqehg" path="res://menu_pausa.gd" id="1_korf2"]
+[ext_resource type="Texture2D" uid="uid://b3l2urckoj7js" path="res://game/menus/menu_principal/Animacion de Fondo/1 Ani.png" id="2_e56mp"]
+[ext_resource type="Texture2D" uid="uid://xjx2e8hv5gf7" path="res://game/menus/menu_principal/Animacion de Fondo/2 Ani.png" id="3_fo7uf"]
+[ext_resource type="Texture2D" uid="uid://ch7riljam5ipn" path="res://game/menus/menu_principal/Animacion de Fondo/3 Ani.png" id="4_x3guk"]
+[ext_resource type="Texture2D" uid="uid://c7vrjk4pmbfx7" path="res://game/menus/menu_principal/Animacion de Fondo/4 Ani.png" id="5_pxrwl"]
+[ext_resource type="Texture2D" uid="uid://djn4o77qdhqu3" path="res://game/menus/menu_principal/Animacion de Fondo/5 Ani.png" id="6_kgtjh"]
+[ext_resource type="Texture2D" uid="uid://b5723hv6in6b8" path="res://game/menus/menu_principal/Animacion de Fondo/6 Ani.png" id="7_dondb"]
+[ext_resource type="Texture2D" uid="uid://chuyem5d727dn" path="res://game/menus/menu_principal/Animacion de Fondo/7 Ani.png" id="8_soxqi"]
+[ext_resource type="Texture2D" uid="uid://diaitlbgotvn1" path="res://game/menus/menu_principal/Animacion de Fondo/8 Ani.png" id="9_c2cn8"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_e1jja"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_e56mp")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_fo7uf")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_x3guk")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_pxrwl")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_kgtjh")
+}, {
+"duration": 1.0,
+"texture": ExtResource("7_dondb")
+}, {
+"duration": 1.0,
+"texture": ExtResource("8_soxqi")
+}, {
+"duration": 1.0,
+"texture": ExtResource("9_c2cn8")
+}],
+"loop": true,
+"name": &"Animacion Escenario",
+"speed": 5.5
+}]
+
+[node name="Pausa" type="Node2D"]
+process_mode = 1
+script = ExtResource("1_korf2")
+
+[node name="Fondo" type="AnimatedSprite2D" parent="."]
+position = Vector2(637, 361.5)
+scale = Vector2(1.00156, 0.995833)
+sprite_frames = SubResource("SpriteFrames_e1jja")
+animation = &"Animacion Escenario"
+autoplay = "Animacion Escenario"
+
+[node name="VolumenPanel" type="Panel" parent="."]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 448.0
+offset_top = 288.0
+offset_right = 840.0
+offset_bottom = 600.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(1.17514, 1.22314)
+pivot_offset = Vector2(200, 152)
+size_flags_horizontal = 4
+size_flags_vertical = 4
+
+[node name="Pa" type="Label" parent="VolumenPanel"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.531
+anchor_top = 0.615
+anchor_right = 0.531
+anchor_bottom = 0.615
+offset_left = -123.883
+offset_top = -190.312
+offset_right = -71.8829
+offset_bottom = -167.312
+scale = Vector2(4.19861, 4.39862)
+theme_override_colors/font_color = Color(0.919281, 4.47616e-06, 1.15514e-06, 1)
+text = "PAUSA"
+
+[node name="Continuar" type="Button" parent="VolumenPanel"]
+layout_mode = 0
+offset_left = 29.8074
+offset_top = 106.216
+offset_right = 132.807
+offset_bottom = 137.216
+scale = Vector2(3.2587, 1.74646)
+text = "CONTINUAR"
+
+[node name="Senu" type="Button" parent="VolumenPanel"]
+offset_left = 29.8074
+offset_top = 171.622
+offset_right = 37.8074
+offset_bottom = 179.622
+scale = Vector2(2.64098, 1.81688)
+text = "SALIR AL MENU"
+
+[node name="Salir" type="Button" parent="VolumenPanel"]
+offset_left = 111.5
+offset_top = 237.027
+offset_right = 163.5
+offset_bottom = 268.027
+scale = Vector2(3.13208, 2.00347)
+text = "SALIR"
+
+[connection signal="pressed" from="VolumenPanel/Continuar" to="." method="_on_continuar_pressed"]
+[connection signal="pressed" from="VolumenPanel/Senu" to="." method="_on_senu_pressed"]
+[connection signal="pressed" from="VolumenPanel/Salir" to="." method="_on_salir_pressed"]
