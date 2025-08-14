@@ -1,0 +1,78 @@
+[gd_scene load_steps=2 format=3 uid="uid://dfdsl8e8exign"]
+
+[ext_resource type="Script" uid="uid://b1giwmvk66s5u" path="res://pau.gd" id="1_7yem0"]
+
+[node name="Pau" type="Control"]
+process_mode = 1
+physics_interpolation_mode = 1
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_7yem0")
+
+[node name="VolumenPanel" type="Panel" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -196.0
+offset_top = -156.0
+offset_right = 196.0
+offset_bottom = 156.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(1.17514, 1.22314)
+pivot_offset = Vector2(200, 152)
+size_flags_horizontal = 4
+size_flags_vertical = 4
+
+[node name="Pa" type="Label" parent="VolumenPanel"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.531
+anchor_top = 0.615
+anchor_right = 0.531
+anchor_bottom = 0.615
+offset_left = -123.883
+offset_top = -190.312
+offset_right = -71.8829
+offset_bottom = -167.312
+scale = Vector2(4.19861, 4.39862)
+theme_override_colors/font_color = Color(0.919281, 4.47616e-06, 1.15514e-06, 1)
+text = "PAUSA"
+
+[node name="Continuar" type="Button" parent="VolumenPanel"]
+layout_mode = 0
+offset_left = 29.8074
+offset_top = 106.216
+offset_right = 132.807
+offset_bottom = 137.216
+scale = Vector2(3.2587, 1.74646)
+text = "CONTINUAR"
+
+[node name="Senu" type="Button" parent="VolumenPanel"]
+layout_mode = 0
+offset_left = 29.8074
+offset_top = 171.622
+offset_right = 37.8074
+offset_bottom = 179.622
+scale = Vector2(2.64098, 1.81688)
+text = "SALIR AL MENU"
+
+[node name="Salir" type="Button" parent="VolumenPanel"]
+layout_mode = 0
+offset_left = 111.5
+offset_top = 237.027
+offset_right = 163.5
+offset_bottom = 268.027
+scale = Vector2(3.13208, 2.00347)
+text = "SALIR"
+
+[connection signal="pressed" from="VolumenPanel/Continuar" to="." method="_on_continuar_pressed"]
+[connection signal="pressed" from="VolumenPanel/Senu" to="." method="_on_senu_pressed"]
+[connection signal="pressed" from="VolumenPanel/Salir" to="." method="_on_salir_pressed"]

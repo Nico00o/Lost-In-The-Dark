@@ -185,6 +185,7 @@ theme_override_colors/font_color = Color(0.919281, 4.47616e-06, 1.15514e-06, 1)
 text = "Efectos"
 
 [node name="Efectos" type="HSlider" parent="VolumenPanel"]
+layout_mode = 0
 offset_left = 24.0
 offset_top = 160.0
 offset_right = 240.0
@@ -196,6 +197,7 @@ max_value = 50.0
 
 [node name="At" type="TextureButton" parent="VolumenPanel"]
 custom_minimum_size = Vector2(20, 0)
+layout_mode = 0
 offset_left = 56.0
 offset_top = 224.0
 offset_right = 246.0

@@ -1,6 +1,6 @@
-extends Node2D
+extends Control
 
-@onready var pausa: Node2D = $"."
+@onready var pau: Control = $"."
 
 func _input(_event):
 	if Input.is_action_just_pressed("Pause") and get_tree().paused == false:

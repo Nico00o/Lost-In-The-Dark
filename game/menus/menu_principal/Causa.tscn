@@ -44,6 +44,7 @@ animations = [{
 
 [node name="Pausa" type="Node2D"]
 process_mode = 1
+physics_interpolation_mode = 1
 script = ExtResource("1_korf2")
 
 [node name="Fondo" type="AnimatedSprite2D" parent="."]
@@ -95,6 +96,7 @@ scale = Vector2(3.2587, 1.74646)
 text = "CONTINUAR"
 
 [node name="Senu" type="Button" parent="VolumenPanel"]
+layout_mode = 0
 offset_left = 29.8074
 offset_top = 171.622
 offset_right = 37.8074
@@ -103,6 +105,7 @@ scale = Vector2(2.64098, 1.81688)
 text = "SALIR AL MENU"
 
 [node name="Salir" type="Button" parent="VolumenPanel"]
+layout_mode = 0
 offset_left = 111.5
 offset_top = 237.027
 offset_right = 163.5

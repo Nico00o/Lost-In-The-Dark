@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://cj2rnje2k7mk8"
+path="res://.godot/imported/suspensivo.mp3-ba7eb6deeb8fc0931783ed1bdde6696a.mp3str"
+
+[deps]
+
+source_file="res://game/sonidos/efectos de sonido SFX/suspensivo.mp3"
+dest_files=["res://.godot/imported/suspensivo.mp3-ba7eb6deeb8fc0931783ed1bdde6696a.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4
