@@ -6,13 +6,15 @@ signal personaje_cambiado(show_joseph)
 @onready var marius: CharacterBody2D = $Marius
 @onready var camera: Camera2D = $Camera2D2
 
-var showing_joseph := true
+# Arranca con Marius en lugar de Joseph
+var showing_joseph := false
 var deadzone: float = 500
 var camera_smooth: float = 0.1
 var camera_fixed_y: float = 300
 
 func _ready():
 	activate_character(showing_joseph)
+	emit_signal("personaje_cambiado", showing_joseph) # para que el HUD se actualice al inicio
 
 func _input(event):
 	if event is InputEventKey and event.pressed and not event.echo and event.keycode == KEY_TAB:
