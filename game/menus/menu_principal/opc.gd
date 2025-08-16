@@ -9,6 +9,7 @@ func _on_atras_pressed() -> void:
 func _ready() -> void:
 	botones_opc.visible = true
 	volumen_panel.visible = false
+	
 
 func _on_volumen_pressed() -> void:
 	botones_opc.visible = false

@@ -1,15 +1,23 @@
-[gd_scene load_steps=11 format=3 uid="uid://o555jbqws6us"]
+[gd_scene load_steps=19 format=3 uid="uid://o555jbqws6us"]
 
 [ext_resource type="Script" uid="uid://dvl5c4tthqehg" path="res://menu_pausa.gd" id="1_korf2"]
 [ext_resource type="Texture2D" uid="uid://nwmrhft7g8o1" path="res://game/menus/menu_pausa/Menu De Pausa/Panel/Panel (Pausa).png" id="2_e56mp"]
-[ext_resource type="Texture2D" uid="uid://cvi2iwci81c45" path="res://game/menus/menu_pausa/Menu De Pausa/Botones/Boton Continuar (Pausa)_0001.png" id="3_fo7uf"]
-[ext_resource type="Texture2D" uid="uid://d2bgwf0vy6wj3" path="res://game/menus/menu_pausa/Menu De Pausa/Botones/Boton Continuar (Pausa)_0002.png" id="4_x3guk"]
-[ext_resource type="Texture2D" uid="uid://bwfsds30mgp8g" path="res://game/menus/menu_pausa/Menu De Pausa/Botones/Boton Opciones (Pausa)_0001.png" id="5_pxrwl"]
-[ext_resource type="Texture2D" uid="uid://cqda2o1ugnao0" path="res://game/menus/menu_pausa/Menu De Pausa/Botones/Boton Opciones (Pausa)_0002.png" id="6_kgtjh"]
-[ext_resource type="Texture2D" uid="uid://t6ql6my8b6yb" path="res://game/menus/menu_pausa/Menu De Pausa/Botones/Boton Historia (Pausa)_0001.png" id="7_dondb"]
-[ext_resource type="Texture2D" uid="uid://db2enjgpc8v6e" path="res://game/menus/menu_pausa/Menu De Pausa/Botones/Boton Historia (Pausa)_0002.png" id="8_soxqi"]
-[ext_resource type="Texture2D" uid="uid://rpbduhoik1m7" path="res://game/menus/menu_pausa/Menu De Pausa/Botones/Boton Menu (Pausa)_0001.png" id="9_c2cn8"]
-[ext_resource type="Texture2D" uid="uid://bt7lei2hs77xl" path="res://game/menus/menu_pausa/Menu De Pausa/Botones/Boton Menu (Pausa)_0002.png" id="10_e1jja"]
+[ext_resource type="Texture2D" uid="uid://r038gmpckwrl" path="res://game/menus/menu_pausa/Menu De Pausa/Mas Botones/untitled.png" id="3_e56mp"]
+[ext_resource type="Texture2D" uid="uid://duivhhok615u7" path="res://game/menus/menu_pausa/Menu De Pausa/Mas Botones/Continuar (Resaltado).png" id="4_e56mp"]
+[ext_resource type="Texture2D" uid="uid://w6sgbytx8llk" path="res://game/menus/menu_pausa/Menu De Pausa/Mas Botones/Opci.png" id="5_e56mp"]
+[ext_resource type="Texture2D" uid="uid://dsqv4klun1fde" path="res://game/menus/menu_pausa/Menu De Pausa/Mas Botones/Opciones (Resltado).png" id="6_fo7uf"]
+[ext_resource type="Texture2D" uid="uid://net2e4u0wigc" path="res://game/menus/menu_pausa/Menu De Pausa/Mas Botones/Rein.png" id="7_fo7uf"]
+[ext_resource type="Texture2D" uid="uid://b3u7xp6o2unkc" path="res://game/menus/menu_pausa/Menu De Pausa/Mas Botones/Reiniciar (Resaltado).png" id="8_x3guk"]
+[ext_resource type="Texture2D" uid="uid://csrtcchywkr3v" path="res://game/menus/menu_pausa/Menu De Pausa/Mas Botones/Men.png" id="9_x3guk"]
+[ext_resource type="Texture2D" uid="uid://d3bvq8bvfvapb" path="res://game/menus/menu_pausa/Menu De Pausa/Mas Botones/Menu (Resaltado).png" id="10_pxrwl"]
+[ext_resource type="Texture2D" uid="uid://d24jk52xwuwsb" path="res://game/menus/menu_pausa/Menu De Pausa/Boton de Opciones/Volumen D (Boton Opc).png" id="11_e1jja"]
+[ext_resource type="Texture2D" uid="uid://boq7iu08vincy" path="res://game/menus/menu_pausa/Menu De Pausa/Boton de Opciones/Volumen (Boton Opc)_0002.png" id="12_iaiap"]
+[ext_resource type="Texture2D" uid="uid://bhale23ilo1bc" path="res://game/menus/menu_pausa/Menu De Pausa/Boton de Opciones/Resolucion (Boton)_0001.png" id="13_0xxj6"]
+[ext_resource type="Texture2D" uid="uid://j8dc2vdqpfod" path="res://game/menus/menu_pausa/Menu De Pausa/Boton de Opciones/Resolucion (Boton)_0002.png" id="14_jdx0s"]
+[ext_resource type="Texture2D" uid="uid://6gkt0ugkriri" path="res://game/menus/menu_pausa/Menu De Pausa/Boton de Opciones/Controles (Boton Opc)_0001.png" id="15_1d5uk"]
+[ext_resource type="Texture2D" uid="uid://cexf0uf0ggqxf" path="res://game/menus/menu_pausa/Menu De Pausa/Boton de Opciones/Controles (Boton Opc)_0002.png" id="16_46ger"]
+[ext_resource type="Texture2D" uid="uid://c5es4y3h4s5rx" path="res://game/menus/menu_pausa/Menu De Pausa/Boton de Opciones/Atras (Boton Opc)_0003.png" id="17_qa5n5"]
+[ext_resource type="Texture2D" uid="uid://c7cwmdth3epw7" path="res://game/menus/menu_pausa/Menu De Pausa/Boton de Opciones/Atras (Boton Opc)_0002.png" id="18_xjh0p"]
 
 [node name="Pausa" type="CanvasLayer"]
 process_mode = 3
@@ -21,7 +29,7 @@ script = ExtResource("1_korf2")
 [node name="ColorRect" type="ColorRect" parent="."]
 offset_right = 1278.0
 offset_bottom = 717.0
-color = Color(0, 0, 0, 0.521569)
+color = Color(0, 0, 0, 0.427451)
 
 [node name="TextureRect" type="TextureRect" parent="."]
 anchors_preset = -1
@@ -29,51 +37,98 @@ anchor_left = 0.503
 anchor_top = 0.491
 anchor_right = 0.503
 anchor_bottom = 0.491
-offset_left = -347.736
-offset_top = -363.91
-offset_right = 537.264
-offset_bottom = 521.09
+offset_left = -311.372
+offset_top = -327.546
+offset_right = 573.628
+offset_bottom = 557.454
 grow_horizontal = 2
 grow_vertical = 2
-scale = Vector2(0.770207, 0.819143)
+scale = Vector2(0.705545, 0.756134)
 texture = ExtResource("2_e56mp")
 
-[node name="VBoxContainer" type="VBoxContainer" parent="."]
+[node name="Botones" type="VBoxContainer" parent="."]
 anchors_preset = -1
-anchor_left = 0.5
-anchor_top = 0.543
-anchor_right = 0.5
-anchor_bottom = 0.543
-offset_left = -162.078
-offset_top = -183.168
-offset_right = 137.922
-offset_bottom = 154.832
+anchor_left = 0.504
+anchor_top = 0.544
+anchor_right = 0.504
+anchor_bottom = 0.544
+offset_left = -203.562
+offset_top = -137.135
+offset_right = 291.438
+offset_bottom = 262.865
 grow_horizontal = 2
 grow_vertical = 2
-scale = Vector2(1.09077, 1.08524)
-theme_override_constants/separation = 6
+scale = Vector2(0.860391, 0.831692)
+size_flags_horizontal = 4
+theme_override_constants/separation = 0
 
-[node name="Continuar" type="TextureButton" parent="VBoxContainer"]
+[node name="Continuar" type="TextureButton" parent="Botones"]
 layout_mode = 2
-texture_normal = ExtResource("3_fo7uf")
-texture_hover = ExtResource("4_x3guk")
+size_flags_horizontal = 4
+texture_normal = ExtResource("3_e56mp")
+texture_hover = ExtResource("4_e56mp")
 
-[node name="Opciones" type="TextureButton" parent="VBoxContainer"]
+[node name="Opciones" type="TextureButton" parent="Botones"]
 layout_mode = 2
-texture_normal = ExtResource("5_pxrwl")
-texture_hover = ExtResource("6_kgtjh")
+size_flags_horizontal = 4
+texture_normal = ExtResource("5_e56mp")
+texture_hover = ExtResource("6_fo7uf")
 
-[node name="Historia" type="TextureButton" parent="VBoxContainer"]
+[node name="Reiniciar" type="TextureButton" parent="Botones"]
 layout_mode = 2
-texture_normal = ExtResource("7_dondb")
-texture_hover = ExtResource("8_soxqi")
+size_flags_horizontal = 4
+texture_normal = ExtResource("7_fo7uf")
+texture_hover = ExtResource("8_x3guk")
 
-[node name="Menu" type="TextureButton" parent="VBoxContainer"]
+[node name="Menu" type="TextureButton" parent="Botones"]
 layout_mode = 2
-texture_normal = ExtResource("9_c2cn8")
-texture_hover = ExtResource("10_e1jja")
+size_flags_horizontal = 4
+texture_normal = ExtResource("9_x3guk")
+texture_hover = ExtResource("10_pxrwl")
 
-[connection signal="pressed" from="VBoxContainer/Continuar" to="." method="_on_continuar_pressed"]
-[connection signal="pressed" from="VBoxContainer/Opciones" to="." method="_on_opciones_pressed"]
-[connection signal="pressed" from="VBoxContainer/Historia" to="." method="_on_historia_pressed"]
-[connection signal="pressed" from="VBoxContainer/Menu" to="." method="_on_menu_pressed"]
+[node name="BotonesOpc" type="VBoxContainer" parent="."]
+visible = false
+anchors_preset = -1
+anchor_left = 0.504
+anchor_top = 0.544
+anchor_right = 0.504
+anchor_bottom = 0.544
+offset_left = -203.562
+offset_top = -137.135
+offset_right = 291.438
+offset_bottom = 262.865
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(0.860391, 0.831692)
+size_flags_horizontal = 4
+theme_override_constants/separation = 0
+
+[node name="Volumen" type="TextureButton" parent="BotonesOpc"]
+layout_mode = 2
+size_flags_horizontal = 4
+texture_normal = ExtResource("11_e1jja")
+texture_hover = ExtResource("12_iaiap")
+
+[node name="Resolucion" type="TextureButton" parent="BotonesOpc"]
+layout_mode = 2
+size_flags_horizontal = 4
+texture_normal = ExtResource("13_0xxj6")
+texture_hover = ExtResource("14_jdx0s")
+
+[node name="Controles" type="TextureButton" parent="BotonesOpc"]
+layout_mode = 2
+size_flags_horizontal = 4
+texture_normal = ExtResource("15_1d5uk")
+texture_hover = ExtResource("16_46ger")
+
+[node name="Atras" type="TextureButton" parent="BotonesOpc"]
+layout_mode = 2
+size_flags_horizontal = 4
+texture_normal = ExtResource("17_qa5n5")
+texture_hover = ExtResource("18_xjh0p")
+
+[connection signal="pressed" from="Botones/Continuar" to="." method="_on_continuar_pressed"]
+[connection signal="pressed" from="Botones/Opciones" to="." method="_on_opciones_pressed"]
+[connection signal="pressed" from="Botones/Reiniciar" to="." method="_on_reiniciar_pressed"]
+[connection signal="pressed" from="Botones/Menu" to="." method="_on_menu_pressed"]
+[connection signal="pressed" from="BotonesOpc/Atras" to="." method="_on_atras_pressed"]
