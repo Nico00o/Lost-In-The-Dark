@@ -17,7 +17,7 @@ script = ExtResource("1_xmp0y")
 position = Vector2(565, 818)
 
 [node name="Joseph" parent="." instance=ExtResource("3_1vk3c")]
-position = Vector2(436, 718)
+position = Vector2(565, 822)
 
 [node name="Camera2D" type="Camera2D" parent="."]
 visible = false
