@@ -84,7 +84,7 @@ centered = false
 visible = false
 
 [node name="ParallaxBackground2" type="ParallaxBackground" parent="."]
-layer = 100
+layer = 30
 
 [node name="ParallaxLayer" type="ParallaxLayer" parent="ParallaxBackground2"]
 z_index = 96

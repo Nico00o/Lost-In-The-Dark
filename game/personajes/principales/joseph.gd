@@ -5,6 +5,7 @@ extends CharacterBody2D
 @export var fuerza_salto : float = 400.0
 @export var step_height : int = 8  # altura máxima que puede subir automáticamente
 
+
 @onready var animate_sprite = $AnimatedSprite2D
 
 
@@ -12,16 +13,23 @@ var is_active = false
 var is_alive = true
 var health = 100
 var is_facing_right = true 
+var can_move: bool = true
+
 
 func update_animations():
+	if not can_move:
+		animate_sprite.play("reposo")
+		return
+	
 	if velocity.x != 0:
 		animate_sprite.play("caminar")
 	else:
 		animate_sprite.play("reposo")
 
+
 func _physics_process(delta):
 	
-	if not is_active or not is_alive:
+	if not is_active or not is_alive or not can_move:
 		return
 	# Aplicar gravedad
 	if not is_on_floor():
