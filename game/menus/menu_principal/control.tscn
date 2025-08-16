@@ -63,6 +63,7 @@ grow_vertical = 2
 script = ExtResource("1_be43x")
 
 [node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
+position = Vector2(120, -57)
 stream = ExtResource("17_l0edh")
 volume_db = 4.0
 autoplay = true
