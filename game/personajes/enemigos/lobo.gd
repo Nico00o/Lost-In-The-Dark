@@ -1,6 +1,10 @@
 extends CharacterBody2D
 # Velocidad de movimiento del lobo. Puedes ajustarla en el Inspector.
 @export var velocidad = 150.0
+# Gravedad para que el lobo caiga.
+@export var gravedad = 800.0
+# Distancia a la que el lobo se detendrá para no empujar al personaje.
+@export var distancia_de_parada = 50.0
 
 # Esta variable guardará al personaje que el lobo debe perseguir.
 var objetivo: Node2D = null
@@ -9,27 +13,38 @@ var objetivo: Node2D = null
 @onready var animated_sprite = $AnimatedSprite2D
 
 func _physics_process(delta):
-	# Si tenemos un objetivo (el personaje), nos movemos hacia él.
+	# --- PRIMERO: Lógica de la gravedad ---
+	if not is_on_floor():
+		velocity.y += gravedad * delta
+
+	# --- SEGUNDO: Lógica de la persecución ---
 	if objetivo != null:
-		# Calculamos la dirección del personaje.
-		var direccion = (objetivo.global_position - global_position).normalized()
-		# Asignamos la velocidad en esa dirección.
-		velocity = direccion * velocidad
+		var direccion = (objetivo.global_position - global_position)
 		
-		# Ponemos la animación de correr.
-		animated_sprite.play("correr")
-		
-		# Volteamos el sprite para que mire al personaje.
-		if direccion.x > 0:
-			animated_sprite.flip_h = false
-		elif direccion.x < 0:
-			animated_sprite.flip_h = true
+		# Solo si la distancia es mayor a la distancia de parada, el lobo se mueve.
+		if direccion.length() > distancia_de_parada:
+			var direccion_normalizada = direccion.normalized()
+			# El movimiento es solo en el eje X para que la gravedad se encargue del Y.
+			velocity.x = direccion_normalizada.x * velocidad
+			
+			# Ponemos la animación de correr.
+			animated_sprite.play("correr")
+			
+			# Volteamos el sprite para que mire al personaje.
+			if direccion_normalizada.x > 0:
+				animated_sprite.flip_h = false
+			elif direccion_normalizada.x < 0:
+				animated_sprite.flip_h = true
+		else:
+			# Si el lobo está cerca del objetivo, se detiene.
+			velocity.x = 0
+			# Ponemos la animación de estar quieto.
+			animated_sprite.play("reposo")
 	else:
 		# Si no hay objetivo, el lobo se queda quieto.
-		velocity = Vector2.ZERO
-		# Ponemos la animación de estar quieto.
+		velocity.x = 0
 		animated_sprite.play("reposo")
-		animated_sprite.flip_h = false # Opcional: no voltearlo cuando está quieto.
+		animated_sprite.flip_h = false
 
 	# Aplicamos el movimiento y detectamos colisiones.
 	move_and_slide()
@@ -38,22 +53,12 @@ func _physics_process(delta):
 # Esta función se activa cuando un objeto entra en el AreaDeAtaque.
 func _on_area_de_ataque_body_entered(body: Node2D):
 	# Verificamos si el objeto que entró es nuestro personaje.
-	# Asegúrate de que "PersonajePrincipal" es el nombre exacto de tu nodo de personaje.
 	if body.name == "PersonajePrincipal":
-		# Si es el personaje, lo guardamos como nuestro objetivo.
 		objetivo = body
 
 
 # Esta función se activa cuando un objeto sale del AreaDeAtaque.
 func _on_area_de_ataque_body_exited(body: Node2D):
-	# Si el personaje se fue, dejamos de perseguirlo.
-	if body.name == "Personajeprincipal":
+	# ¡Cuidado! Asegúrate de que el nombre esté bien escrito.
+	if body.name == "PersonajePrincipal":
 		objetivo = null
-
-
-func _on_areataque_body_entered(body: Node2D) -> void:
-	pass # Replace with function body.
-
-
-func _on_areataque_body_exited(body: Node2D) -> void:
-	pass # Replace with function body.

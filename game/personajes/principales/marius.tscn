@@ -207,6 +207,7 @@ animations = [{
 size = Vector2(46, 184)
 
 [node name="Marius" type="CharacterBody2D"]
+visible = false
 script = ExtResource("1_ppjlb")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]

@@ -186,6 +186,7 @@ animations = [{
 size = Vector2(23.1818, 189.941)
 
 [node name="Joseph" type="CharacterBody2D"]
+visible = false
 script = ExtResource("1_gun7r")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
