@@ -1,4 +1,4 @@
-[gd_scene load_steps=29 format=3 uid="uid://dpbl5gawt04nk"]
+[gd_scene load_steps=33 format=3 uid="uid://dpbl5gawt04nk"]
 
 [ext_resource type="Script" uid="uid://dcx1u8i25r0rj" path="res://game/menus/menu_principal/control.gd" id="1_be43x"]
 [ext_resource type="Texture2D" uid="uid://b3l2urckoj7js" path="res://game/menus/menu_principal/Animacion de Fondo/1 Ani.png" id="2_2pqay"]
@@ -24,6 +24,9 @@
 [ext_resource type="Texture2D" uid="uid://b5buwqjkrm8gv" path="res://game/menus/menu_principal/Botones/Volumen/Boton Atras/Boton Resolucion_0002.png" id="22_epj8l"]
 [ext_resource type="Texture2D" uid="uid://d4cqyjs0hk7ol" path="res://game/menus/menu_principal/Botones/Volumen/Boton Atras/Boton Atr_0001.png" id="23_fxtej"]
 [ext_resource type="Texture2D" uid="uid://5aw65wl477yr" path="res://game/menus/menu_principal/Botones/Volumen/Boton Atras/Boton Atr_0002.png" id="24_vwnsy"]
+[ext_resource type="Script" uid="uid://dh3clf7yuyqqx" path="res://game/menus/menu_principal/musica.gd" id="25_erh2v"]
+[ext_resource type="Script" uid="uid://dfvsuhypcp0aa" path="res://game/menus/menu_principal/efectos.gd" id="26_mgqy3"]
+[ext_resource type="Texture2D" uid="uid://sqkl758oj23u" path="res://game/menus/menu_principal/Titulo/Fondo Panel 2.png" id="27_epj8l"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_pyr50"]
 animations = [{
@@ -69,6 +72,9 @@ thickness = 8
 color = Color(1, 1, 1, 1)
 thickness = 8
 
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_epj8l"]
+bg_color = Color(0, 0, 0, 0.376471)
+
 [node name="Menu" type="Control"]
 layout_mode = 3
 anchors_preset = 15
@@ -80,7 +86,7 @@ grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_be43x")
 
-[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
+[node name="MC" type="AudioStreamPlayer2D" parent="."]
 position = Vector2(120, -57)
 stream = ExtResource("17_l0edh")
 volume_db = 4.0
@@ -103,6 +109,7 @@ scale = Vector2(1.96212, 2.61029)
 texture = ExtResource("16_2pqay")
 
 [node name="Botones" type="VBoxContainer" parent="."]
+visible = false
 layout_mode = 1
 anchors_preset = -1
 anchor_left = 0.5
@@ -140,6 +147,7 @@ texture_normal = ExtResource("7_3y2i1")
 texture_hover = ExtResource("8_3y2i1")
 
 [node name="BotonesOpc" type="VBoxContainer" parent="."]
+visible = false
 layout_mode = 1
 anchors_preset = -1
 anchor_left = 0.5
@@ -162,7 +170,7 @@ size_flags_horizontal = 4
 texture_normal = ExtResource("19_a7vwc")
 texture_hover = ExtResource("20_erh2v")
 
-[node name="Resolucion" type="TextureButton" parent="BotonesOpc"]
+[node name="Adicional" type="TextureButton" parent="BotonesOpc"]
 custom_minimum_size = Vector2(20, 0)
 layout_mode = 2
 size_flags_horizontal = 4
@@ -177,6 +185,7 @@ texture_normal = ExtResource("23_fxtej")
 texture_hover = ExtResource("24_vwnsy")
 
 [node name="VolumenPanel" type="Panel" parent="."]
+visible = false
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -193,6 +202,15 @@ pivot_offset = Vector2(200, 152)
 size_flags_horizontal = 4
 size_flags_vertical = 4
 
+[node name="TextureRect" type="TextureRect" parent="VolumenPanel"]
+layout_mode = 0
+offset_left = -15.0
+offset_top = -110.0
+offset_right = 1032.0
+offset_bottom = 1426.0
+scale = Vector2(0.407892, 0.323316)
+texture = ExtResource("27_epj8l")
+
 [node name="Volumen" type="Label" parent="VolumenPanel"]
 layout_mode = 1
 anchors_preset = -1
@@ -201,11 +219,11 @@ anchor_top = 0.615
 anchor_right = 0.531
 anchor_bottom = 0.615
 offset_left = -72.152
-offset_top = -175.88
+offset_top = -119.88
 offset_right = -2.15201
-offset_bottom = -151.88
+offset_bottom = -95.88
 scale = Vector2(1.74845, 1.73004)
-theme_override_colors/font_color = Color(0.919281, 4.47616e-06, 1.15514e-06, 1)
+theme_override_colors/font_color = Color(1, 1, 1, 1)
 text = "Volumen"
 
 [node name="Mus" type="Label" parent="VolumenPanel"]
@@ -216,23 +234,27 @@ anchor_top = 0.615
 anchor_right = 0.531
 anchor_bottom = 0.615
 offset_left = 63.848
-offset_top = -119.88
+offset_top = -78.88
 offset_right = 119.848
-offset_bottom = -95.88
+offset_bottom = -54.88
 scale = Vector2(1.74845, 1.73004)
-theme_override_colors/font_color = Color(0.919281, 4.47616e-06, 1.15514e-06, 1)
+theme_override_colors/font_color = Color(1, 1, 1, 1)
 text = "Música"
 
 [node name="Musica" type="HSlider" parent="VolumenPanel"]
 layout_mode = 2
 offset_left = 24.0
-offset_top = 88.0
+offset_top = 129.0
 offset_right = 240.0
-offset_bottom = 104.0
+offset_bottom = 145.0
 theme_override_styles/slider = SubResource("StyleBoxLine_a7vwc")
 theme_override_styles/grabber_area = SubResource("StyleBoxLine_erh2v")
 theme_override_styles/grabber_area_highlight = SubResource("StyleBoxLine_mgqy3")
-max_value = 50.0
+max_value = 1.0
+step = 0.05
+value = 0.5
+script = ExtResource("25_erh2v")
+audio_bus_name = "Musica"
 
 [node name="Efc" type="Label" parent="VolumenPanel"]
 layout_mode = 1
@@ -242,23 +264,27 @@ anchor_top = 0.615
 anchor_right = 0.531
 anchor_bottom = 0.615
 offset_left = 63.848
-offset_top = -47.88
+offset_top = -6.88
 offset_right = 119.848
-offset_bottom = -23.88
+offset_bottom = 17.12
 scale = Vector2(1.74845, 1.73004)
-theme_override_colors/font_color = Color(0.919281, 4.47616e-06, 1.15514e-06, 1)
+theme_override_colors/font_color = Color(1, 1, 1, 1)
 text = "Efectos"
 
 [node name="Efectos" type="HSlider" parent="VolumenPanel"]
 layout_mode = 0
 offset_left = 24.0
-offset_top = 160.0
+offset_top = 201.0
 offset_right = 240.0
-offset_bottom = 176.0
+offset_bottom = 217.0
 theme_override_styles/slider = SubResource("StyleBoxLine_a7vwc")
 theme_override_styles/grabber_area = SubResource("StyleBoxLine_erh2v")
 theme_override_styles/grabber_area_highlight = SubResource("StyleBoxLine_mgqy3")
-max_value = 50.0
+max_value = 1.0
+step = 0.05
+value = 0.5
+script = ExtResource("26_mgqy3")
+audio_bus_name = "Efectos"
 
 [node name="At" type="TextureButton" parent="VolumenPanel"]
 custom_minimum_size = Vector2(20, 0)
@@ -272,9 +298,52 @@ size_flags_horizontal = 4
 texture_normal = ExtResource("23_fxtej")
 texture_hover = ExtResource("24_vwnsy")
 
+[node name="AdicionalPN" type="Panel" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -193.5
+offset_top = -66.5
+offset_right = 184.5
+offset_bottom = 269.5
+grow_horizontal = 2
+grow_vertical = 2
+pivot_offset = Vector2(200, 152)
+size_flags_horizontal = 4
+size_flags_vertical = 4
+theme_override_styles/panel = SubResource("StyleBoxFlat_epj8l")
+
+[node name="TextureRect" type="TextureRect" parent="AdicionalPN"]
+layout_mode = 0
+offset_left = -20.0
+offset_top = -110.0
+offset_right = 1004.0
+offset_bottom = 1426.0
+scale = Vector2(0.407892, 0.323316)
+texture = ExtResource("27_epj8l")
+
+[node name="Volver" type="TextureButton" parent="AdicionalPN"]
+custom_minimum_size = Vector2(20, 0)
+layout_mode = 0
+offset_left = 52.0
+offset_top = 223.0
+offset_right = 242.0
+offset_bottom = 263.0
+scale = Vector2(1.43691, 1.64144)
+size_flags_horizontal = 4
+texture_normal = ExtResource("23_fxtej")
+texture_hover = ExtResource("24_vwnsy")
+
 [connection signal="pressed" from="Botones/Jugar" to="." method="_on_texture_button_pressed"]
 [connection signal="pressed" from="Botones/Opciones" to="." method="_on_texture_button_2_pressed"]
 [connection signal="pressed" from="Botones/Salir" to="." method="_on_texture_button_3_pressed"]
 [connection signal="pressed" from="BotonesOpc/Volumen" to="." method="_on_volumen_pressed"]
+[connection signal="pressed" from="BotonesOpc/Adicional" to="." method="_on_adicional_pressed"]
 [connection signal="pressed" from="BotonesOpc/Atras" to="." method="_on_atras_pressed"]
+[connection signal="value_changed" from="VolumenPanel/Musica" to="VolumenPanel/Musica" method="_on_value_changed"]
+[connection signal="value_changed" from="VolumenPanel/Efectos" to="VolumenPanel/Efectos" method="_on_value_changed"]
 [connection signal="pressed" from="VolumenPanel/At" to="." method="_on_at_pressed"]
+[connection signal="pressed" from="AdicionalPN/Volver" to="." method="_on_volver_pressed"]

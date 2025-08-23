@@ -29,7 +29,7 @@ script = ExtResource("1_korf2")
 [node name="ColorRect" type="ColorRect" parent="."]
 offset_right = 1278.0
 offset_bottom = 717.0
-color = Color(0, 0, 0, 0.513726)
+color = Color(0, 0, 0, 0.774)
 
 [node name="TextureRect" type="TextureRect" parent="."]
 anchors_preset = -1

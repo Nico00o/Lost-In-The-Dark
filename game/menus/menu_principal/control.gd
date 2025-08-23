@@ -3,11 +3,14 @@ extends Control
 @onready var volumen_panel: Panel = $VolumenPanel
 @onready var botones: VBoxContainer = $Botones
 @onready var botones_opc: VBoxContainer = $BotonesOpc
+@onready var adicional_pn: Panel = $AdicionalPN
+@onready var displaymode: OptionButton = $AdicionalPN/displaymode
 
 func _ready():
 	$Botones.visible = true
 	$BotonesOpc.visible = false
 	$VolumenPanel.visible = false
+	$AdicionalPN.visible = false
 
 func _on_texture_button_pressed():
 	get_tree().change_scene_to_file("res://game/escenarios/escenario_1/escenario1.tscn")
@@ -30,3 +33,11 @@ func _on_volumen_pressed() -> void:
 func _on_at_pressed() -> void:
 	$BotonesOpc.visible = true
 	$VolumenPanel.visible = false
+
+func _on_adicional_pressed() -> void:
+	$BotonesOpc.visible = false
+	$AdicionalPN.visible = true
+
+func _on_volver_pressed() -> void:
+	$BotonesOpc.visible = true
+	$AdicionalPN.visible = false
