@@ -15,12 +15,15 @@ run/main_scene="uid://dpbl5gawt04nk"
 config/features=PackedStringArray("4.4", "GL Compatibility")
 config/icon="res://icon.svg"
 
+[autoload]
+
+GlobalSetting="*res://Global_Setting.gd"
+
 [display]
 
 window/size/viewport_width=1280
 window/size/viewport_height=720
 window/size/resizable=false
-window/stretch/mode="canvas_items"
 
 [input]
 

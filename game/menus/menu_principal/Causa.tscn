@@ -1,118 +1,134 @@
-[gd_scene load_steps=11 format=3 uid="uid://o555jbqws6us"]
+[gd_scene load_steps=19 format=3 uid="uid://o555jbqws6us"]
 
-[ext_resource type="Script" uid="uid://dvl5c4tthqehg" path="res://menu_pausa.gd" id="1_korf2"]
-[ext_resource type="Texture2D" uid="uid://b3l2urckoj7js" path="res://game/menus/menu_principal/Animacion de Fondo/1 Ani.png" id="2_e56mp"]
-[ext_resource type="Texture2D" uid="uid://xjx2e8hv5gf7" path="res://game/menus/menu_principal/Animacion de Fondo/2 Ani.png" id="3_fo7uf"]
-[ext_resource type="Texture2D" uid="uid://ch7riljam5ipn" path="res://game/menus/menu_principal/Animacion de Fondo/3 Ani.png" id="4_x3guk"]
-[ext_resource type="Texture2D" uid="uid://c7vrjk4pmbfx7" path="res://game/menus/menu_principal/Animacion de Fondo/4 Ani.png" id="5_pxrwl"]
-[ext_resource type="Texture2D" uid="uid://djn4o77qdhqu3" path="res://game/menus/menu_principal/Animacion de Fondo/5 Ani.png" id="6_kgtjh"]
-[ext_resource type="Texture2D" uid="uid://b5723hv6in6b8" path="res://game/menus/menu_principal/Animacion de Fondo/6 Ani.png" id="7_dondb"]
-[ext_resource type="Texture2D" uid="uid://chuyem5d727dn" path="res://game/menus/menu_principal/Animacion de Fondo/7 Ani.png" id="8_soxqi"]
-[ext_resource type="Texture2D" uid="uid://diaitlbgotvn1" path="res://game/menus/menu_principal/Animacion de Fondo/8 Ani.png" id="9_c2cn8"]
+[ext_resource type="Script" uid="uid://dvl5c4tthqehg" path="res://game/menus/menu_pausa/menu_pausa.gd" id="1_korf2"]
+[ext_resource type="Texture2D" uid="uid://nwmrhft7g8o1" path="res://game/menus/menu_pausa/Menu De Pausa/Panel/Panel (Pausa).png" id="2_e56mp"]
+[ext_resource type="Texture2D" uid="uid://r038gmpckwrl" path="res://game/menus/menu_pausa/Menu De Pausa/Mas Botones/untitled.png" id="3_e56mp"]
+[ext_resource type="Texture2D" uid="uid://duivhhok615u7" path="res://game/menus/menu_pausa/Menu De Pausa/Mas Botones/Continuar (Resaltado).png" id="4_e56mp"]
+[ext_resource type="Texture2D" uid="uid://w6sgbytx8llk" path="res://game/menus/menu_pausa/Menu De Pausa/Mas Botones/Opci.png" id="5_e56mp"]
+[ext_resource type="Texture2D" uid="uid://dsqv4klun1fde" path="res://game/menus/menu_pausa/Menu De Pausa/Mas Botones/Opciones (Resltado).png" id="6_fo7uf"]
+[ext_resource type="Texture2D" uid="uid://net2e4u0wigc" path="res://game/menus/menu_pausa/Menu De Pausa/Mas Botones/Rein.png" id="7_fo7uf"]
+[ext_resource type="Texture2D" uid="uid://b3u7xp6o2unkc" path="res://game/menus/menu_pausa/Menu De Pausa/Mas Botones/Reiniciar (Resaltado).png" id="8_x3guk"]
+[ext_resource type="Texture2D" uid="uid://csrtcchywkr3v" path="res://game/menus/menu_pausa/Menu De Pausa/Mas Botones/Men.png" id="9_x3guk"]
+[ext_resource type="Texture2D" uid="uid://d3bvq8bvfvapb" path="res://game/menus/menu_pausa/Menu De Pausa/Mas Botones/Menu (Resaltado).png" id="10_pxrwl"]
+[ext_resource type="Texture2D" uid="uid://d24jk52xwuwsb" path="res://game/menus/menu_pausa/Menu De Pausa/Boton de Opciones/Volumen D (Boton Opc).png" id="11_e1jja"]
+[ext_resource type="Texture2D" uid="uid://boq7iu08vincy" path="res://game/menus/menu_pausa/Menu De Pausa/Boton de Opciones/Volumen (Boton Opc)_0002.png" id="12_iaiap"]
+[ext_resource type="Texture2D" uid="uid://bhale23ilo1bc" path="res://game/menus/menu_pausa/Menu De Pausa/Boton de Opciones/Resolucion (Boton)_0001.png" id="13_0xxj6"]
+[ext_resource type="Texture2D" uid="uid://j8dc2vdqpfod" path="res://game/menus/menu_pausa/Menu De Pausa/Boton de Opciones/Resolucion (Boton)_0002.png" id="14_jdx0s"]
+[ext_resource type="Texture2D" uid="uid://6gkt0ugkriri" path="res://game/menus/menu_pausa/Menu De Pausa/Boton de Opciones/Controles (Boton Opc)_0001.png" id="15_1d5uk"]
+[ext_resource type="Texture2D" uid="uid://cexf0uf0ggqxf" path="res://game/menus/menu_pausa/Menu De Pausa/Boton de Opciones/Controles (Boton Opc)_0002.png" id="16_46ger"]
+[ext_resource type="Texture2D" uid="uid://c5es4y3h4s5rx" path="res://game/menus/menu_pausa/Menu De Pausa/Boton de Opciones/Atras (Boton Opc)_0003.png" id="17_qa5n5"]
+[ext_resource type="Texture2D" uid="uid://c7cwmdth3epw7" path="res://game/menus/menu_pausa/Menu De Pausa/Boton de Opciones/Atras (Boton Opc)_0002.png" id="18_xjh0p"]
 
-[sub_resource type="SpriteFrames" id="SpriteFrames_e1jja"]
-animations = [{
-"frames": [{
-"duration": 1.0,
-"texture": ExtResource("2_e56mp")
-}, {
-"duration": 1.0,
-"texture": ExtResource("3_fo7uf")
-}, {
-"duration": 1.0,
-"texture": ExtResource("4_x3guk")
-}, {
-"duration": 1.0,
-"texture": ExtResource("5_pxrwl")
-}, {
-"duration": 1.0,
-"texture": ExtResource("6_kgtjh")
-}, {
-"duration": 1.0,
-"texture": ExtResource("7_dondb")
-}, {
-"duration": 1.0,
-"texture": ExtResource("8_soxqi")
-}, {
-"duration": 1.0,
-"texture": ExtResource("9_c2cn8")
-}],
-"loop": true,
-"name": &"Animacion Escenario",
-"speed": 5.5
-}]
-
-[node name="Pausa" type="Node2D"]
-process_mode = 1
+[node name="Pausa" type="CanvasLayer"]
+process_mode = 3
 physics_interpolation_mode = 1
+scale = Vector2(1.54, 1.54)
+transform = Transform2D(1.54, 0, 0, 1.54, 0, 0)
 script = ExtResource("1_korf2")
 
-[node name="Fondo" type="AnimatedSprite2D" parent="."]
-position = Vector2(637, 361.5)
-scale = Vector2(1.00156, 0.995833)
-sprite_frames = SubResource("SpriteFrames_e1jja")
-animation = &"Animacion Escenario"
-autoplay = "Animacion Escenario"
+[node name="ColorRect" type="ColorRect" parent="."]
+offset_right = 1278.0
+offset_bottom = 717.0
+color = Color(0, 0, 0, 0.774)
 
-[node name="VolumenPanel" type="Panel" parent="."]
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = 448.0
-offset_top = 288.0
-offset_right = 840.0
-offset_bottom = 600.0
+[node name="TextureRect" type="TextureRect" parent="."]
+anchors_preset = -1
+anchor_left = 0.503
+anchor_top = 0.491
+anchor_right = 0.503
+anchor_bottom = 0.491
+offset_left = -232.152
+offset_top = -241.182
+offset_right = 652.848
+offset_bottom = 643.818
 grow_horizontal = 2
 grow_vertical = 2
-scale = Vector2(1.17514, 1.22314)
-pivot_offset = Vector2(200, 152)
-size_flags_horizontal = 4
-size_flags_vertical = 4
+scale = Vector2(0.545734, 0.602789)
+texture = ExtResource("2_e56mp")
 
-[node name="Pa" type="Label" parent="VolumenPanel"]
-layout_mode = 1
+[node name="Botones" type="VBoxContainer" parent="."]
 anchors_preset = -1
-anchor_left = 0.531
-anchor_top = 0.615
-anchor_right = 0.531
-anchor_bottom = 0.615
-offset_left = -123.883
-offset_top = -190.312
-offset_right = -71.8829
-offset_bottom = -167.312
-scale = Vector2(4.19861, 4.39862)
-theme_override_colors/font_color = Color(0.919281, 4.47616e-06, 1.15514e-06, 1)
-text = "PAUSA"
+anchor_left = 0.504
+anchor_top = 0.544
+anchor_right = 0.504
+anchor_bottom = 0.544
+offset_left = -152.263
+offset_top = -96.2254
+offset_right = 342.737
+offset_bottom = 303.775
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(0.667857, 0.624248)
+size_flags_horizontal = 4
+theme_override_constants/separation = 0
 
-[node name="Continuar" type="Button" parent="VolumenPanel"]
-layout_mode = 0
-offset_left = 29.8074
-offset_top = 106.216
-offset_right = 132.807
-offset_bottom = 137.216
-scale = Vector2(3.2587, 1.74646)
-text = "CONTINUAR"
+[node name="Continuar" type="TextureButton" parent="Botones"]
+layout_mode = 2
+size_flags_horizontal = 4
+texture_normal = ExtResource("3_e56mp")
+texture_hover = ExtResource("4_e56mp")
 
-[node name="Senu" type="Button" parent="VolumenPanel"]
-layout_mode = 0
-offset_left = 29.8074
-offset_top = 171.622
-offset_right = 37.8074
-offset_bottom = 179.622
-scale = Vector2(2.64098, 1.81688)
-text = "SALIR AL MENU"
+[node name="Opciones" type="TextureButton" parent="Botones"]
+layout_mode = 2
+size_flags_horizontal = 4
+texture_normal = ExtResource("5_e56mp")
+texture_hover = ExtResource("6_fo7uf")
 
-[node name="Salir" type="Button" parent="VolumenPanel"]
-layout_mode = 0
-offset_left = 111.5
-offset_top = 237.027
-offset_right = 163.5
-offset_bottom = 268.027
-scale = Vector2(3.13208, 2.00347)
-text = "SALIR"
+[node name="Reiniciar" type="TextureButton" parent="Botones"]
+layout_mode = 2
+size_flags_horizontal = 4
+texture_normal = ExtResource("7_fo7uf")
+texture_hover = ExtResource("8_x3guk")
 
-[connection signal="pressed" from="VolumenPanel/Continuar" to="." method="_on_continuar_pressed"]
-[connection signal="pressed" from="VolumenPanel/Senu" to="." method="_on_senu_pressed"]
-[connection signal="pressed" from="VolumenPanel/Salir" to="." method="_on_salir_pressed"]
+[node name="Menu" type="TextureButton" parent="Botones"]
+layout_mode = 2
+size_flags_horizontal = 4
+texture_normal = ExtResource("9_x3guk")
+texture_hover = ExtResource("10_pxrwl")
+
+[node name="BotonesOpc" type="VBoxContainer" parent="."]
+visible = false
+anchors_preset = -1
+anchor_left = 0.504
+anchor_top = 0.544
+anchor_right = 0.504
+anchor_bottom = 0.544
+offset_left = -139.276
+offset_top = -97.5242
+offset_right = 355.724
+offset_bottom = 302.476
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(0.624501, 0.626104)
+size_flags_horizontal = 4
+theme_override_constants/separation = 0
+
+[node name="Volumen" type="TextureButton" parent="BotonesOpc"]
+layout_mode = 2
+size_flags_horizontal = 4
+texture_normal = ExtResource("11_e1jja")
+texture_hover = ExtResource("12_iaiap")
+
+[node name="Resolucion" type="TextureButton" parent="BotonesOpc"]
+layout_mode = 2
+size_flags_horizontal = 4
+texture_normal = ExtResource("13_0xxj6")
+texture_hover = ExtResource("14_jdx0s")
+
+[node name="Controles" type="TextureButton" parent="BotonesOpc"]
+layout_mode = 2
+size_flags_horizontal = 4
+texture_normal = ExtResource("15_1d5uk")
+texture_hover = ExtResource("16_46ger")
+
+[node name="Atras" type="TextureButton" parent="BotonesOpc"]
+layout_mode = 2
+size_flags_horizontal = 4
+texture_normal = ExtResource("17_qa5n5")
+texture_hover = ExtResource("18_xjh0p")
+
+[connection signal="pressed" from="Botones/Continuar" to="." method="_on_continuar_pressed"]
+[connection signal="pressed" from="Botones/Opciones" to="." method="_on_opciones_pressed"]
+[connection signal="pressed" from="Botones/Reiniciar" to="." method="_on_reiniciar_pressed"]
+[connection signal="pressed" from="Botones/Menu" to="." method="_on_menu_pressed"]
+[connection signal="pressed" from="BotonesOpc/Atras" to="." method="_on_atras_pressed"]

@@ -1,19 +1,38 @@
-[gd_scene load_steps=4 format=3 uid="uid://f686u3vbjnlv"]
+[gd_scene load_steps=5 format=3 uid="uid://f686u3vbjnlv"]
 
 [ext_resource type="Script" uid="uid://cnkjae0ln3mkn" path="res://game/personajes/principales/escenas/personajes_principales.gd" id="1_xmp0y"]
 [ext_resource type="PackedScene" uid="uid://ucwlxgw7swo7" path="res://game/personajes/principales/marius.tscn" id="2_xmp0y"]
 [ext_resource type="PackedScene" uid="uid://rndfut7w0d76" path="res://game/personajes/principales/joseph.tscn" id="3_1vk3c"]
 
+[sub_resource type="LabelSettings" id="LabelSettings_xmp0y"]
+font_size = 20
+shadow_size = 10
+shadow_color = Color(1, 1, 1, 0.0392157)
+
 [node name="PersonajesPrincipales" type="Node2D"]
+position = Vector2(-488, -228)
 script = ExtResource("1_xmp0y")
 
 [node name="Marius" parent="." instance=ExtResource("2_xmp0y")]
 position = Vector2(565, 818)
 
 [node name="Joseph" parent="." instance=ExtResource("3_1vk3c")]
-position = Vector2(248, 685)
+position = Vector2(565, 822)
 
 [node name="Camera2D" type="Camera2D" parent="."]
+visible = false
+position = Vector2(484, 234)
 anchor_mode = 0
 enabled = false
 zoom = Vector2(0.54, 0.54)
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+layer = 110
+
+[node name="CooldownLabel" type="Label" parent="CanvasLayer"]
+z_index = 2000
+offset_left = 496.0
+offset_top = 624.0
+offset_right = 821.0
+offset_bottom = 679.0
+label_settings = SubResource("LabelSettings_xmp0y")
