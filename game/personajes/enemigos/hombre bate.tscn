@@ -1,0 +1,56 @@
+[gd_scene load_steps=8 format=3 uid="uid://cqhvfrne5j7gn"]
+
+[ext_resource type="Texture2D" uid="uid://ljc1mh3730wv" path="res://game/personajes/enemigos/sprites/sprite-hombre bate.png" id="1_v7qpc"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_6qsvk"]
+atlas = ExtResource("1_v7qpc")
+region = Rect2(0, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_0opsy"]
+atlas = ExtResource("1_v7qpc")
+region = Rect2(128, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_cekex"]
+atlas = ExtResource("1_v7qpc")
+region = Rect2(256, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_q8ath"]
+atlas = ExtResource("1_v7qpc")
+region = Rect2(768, 0, 128, 128)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_ah0wl"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_6qsvk")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_0opsy")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_cekex")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_q8ath")
+}],
+"loop": true,
+"name": &"reposo",
+"speed": 4.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_o1d3i"]
+size = Vector2(101, 171)
+
+[node name="hombre bate" type="CharacterBody2D"]
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+position = Vector2(2, -1)
+scale = Vector2(1.0625, 1.42969)
+sprite_frames = SubResource("SpriteFrames_ah0wl")
+animation = &"reposo"
+autoplay = "reposo"
+frame_progress = 0.872079
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(-8.5, -0.5)
+shape = SubResource("RectangleShape2D_o1d3i")
