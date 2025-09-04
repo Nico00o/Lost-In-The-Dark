@@ -6,7 +6,7 @@
 [ext_resource type="Texture2D" uid="uid://gkxj0iegnpkr" path="res://game/escenarios/escenario_1/tiles/111.png" id="2_lck5p"]
 [ext_resource type="Texture2D" uid="uid://d0e4kdlkagwpg" path="res://game/escenarios/escenario_1/tiles/tilemap/1_1.png" id="3_lck5p"]
 [ext_resource type="Script" uid="uid://dglwr0pm42uyj" path="res://game/escenarios/escenario_1/tiles/cartel_dialogo.gd" id="6_1xewf"]
-[ext_resource type="Resource" uid="uid://btc7spvy7pyil" path="res://game/Dialogo/Cartel.dialogue" id="7_rp2hk"]
+[ext_resource type="Texture2D" uid="uid://bndx0lcylf5xy" path="res://game/escenarios/escenario_1/tiles/extras/Cartel_0002.png" id="8_1xewf"]
 [ext_resource type="Texture2D" uid="uid://dldgjyxou1vn8" path="res://game/escenarios/escenario_1/tiles/extras/Cartel_0001.png" id="8_6havd"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_k47jk"]
@@ -1042,6 +1042,7 @@ sources/3 = SubResource("TileSetAtlasSource_atw2d")
 sources/1 = SubResource("TileSetAtlasSource_rp2hk")
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_s3g2l"]
+size = Vector2(11.0302, 10.4402)
 
 [node name="Tilemapescenario1" type="Node2D"]
 
@@ -1118,16 +1119,22 @@ tile_set = SubResource("TileSet_rp2hk")
 
 [node name="CartelDialogo" type="Area2D" parent="."]
 script = ExtResource("6_1xewf")
-dialogo = ExtResource("7_rp2hk")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="CartelDialogo"]
-position = Vector2(1284, 779)
-scale = Vector2(17.9507, 13.6317)
+position = Vector2(1187.2, 848.09)
+scale = Vector2(23.7748, 17.9328)
 shape = SubResource("RectangleShape2D_s3g2l")
 
 [node name="Sprite2D" type="Sprite2D" parent="CartelDialogo"]
-position = Vector2(1286, 753)
-scale = Vector2(0.241404, 0.220472)
+position = Vector2(1191.76, 845.513)
+scale = Vector2(0.123537, 0.117357)
 texture = ExtResource("8_6havd")
 
-[connection signal="body_entered" from="CartelDialogo" to="CartelDialogo" method="_on_body_entered"]
+[node name="ExclamationMark" type="Sprite2D" parent="CartelDialogo"]
+visible = false
+position = Vector2(1192, 846)
+scale = Vector2(0.123037, 0.119148)
+texture = ExtResource("8_1xewf")
+
+[connection signal="area_entered" from="CartelDialogo" to="CartelDialogo" method="_on_area_entered"]
+[connection signal="area_exited" from="CartelDialogo" to="CartelDialogo" method="_on_area_exited"]

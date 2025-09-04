@@ -1,4 +1,4 @@
-[gd_scene load_steps=84 format=3 uid="uid://ucwlxgw7swo7"]
+[gd_scene load_steps=85 format=3 uid="uid://ucwlxgw7swo7"]
 
 [ext_resource type="Script" uid="uid://cnvsrlu7lmjgl" path="res://game/personajes/principales/marius.gd" id="1_ppjlb"]
 [ext_resource type="Texture2D" uid="uid://iirhl6vv1vv3" path="res://game/personajes/principales/sprites del hno.png" id="1_upi6y"]
@@ -571,8 +571,10 @@ animations = [{
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_lyhig"]
 size = Vector2(46, 190)
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_8fe1n"]
+size = Vector2(128, 208)
+
 [node name="Marius" type="CharacterBody2D"]
-visible = false
 script = ExtResource("1_ppjlb")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
@@ -593,3 +595,9 @@ animation = &"salida"
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(1, 0)
 shape = SubResource("RectangleShape2D_lyhig")
+
+[node name="Area2D" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+position = Vector2(-8, 0)
+shape = SubResource("RectangleShape2D_8fe1n")

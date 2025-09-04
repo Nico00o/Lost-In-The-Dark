@@ -1,4 +1,4 @@
-[gd_scene load_steps=99 format=3 uid="uid://rndfut7w0d76"]
+[gd_scene load_steps=100 format=3 uid="uid://rndfut7w0d76"]
 
 [ext_resource type="Script" uid="uid://v454ky07c6q0" path="res://game/personajes/principales/joseph.gd" id="1_gun7r"]
 [ext_resource type="Texture2D" uid="uid://chrmn0emft72d" path="res://game/personajes/principales/sprites guia.png" id="1_veqea"]
@@ -686,8 +686,10 @@ animations = [{
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_h3tuq"]
 size = Vector2(23.1818, 199.654)
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_e2r1v"]
+size = Vector2(128, 208)
+
 [node name="Joseph" type="CharacterBody2D"]
-visible = false
 script = ExtResource("1_gun7r")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
@@ -709,3 +711,9 @@ position = Vector2(-7, 4)
 rotation = -3.14159
 scale = Vector2(2.2, -0.926606)
 shape = SubResource("RectangleShape2D_h3tuq")
+
+[node name="Area2D" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+position = Vector2(-8, 0)
+shape = SubResource("RectangleShape2D_e2r1v")
