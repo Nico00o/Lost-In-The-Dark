@@ -571,7 +571,7 @@ animations = [{
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_lyhig"]
 size = Vector2(46, 190)
 
-[node name="Marius" type="CharacterBody2D"]
+[node name="Marius" type="CharacterBody2D" groups=["Player"]]
 script = ExtResource("1_ppjlb")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
