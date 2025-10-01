@@ -1,6 +1,7 @@
-[gd_scene load_steps=27 format=3 uid="uid://cls2sa71ylhcm"]
+[gd_scene load_steps=28 format=3 uid="uid://cls2sa71ylhcm"]
 
-[ext_resource type="Texture2D" uid="uid://bdj15ixe0b33i" path="res://game/personajes/enemigos/sprites/sprite-lobo mutado.png" id="1_umh1d"]
+[ext_resource type="Script" uid="uid://deoigrrvxy6pb" path="res://game/personajes/enemigos/enemigo.gd" id="1_snf5c"]
+[ext_resource type="Texture2D" uid="uid://cuv5cxrvl7dxf" path="res://game/personajes/enemigos/sprites/sprite-lobo mutado.png" id="1_umh1d"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_snf5c"]
 atlas = ExtResource("1_umh1d")
@@ -182,18 +183,20 @@ animations = [{
 }]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_umh1d"]
-size = Vector2(133.5, 163)
+size = Vector2(232, 289)
 
 [node name="osomutado" type="CharacterBody2D"]
+script = ExtResource("1_snf5c")
 
-[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
-position = Vector2(9.5, 3.49999)
-scale = Vector2(1.14844, 1.60156)
+[node name="animacion" type="AnimatedSprite2D" parent="."]
+position = Vector2(4, 3)
+scale = Vector2(2.34375, 3.07812)
 sprite_frames = SubResource("SpriteFrames_qjede")
 animation = &"reposo"
 autoplay = "reposo"
 frame_progress = 0.968532
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(11.25, -3.5)
+position = Vector2(1, -4.5)
 shape = SubResource("RectangleShape2D_umh1d")
+metadata/_edit_group_ = true

@@ -68,3 +68,21 @@ func move_x():
 func saltar():
 	if Input.is_action_just_pressed("saltar") and is_on_floor():
 		velocity.y = -fuerza_salto
+# Daño y animación de golpe
+func recibir_danio(cant: int):
+	if not is_alive or not is_active:
+		return
+
+	health -= cant
+	print(name, " recibió ", cant, " de daño. Vida: ", health)
+
+	# Congelar y mostrar animación de daño
+	can_move = false
+	animate_sprite.play("recibir daño")
+	await animate_sprite.animation_finished
+	can_move = true
+
+	if health <= 0:
+		is_alive = false
+		animate_sprite.play("muerto")
+		# Aquí podés cambiar al otro personaje o game-over

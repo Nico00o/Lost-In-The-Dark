@@ -1,6 +1,35 @@
-[gd_scene load_steps=8 format=3 uid="uid://bddgeeb6vycoa"]
+[gd_scene load_steps=16 format=3 uid="uid://bddgeeb6vycoa"]
 
-[ext_resource type="Texture2D" uid="uid://big7ym32b2rkp" path="res://game/personajes/enemigos/sprites/sprite-brujo.png" id="1_7ain5"]
+[ext_resource type="Texture2D" uid="uid://ejjqgbisbqml" path="res://game/personajes/enemigos/sprites/sprite-brujo.png" id="1_7ain5"]
+[ext_resource type="Script" uid="uid://deoigrrvxy6pb" path="res://game/personajes/enemigos/enemigo.gd" id="1_fv6gq"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_x88su"]
+atlas = ExtResource("1_7ain5")
+region = Rect2(128, 128, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_5413c"]
+atlas = ExtResource("1_7ain5")
+region = Rect2(256, 128, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_4g761"]
+atlas = ExtResource("1_7ain5")
+region = Rect2(384, 128, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_72i4o"]
+atlas = ExtResource("1_7ain5")
+region = Rect2(512, 128, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_5cyl6"]
+atlas = ExtResource("1_7ain5")
+region = Rect2(640, 128, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_jbm0l"]
+atlas = ExtResource("1_7ain5")
+region = Rect2(768, 128, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_aoago"]
+atlas = ExtResource("1_7ain5")
+region = Rect2(896, 128, 128, 128)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_fv6gq"]
 atlas = ExtResource("1_7ain5")
@@ -20,9 +49,30 @@ region = Rect2(384, 0, 128, 128)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_x88su"]
 animations = [{
-"frames": [],
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_x88su")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_5413c")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_4g761")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_72i4o")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_5cyl6")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_jbm0l")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_aoago")
+}],
 "loop": true,
-"name": &"new_animation",
+"name": &"caminar",
 "speed": 5.0
 }, {
 "frames": [{
@@ -44,17 +94,20 @@ animations = [{
 }]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_5413c"]
-size = Vector2(99, 144)
+size = Vector2(147, 263)
 
 [node name="brujo" type="CharacterBody2D"]
+script = ExtResource("1_fv6gq")
 
-[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
-position = Vector2(1, 0.499997)
-scale = Vector2(1, 1.21094)
+[node name="animacion" type="AnimatedSprite2D" parent="."]
+position = Vector2(-2.00001, -4.00002)
+scale = Vector2(1.63281, 2.33594)
 sprite_frames = SubResource("SpriteFrames_x88su")
-animation = &"reposo"
+animation = &"caminar"
 autoplay = "reposo"
+frame_progress = 0.241037
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(2.5, -5)
+position = Vector2(3, -3)
 shape = SubResource("RectangleShape2D_5413c")
+metadata/_edit_group_ = true

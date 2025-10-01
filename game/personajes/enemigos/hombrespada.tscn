@@ -1,6 +1,7 @@
-[gd_scene load_steps=22 format=3 uid="uid://cokcm2jum7iyl"]
+[gd_scene load_steps=23 format=3 uid="uid://cokcm2jum7iyl"]
 
-[ext_resource type="Texture2D" uid="uid://bfaod8ih7hw7u" path="res://game/personajes/enemigos/sprites/sprite-hombre espada.png" id="1_phvlb"]
+[ext_resource type="Script" uid="uid://deoigrrvxy6pb" path="res://game/personajes/enemigos/enemigo.gd" id="1_8uyf3"]
+[ext_resource type="Texture2D" uid="uid://dwcqjmdk7j8qw" path="res://game/personajes/enemigos/sprites/sprite-hombre espada.png" id="1_phvlb"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_8uyf3"]
 atlas = ExtResource("1_phvlb")
@@ -147,18 +148,19 @@ animations = [{
 }]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_7fyqx"]
-size = Vector2(106, 156)
+size = Vector2(211, 325)
 
 [node name="hombrespada" type="CharacterBody2D"]
+script = ExtResource("1_8uyf3")
 
-[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
-position = Vector2(1, 2)
-scale = Vector2(1, 1.40625)
+[node name="animacion" type="AnimatedSprite2D" parent="."]
+position = Vector2(0.999998, 1)
+scale = Vector2(2.15625, 2.8125)
 sprite_frames = SubResource("SpriteFrames_rgy63")
 animation = &"atacar"
 autoplay = "reposo"
 frame_progress = 0.720924
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(-2, 1)
+position = Vector2(-13.5, -8.5)
 shape = SubResource("RectangleShape2D_7fyqx")

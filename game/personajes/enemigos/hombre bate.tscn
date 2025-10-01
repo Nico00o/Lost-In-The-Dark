@@ -1,6 +1,55 @@
-[gd_scene load_steps=8 format=3 uid="uid://cqhvfrne5j7gn"]
+[gd_scene load_steps=21 format=3 uid="uid://cqhvfrne5j7gn"]
 
-[ext_resource type="Texture2D" uid="uid://ljc1mh3730wv" path="res://game/personajes/enemigos/sprites/sprite-hombre bate.png" id="1_v7qpc"]
+[ext_resource type="Script" uid="uid://deoigrrvxy6pb" path="res://game/personajes/enemigos/enemigo.gd" id="1_6qsvk"]
+[ext_resource type="Texture2D" uid="uid://jkcpxrryx620" path="res://game/personajes/enemigos/sprites/sprite-hombre bate.png" id="1_v7qpc"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_yfba6"]
+atlas = ExtResource("1_v7qpc")
+region = Rect2(384, 384, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_x33wq"]
+atlas = ExtResource("1_v7qpc")
+region = Rect2(768, 384, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_gc0c3"]
+atlas = ExtResource("1_v7qpc")
+region = Rect2(256, 384, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_1wge6"]
+atlas = ExtResource("1_v7qpc")
+region = Rect2(640, 384, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ah0wl"]
+atlas = ExtResource("1_v7qpc")
+region = Rect2(0, 256, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_o1d3i"]
+atlas = ExtResource("1_v7qpc")
+region = Rect2(128, 256, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_6kxfp"]
+atlas = ExtResource("1_v7qpc")
+region = Rect2(256, 256, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_u6rws"]
+atlas = ExtResource("1_v7qpc")
+region = Rect2(384, 256, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_p4n6i"]
+atlas = ExtResource("1_v7qpc")
+region = Rect2(512, 256, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_hkpt5"]
+atlas = ExtResource("1_v7qpc")
+region = Rect2(640, 256, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_18ok3"]
+atlas = ExtResource("1_v7qpc")
+region = Rect2(768, 256, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_nielf"]
+atlas = ExtResource("1_v7qpc")
+region = Rect2(896, 256, 128, 128)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_6qsvk"]
 atlas = ExtResource("1_v7qpc")
@@ -22,6 +71,52 @@ region = Rect2(768, 0, 128, 128)
 animations = [{
 "frames": [{
 "duration": 1.0,
+"texture": SubResource("AtlasTexture_yfba6")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_x33wq")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_gc0c3")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_1wge6")
+}],
+"loop": true,
+"name": &"ataque",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ah0wl")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_o1d3i")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_6kxfp")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_u6rws")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_p4n6i")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_hkpt5")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_18ok3")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_nielf")
+}],
+"loop": true,
+"name": &"caminar",
+"speed": 4.0
+}, {
+"frames": [{
+"duration": 1.0,
 "texture": SubResource("AtlasTexture_6qsvk")
 }, {
 "duration": 1.0,
@@ -39,18 +134,21 @@ animations = [{
 }]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_o1d3i"]
-size = Vector2(101, 171)
+size = Vector2(189.5, 358)
 
 [node name="hombre bate" type="CharacterBody2D"]
+position = Vector2(31, 5)
+script = ExtResource("1_6qsvk")
 
-[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
-position = Vector2(2, -1)
-scale = Vector2(1.0625, 1.42969)
+[node name="animacion" type="AnimatedSprite2D" parent="."]
+position = Vector2(-54.5, -32)
+scale = Vector2(2.03906, 3)
 sprite_frames = SubResource("SpriteFrames_ah0wl")
-animation = &"reposo"
+animation = &"ataque"
 autoplay = "reposo"
-frame_progress = 0.872079
+frame_progress = 0.625179
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(-8.5, -0.5)
+position = Vector2(-77.25, -29)
 shape = SubResource("RectangleShape2D_o1d3i")
+metadata/_edit_group_ = true

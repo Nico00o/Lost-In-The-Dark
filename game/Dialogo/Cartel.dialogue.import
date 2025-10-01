@@ -1,0 +1,16 @@
+[remap]
+
+importer="dialogue_manager"
+importer_version=15
+type="Resource"
+uid="uid://btc7spvy7pyil"
+path="res://.godot/imported/Cartel.dialogue-317ba927f6f0ef54eba918e69b33d651.tres"
+
+[deps]
+
+source_file="res://game/Dialogo/Cartel.dialogue"
+dest_files=["res://.godot/imported/Cartel.dialogue-317ba927f6f0ef54eba918e69b33d651.tres"]
+
+[params]
+
+defaults=true

@@ -10,7 +10,7 @@ func _ready():
 	$Botones.visible = true
 	$BotonesOpc.visible = false
 	$VolumenPanel.visible = false
-	$AdicionalPN.visible = false
+	$AdicionalPN.visible = false  
 
 func _on_texture_button_pressed():
 	get_tree().change_scene_to_file("res://game/escenarios/escenario_1/escenario1.tscn")

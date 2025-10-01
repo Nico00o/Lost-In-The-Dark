@@ -1,6 +1,6 @@
 [gd_scene load_steps=24 format=3 uid="uid://dldkpp7s1praf"]
 
-[ext_resource type="Texture2D" uid="uid://bargx6kvyxmi1" path="res://game/personajes/enemigos/sprites/sprite-lider de la secta.png" id="1_d5wki"]
+[ext_resource type="Texture2D" uid="uid://dkdn78wc5q7gr" path="res://game/personajes/enemigos/sprites/sprite-lider de la secta.png" id="1_d5wki"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_62ooo"]
 atlas = ExtResource("1_d5wki")
@@ -170,7 +170,7 @@ size = Vector2(105, 155)
 
 [node name="jefe" type="CharacterBody2D"]
 
-[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+[node name="animacion" type="AnimatedSprite2D" parent="."]
 position = Vector2(0, 6)
 scale = Vector2(1, 1.29688)
 sprite_frames = SubResource("SpriteFrames_t2vqj")

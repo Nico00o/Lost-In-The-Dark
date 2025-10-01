@@ -1,6 +1,7 @@
-[gd_scene load_steps=19 format=3 uid="uid://dkwwcj0t35dh"]
+[gd_scene load_steps=20 format=3 uid="uid://dkwwcj0t35dh"]
 
-[ext_resource type="Texture2D" uid="uid://dcrynxx7qwrgq" path="res://game/personajes/enemigos/sprites/sprite-arquero.png" id="1_r338p"]
+[ext_resource type="Script" uid="uid://deoigrrvxy6pb" path="res://game/personajes/enemigos/enemigo.gd" id="1_gkg3f"]
+[ext_resource type="Texture2D" uid="uid://cp16222eurkcq" path="res://game/personajes/enemigos/sprites/sprite-arquero.png" id="1_r338p"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_gkg3f"]
 atlas = ExtResource("1_r338p")
@@ -126,17 +127,18 @@ animations = [{
 }]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_eleof"]
-size = Vector2(109.25, 148)
+size = Vector2(172, 298)
 
 [node name="arquero" type="CharacterBody2D"]
+script = ExtResource("1_gkg3f")
 
-[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
-position = Vector2(0, 1)
-scale = Vector2(1, 1.23438)
+[node name="animacion" type="AnimatedSprite2D" parent="."]
+position = Vector2(-28.5, -27)
+scale = Vector2(1.44531, 2.45313)
 sprite_frames = SubResource("SpriteFrames_a047f")
 animation = &"ataque"
 frame_progress = 0.895108
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(2.375, 6)
+position = Vector2(-29, -27)
 shape = SubResource("RectangleShape2D_eleof")
