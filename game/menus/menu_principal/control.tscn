@@ -109,7 +109,6 @@ scale = Vector2(1.96212, 2.61029)
 texture = ExtResource("16_2pqay")
 
 [node name="Botones" type="VBoxContainer" parent="."]
-visible = false
 layout_mode = 1
 anchors_preset = -1
 anchor_left = 0.5
@@ -299,6 +298,7 @@ texture_normal = ExtResource("23_fxtej")
 texture_hover = ExtResource("24_vwnsy")
 
 [node name="AdicionalPN" type="Panel" parent="."]
+visible = false
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
