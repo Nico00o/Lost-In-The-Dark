@@ -1,0 +1,144 @@
+[gd_scene load_steps=20 format=3 uid="uid://dkwwcj0t35dh"]
+
+[ext_resource type="Script" uid="uid://deoigrrvxy6pb" path="res://game/personajes/enemigos/enemigo.gd" id="1_gkg3f"]
+[ext_resource type="Texture2D" uid="uid://cp16222eurkcq" path="res://game/personajes/enemigos/sprites/sprite-arquero.png" id="1_r338p"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_gkg3f"]
+atlas = ExtResource("1_r338p")
+region = Rect2(0, 256, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_enuv7"]
+atlas = ExtResource("1_r338p")
+region = Rect2(128, 256, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_wo08e"]
+atlas = ExtResource("1_r338p")
+region = Rect2(256, 256, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_580gg"]
+atlas = ExtResource("1_r338p")
+region = Rect2(384, 256, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_f47w6"]
+atlas = ExtResource("1_r338p")
+region = Rect2(512, 256, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_vcacs"]
+atlas = ExtResource("1_r338p")
+region = Rect2(0, 128, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_g03e5"]
+atlas = ExtResource("1_r338p")
+region = Rect2(128, 128, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_wwgw2"]
+atlas = ExtResource("1_r338p")
+region = Rect2(512, 128, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_yeg2v"]
+atlas = ExtResource("1_r338p")
+region = Rect2(640, 128, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_nkwjp"]
+atlas = ExtResource("1_r338p")
+region = Rect2(768, 128, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_lx23y"]
+atlas = ExtResource("1_r338p")
+region = Rect2(896, 128, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_8vftv"]
+atlas = ExtResource("1_r338p")
+region = Rect2(0, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_t1pjb"]
+atlas = ExtResource("1_r338p")
+region = Rect2(128, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_pf2rv"]
+atlas = ExtResource("1_r338p")
+region = Rect2(256, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_c578d"]
+atlas = ExtResource("1_r338p")
+region = Rect2(384, 0, 128, 128)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_a047f"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_gkg3f")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_enuv7")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_wo08e")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_580gg")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_f47w6")
+}],
+"loop": true,
+"name": &"ataque",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_vcacs")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_g03e5")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_wwgw2")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_yeg2v")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_nkwjp")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_lx23y")
+}],
+"loop": true,
+"name": &"caminar",
+"speed": 3.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_8vftv")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_t1pjb")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_pf2rv")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_c578d")
+}],
+"loop": true,
+"name": &"reposo",
+"speed": 4.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_eleof"]
+size = Vector2(172, 298)
+
+[node name="arquero" type="CharacterBody2D"]
+script = ExtResource("1_gkg3f")
+
+[node name="animacion" type="AnimatedSprite2D" parent="."]
+position = Vector2(-28.5, -27)
+scale = Vector2(1.44531, 2.45313)
+sprite_frames = SubResource("SpriteFrames_a047f")
+animation = &"ataque"
+frame_progress = 0.895108
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(-29, -27)
+shape = SubResource("RectangleShape2D_eleof")

@@ -1,4 +1,4 @@
-[gd_scene load_steps=16 format=4 uid="uid://yftpqvxgasnp"]
+[gd_scene load_steps=17 format=4 uid="uid://yftpqvxgasnp"]
 
 [ext_resource type="Texture2D" uid="uid://byvpyt424n260" path="res://game/escenarios/escenario_1/tiles/112.png" id="1_nlrvd"]
 [ext_resource type="Texture2D" uid="uid://dqomufwrkt66l" path="res://game/escenarios/escenario_1/tiles/tilesset/Arbol 1.png" id="2_atw2d"]
@@ -8,6 +8,7 @@
 [ext_resource type="Script" uid="uid://dglwr0pm42uyj" path="res://game/escenarios/escenario_1/tiles/cartel_dialogo.gd" id="6_1xewf"]
 [ext_resource type="Texture2D" uid="uid://bndx0lcylf5xy" path="res://game/escenarios/escenario_1/tiles/extras/Cartel_0002.png" id="8_1xewf"]
 [ext_resource type="Texture2D" uid="uid://dldgjyxou1vn8" path="res://game/escenarios/escenario_1/tiles/extras/Cartel_0001.png" id="8_6havd"]
+[ext_resource type="PackedScene" uid="uid://cqhvfrne5j7gn" path="res://game/personajes/enemigos/hombre bate.tscn" id="9_rp2hk"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_k47jk"]
 texture = ExtResource("1_nlrvd")
@@ -1135,6 +1136,9 @@ visible = false
 position = Vector2(1192, 846)
 scale = Vector2(0.123037, 0.119148)
 texture = ExtResource("8_1xewf")
+
+[node name="hombre bate" parent="." instance=ExtResource("9_rp2hk")]
+position = Vector2(152, 701)
 
 [connection signal="area_entered" from="CartelDialogo" to="CartelDialogo" method="_on_area_entered"]
 [connection signal="area_exited" from="CartelDialogo" to="CartelDialogo" method="_on_area_exited"]

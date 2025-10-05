@@ -1,4 +1,4 @@
-[gd_scene load_steps=100 format=3 uid="uid://rndfut7w0d76"]
+[gd_scene load_steps=105 format=3 uid="uid://rndfut7w0d76"]
 
 [ext_resource type="Script" uid="uid://v454ky07c6q0" path="res://game/personajes/principales/joseph.gd" id="1_gun7r"]
 [ext_resource type="Texture2D" uid="uid://chrmn0emft72d" path="res://game/personajes/principales/sprites guia.png" id="1_veqea"]
@@ -144,6 +144,26 @@ region = Rect2(1024, 128, 128, 128)
 [sub_resource type="AtlasTexture" id="AtlasTexture_hjcyd"]
 atlas = ExtResource("1_veqea")
 region = Rect2(1152, 128, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_2ijmn"]
+atlas = ExtResource("1_veqea")
+region = Rect2(512, 896, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_5exxn"]
+atlas = ExtResource("1_veqea")
+region = Rect2(640, 896, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ijao7"]
+atlas = ExtResource("1_veqea")
+region = Rect2(768, 896, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ym3w1"]
+atlas = ExtResource("1_veqea")
+region = Rect2(640, 768, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_oohry"]
+atlas = ExtResource("1_veqea")
+region = Rect2(896, 768, 128, 128)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_i8gnv"]
 atlas = ExtResource("1_veqea")
@@ -330,6 +350,31 @@ animations = [{
 "loop": true,
 "name": &"correr",
 "speed": 7.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_2ijmn")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_5exxn")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ijao7")
+}],
+"loop": true,
+"name": &"muerto",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ym3w1")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_oohry")
+}],
+"loop": true,
+"name": &"recibir daño",
+"speed": 5.0
 }, {
 "frames": [{
 "duration": 1.0,
@@ -689,7 +734,7 @@ size = Vector2(23.1818, 199.654)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_e2r1v"]
 size = Vector2(128, 208)
 
-[node name="Joseph" type="CharacterBody2D"]
+[node name="Joseph" type="CharacterBody2D" groups=["Player"]]
 script = ExtResource("1_gun7r")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
@@ -697,7 +742,7 @@ scale = Vector2(1.65, 1.644)
 sprite_frames = SubResource("SpriteFrames_yf346")
 animation = &"reposo"
 autoplay = "reposo"
-frame_progress = 0.720493
+frame_progress = 0.344659
 
 [node name="fx" type="AnimatedSprite2D" parent="AnimatedSprite2D"]
 visible = false
