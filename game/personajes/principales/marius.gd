@@ -1,5 +1,7 @@
 extends CharacterBody2D
 
+signal vida_cambiada(nombre_personaje: String, vida_actual: int)
+
 @export var velocidad_mov : float = 230.0
 @export var gravedad : float = 900.0
 @export var fuerza_salto : float = 400.0
@@ -7,13 +9,12 @@ extends CharacterBody2D
 
 @onready var animate_sprite = $AnimatedSprite2D
 
-
 var is_active = false
 var is_alive = true
-var health = 100
+var health = 160
+const max_health = 160
 var is_facing_right = true 
 var can_move: bool = true
-
 
 func update_animations():
 	if not can_move:
@@ -25,11 +26,14 @@ func update_animations():
 	else:
 		animate_sprite.play("reposo")
 
-
 func _physics_process(delta):
-	
 	if not is_active or not is_alive or not can_move:
 		return
+
+	# 🔹 TESTEO: para probar daño manual (presionar G)
+	if Input.is_action_just_pressed("golpe_test"):
+		recibir_danio(20)
+
 	# Aplicar gravedad
 	if not is_on_floor():
 		velocity.y += gravedad * delta
@@ -68,15 +72,22 @@ func move_x():
 func saltar():
 	if Input.is_action_just_pressed("saltar") and is_on_floor():
 		velocity.y = -fuerza_salto
+
+# ----------------------------
 # Daño y animación de golpe
+# ----------------------------
 func recibir_danio(cant: int):
 	if not is_alive or not is_active:
 		return
 
 	health -= cant
+	health = clamp(health, 0, max_health)
+
 	print(name, " recibió ", cant, " de daño. Vida: ", health)
 
-	# Congelar y mostrar animación de daño
+	emit_signal("vida_cambiada", health)
+
+	# Congelar movimiento y mostrar animación de daño
 	can_move = false
 	animate_sprite.play("recibir daño")
 	await animate_sprite.animation_finished
@@ -85,4 +96,4 @@ func recibir_danio(cant: int):
 	if health <= 0:
 		is_alive = false
 		animate_sprite.play("muerto")
-		# Aquí podés cambiar al otro personaje o game-over
+		print(name, " ha muerto")

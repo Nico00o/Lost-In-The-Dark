@@ -6,6 +6,7 @@ signal personaje_cambiado(show_joseph)
 @onready var marius: CharacterBody2D = $Marius
 @onready var camera: Camera2D = $Camera2D2
 @onready var cooldown_label: Label = $CanvasLayer/CooldownLabel
+@onready var barra_vida = $"../barradevida"
 
 
 var showing_joseph := false
@@ -34,6 +35,14 @@ func _ready():
 	cooldown_timer.autostart = false
 	add_child(cooldown_timer)
 	cooldown_timer.timeout.connect(_update_cooldown_label)
+	
+	# barra de vida
+	marius.connect("vida_cambiada", Callable(self, "_on_vida_cambiada"))
+	joseph.connect("vida_cambiada", Callable(self, "_on_vida_cambiada"))
+
+func _on_vida_cambiada(nombre_personaje: String, vida_actual: int):
+	barra_vida.actualizar_barra(nombre_personaje, vida_actual)
+
 
 
 func _input(event):
@@ -113,6 +122,11 @@ func activate_character(show_joseph: bool) -> void:
 	_set_collision_enabled(next_char, true)
 	_set_collision_enabled(prev, false)
 
+	#Cambiar la barra 
+	if barra_vida:
+		barra_vida.barra_joseph.visible = show_joseph
+		barra_vida.barra_marius.visible = not show_joseph
+
 
 func _set_collision_enabled(character: CharacterBody2D, enabled: bool) -> void:
 	for shape in character.get_children():
@@ -151,3 +165,11 @@ func _update_cooldown_label() -> void:
 func show_cooldown_message():
 	# por seguridad, también puede mostrar el tiempo restante si se llama directamente
 	_update_cooldown_label()
+
+
+func _on_vida_joseph(vida_actual: int):
+	barra_vida._actualizar_barra(barra_vida.barra_joseph, vida_actual, "Joseph")
+
+func _on_vida_marius(vida_actual: int):
+	barra_vida._actualizar_barra(barra_vida.barra_marius, vida_actual, "Marius")
+	
