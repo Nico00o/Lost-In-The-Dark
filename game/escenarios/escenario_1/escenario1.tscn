@@ -8,15 +8,13 @@
 
 [node name="Escenario1" type="Node2D"]
 
-[node name="BarraDevida" parent="." instance=ExtResource("1_uxtjq")]
-layer = 120
-
 [node name="ParallaxEscenario1" parent="." instance=ExtResource("1_6ofg3")]
 position = Vector2(6, 22)
 
 [node name="Tilemapescenario1" parent="." instance=ExtResource("2_3j1ud")]
 position = Vector2(-4, -10)
 
+<<<<<<< HEAD
 [node name="lobo" parent="."]
 _import_path = NodePath("")
 unique_name_in_owner = false
@@ -29,10 +27,14 @@ auto_translate_mode = 0
 editor_description = ""
 position = Vector2(4299, 856)
 script = null
+=======
+[node name="barradevida" parent="." instance=ExtResource("1_uxtjq")]
+>>>>>>> 03019b270ae5a5adc33409f3df528832238a5402
 
 [node name="PersonajesPrincipales" parent="." groups=["personajes"] instance=ExtResource("3_3j1ud")]
 
 [node name="Camera2D2" type="Camera2D" parent="PersonajesPrincipales"]
+visible = false
 position = Vector2(-4285, 163)
 scale = Vector2(1.37209, 3.89145)
 anchor_mode = 0
@@ -45,6 +47,5 @@ limit_smoothed = true
 
 [node name="Pausa" parent="." instance=ExtResource("5_75aa8")]
 layer = 128
-visible = false
 scale = Vector2(1, 1)
 transform = Transform2D(1, 0, 0, 1, 0, 0)

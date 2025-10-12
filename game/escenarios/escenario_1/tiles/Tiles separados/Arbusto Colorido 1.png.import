@@ -2,7 +2,11 @@
 
 importer="texture"
 type="CompressedTexture2D"
+<<<<<<< HEAD
 uid="uid://ccg8rp0c6gn58"
+=======
+uid="uid://bunj57qwga37b"
+>>>>>>> 03019b270ae5a5adc33409f3df528832238a5402
 path="res://.godot/imported/Arbusto Colorido 1.png-2c01de889bced4c232f424aaa2fedf2c.ctex"
 metadata={
 "vram_texture": false

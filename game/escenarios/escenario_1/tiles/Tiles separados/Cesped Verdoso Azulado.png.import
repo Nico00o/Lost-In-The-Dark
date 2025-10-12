@@ -2,7 +2,11 @@
 
 importer="texture"
 type="CompressedTexture2D"
+<<<<<<< HEAD
 uid="uid://wy16bdbfi1q2"
+=======
+uid="uid://dns72pfxuytoi"
+>>>>>>> 03019b270ae5a5adc33409f3df528832238a5402
 path="res://.godot/imported/Cesped Verdoso Azulado.png-9b384edcf401de6fe694ed2a4700dad1.ctex"
 metadata={
 "vram_texture": false
