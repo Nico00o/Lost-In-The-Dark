@@ -39,3 +39,11 @@ offset_top = 624.0
 offset_right = 821.0
 offset_bottom = 679.0
 label_settings = SubResource("LabelSettings_xmp0y")
+
+[node name="Fade" type="ColorRect" parent="CanvasLayer"]
+clip_contents = true
+offset_left = 4.0
+offset_top = -11.0
+offset_right = 44.0
+offset_bottom = 29.0
+color = Color(0, 0, 0, 0.00392157)
