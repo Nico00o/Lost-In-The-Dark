@@ -1,10 +1,11 @@
-[gd_scene load_steps=6 format=3 uid="uid://dh0eytik2vdkn"]
+[gd_scene load_steps=7 format=3 uid="uid://dh0eytik2vdkn"]
 
 [ext_resource type="PackedScene" uid="uid://buhyov4ntwj2b" path="res://game/escenarios/escenario_1/parallax/parallax_escenario1.tscn" id="1_6ofg3"]
 [ext_resource type="PackedScene" uid="uid://yftpqvxgasnp" path="res://game/escenarios/escenario_1/tiles/tilemapescenario1.tscn" id="2_3j1ud"]
 [ext_resource type="PackedScene" uid="uid://f686u3vbjnlv" path="res://game/personajes/principales/escenas/personajes principales.tscn" id="3_3j1ud"]
 [ext_resource type="PackedScene" uid="uid://uxnd23h2vq6k" path="res://game/accesorios/barra de vida/barra devida.tscn" id="3_75aa8"]
 [ext_resource type="PackedScene" uid="uid://o555jbqws6us" path="res://game/menus/menu_principal/Causa.tscn" id="5_75aa8"]
+[ext_resource type="PackedScene" uid="uid://cxq4u34w02hhy" path="res://game/menus/menu_inventario/inventario.tscn" id="6_uxtjq"]
 
 [node name="Escenario1" type="Node2D"]
 
@@ -33,3 +34,5 @@ limit_smoothed = true
 layer = 128
 scale = Vector2(1, 1)
 transform = Transform2D(1, 0, 0, 1, 0, 0)
+
+[node name="Inventario" parent="." instance=ExtResource("6_uxtjq")]

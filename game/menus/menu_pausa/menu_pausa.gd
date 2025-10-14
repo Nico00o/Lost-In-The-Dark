@@ -2,6 +2,7 @@ extends CanvasLayer
 
 @onready var botones: VBoxContainer = $Botones
 @onready var botones_opc: VBoxContainer = $BotonesOpc
+@onready var inventario: CanvasLayer = $"../Inventario"# 
 
 func _ready():
 	visible = false
@@ -10,6 +11,10 @@ func _ready():
 
 func _input(event):
 	if event.is_action_pressed("Pause"):
+		# 🔹 No pausar si el inventario está visible
+		if inventario.visible:
+			return
+
 		if not get_tree().paused:
 			get_tree().paused = true
 			visible = true

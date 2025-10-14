@@ -1,0 +1,18 @@
+[gd_scene load_steps=3 format=3 uid="uid://cxq4u34w02hhy"]
+
+[ext_resource type="Script" uid="uid://c0bokwaterktm" path="res://game/menus/menu_inventario/inventario.gd" id="1_e2bc6"]
+[ext_resource type="Texture2D" uid="uid://dy8g6vkah4dex" path="res://game/menus/menu_inventario/menu_base.png" id="2_p3ulf"]
+
+[node name="Inventario" type="CanvasLayer"]
+layer = 128
+script = ExtResource("1_e2bc6")
+
+[node name="TextureRect" type="TextureRect" parent="."]
+offset_right = 1920.0
+offset_bottom = 1080.0
+scale = Vector2(0.667184, 0.667865)
+texture = ExtResource("2_p3ulf")
+
+[node name="GridContainer" type="GridContainer" parent="."]
+offset_right = 40.0
+offset_bottom = 40.0
