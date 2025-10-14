@@ -9,7 +9,7 @@ signal personaje_cambiado(show_joseph)
 @onready var barra_vida = $"../barradevida"
 
 
-var showing_joseph := false
+var showing_joseph := true
 var deadzone: float = 500
 var camera_smooth: float = 0.1
 var camera_fixed_y: float = 300
@@ -46,6 +46,9 @@ func _on_vida_cambiada(nombre_personaje: String, vida_actual: int):
 
 
 func _input(event):
+	if event.is_action_pressed("golpe_test"):
+		var personaje = joseph if showing_joseph else marius
+		personaje.recibir_danio(20)
 	if event is InputEventKey and event.pressed and not event.echo and event.keycode == KEY_TAB:
 		if not switching and can_switch:
 			switching = true
