@@ -1,7 +1,7 @@
 extends CharacterBody2D
 
 signal vida_cambiada(nombre_personaje: String, vida_actual: int)
-
+signal personaje_muerto(nombre_personaje: String)
 
 
 @export var velocidad_mov : float = 200.0
@@ -97,4 +97,5 @@ func recibir_danio(cant: int):
 		is_alive = false
 		animate_sprite.play("muerto")
 		print(name, " ha muerto")
+		emit_signal("personaje_muerto", name)
 		# Podés disparar aquí un game over o cambio de personaje
