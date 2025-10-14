@@ -1,0 +1,51 @@
+[gd_scene load_steps=9 format=3 uid="uid://drn3hr4dp3v62"]
+
+[ext_resource type="Script" uid="uid://coeh3nyfbtc4y" path="res://gameover.gd" id="1_xrrl1"]
+[ext_resource type="Texture2D" uid="uid://dlfx5r53amgo8" path="res://game/menus/menu_gameover/game over screen 2.jpg" id="2_ikfn0"]
+[ext_resource type="Texture2D" uid="uid://b634yvts2c53c" path="res://game/menus/menu_gameover/game_over_11.png" id="3_u15ta"]
+[ext_resource type="Texture2D" uid="uid://cjaku2uglwkpu" path="res://game/menus/menu_gameover/salir_button.png" id="4_7e4ad"]
+[ext_resource type="Texture2D" uid="uid://crrck8apxwp50" path="res://game/menus/menu_gameover/salir_button_hover.png" id="5_xcdef"]
+[ext_resource type="Texture2D" uid="uid://4stc54swbehl" path="res://game/menus/menu_gameover/continuar_button.png" id="6_6myam"]
+[ext_resource type="Texture2D" uid="uid://ct0s13ng4h5j4" path="res://game/menus/menu_gameover/continuar_button_hover.png" id="7_n63sm"]
+[ext_resource type="Texture2D" uid="uid://byhymaqd64pi8" path="res://game/menus/menu_gameover/game over screen 1.png" id="8_7efv5"]
+
+[node name="Gameover" type="CanvasLayer"]
+script = ExtResource("1_xrrl1")
+
+[node name="TextureRect2" type="TextureRect" parent="."]
+offset_left = 7.0
+offset_top = -2.0
+offset_right = 1927.0
+offset_bottom = 1078.0
+scale = Vector2(0.665763, 0.666949)
+texture = ExtResource("2_ikfn0")
+
+[node name="TextureRect" type="TextureRect" parent="."]
+offset_right = 1920.0
+offset_bottom = 1080.0
+scale = Vector2(0.665215, 0.665968)
+texture = ExtResource("3_u15ta")
+
+[node name="TextureButtonSalir" type="TextureButton" parent="."]
+offset_left = 216.0
+offset_top = 321.0
+offset_right = 2136.0
+offset_bottom = 1401.0
+scale = Vector2(0.223687, 0.234378)
+texture_normal = ExtResource("4_7e4ad")
+texture_hover = ExtResource("5_xcdef")
+
+[node name="TextureButtonContinuar" type="TextureButton" parent="."]
+offset_left = 635.0
+offset_top = 327.0
+offset_right = 2555.0
+offset_bottom = 1407.0
+scale = Vector2(0.204419, 0.224616)
+texture_normal = ExtResource("6_6myam")
+texture_hover = ExtResource("7_n63sm")
+
+[node name="GameOverScreen1" type="Sprite2D" parent="."]
+visible = false
+position = Vector2(642, 367)
+scale = Vector2(0.661886, 0.670395)
+texture = ExtResource("8_7efv5")

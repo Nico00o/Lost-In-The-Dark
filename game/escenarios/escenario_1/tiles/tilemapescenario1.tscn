@@ -5301,8 +5301,12 @@ scale = Vector2(0.123537, 0.117357)
 texture = ExtResource("8_6havd")
 
 [node name="ExclamationMark" type="Sprite2D" parent="CartelDialogo"]
+<<<<<<< HEAD
 visible = false
 position = Vector2(4215, 850)
+=======
+position = Vector2(1192, 846)
+>>>>>>> 7495e56dd91418764df4337af89e8c7891b18e90
 scale = Vector2(0.123037, 0.119148)
 texture = ExtResource("8_1xewf")
 

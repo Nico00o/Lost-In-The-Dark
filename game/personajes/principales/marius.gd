@@ -1,16 +1,22 @@
 extends CharacterBody2D
 
-@export var velocidad_mov : float = 230.0
+signal vida_cambiada(nombre_personaje: String, vida_actual: int)
+signal personaje_muerto(nombre_personaje: String)
+
+
+@export var velocidad_mov : float = 200.0
 @export var gravedad : float = 900.0
 @export var fuerza_salto : float = 400.0
 @export var step_height : int = 8  # altura máxima que puede subir automáticamente
+
 
 @onready var animate_sprite = $AnimatedSprite2D
 
 
 var is_active = false
 var is_alive = true
-var health = 100
+var health = 160
+const max_health = 160
 var is_facing_right = true 
 var can_move: bool = true
 
@@ -74,9 +80,14 @@ func recibir_danio(cant: int):
 		return
 
 	health -= cant
+	health = clamp(health, 0, max_health)
+
 	print(name, " recibió ", cant, " de daño. Vida: ", health)
 
-	# Congelar y mostrar animación de daño
+	# Emitir señal al HUD
+	emit_signal("vida_cambiada", "Marius", health)
+
+	# Congelar movimiento y mostrar animación de daño
 	can_move = false
 	animate_sprite.play("recibir daño")
 	await animate_sprite.animation_finished
@@ -85,4 +96,6 @@ func recibir_danio(cant: int):
 	if health <= 0:
 		is_alive = false
 		animate_sprite.play("muerto")
-		# Aquí podés cambiar al otro personaje o game-over
+		print(name, " ha muerto")
+		emit_signal("personaje_muerto", name)
+		# Podés disparar aquí un game over o cambio de personaje
