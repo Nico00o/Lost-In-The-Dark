@@ -105,7 +105,7 @@ scale = Vector2(1.63281, 2.33594)
 sprite_frames = SubResource("SpriteFrames_x88su")
 animation = &"caminar"
 autoplay = "reposo"
-frame_progress = 0.241037
+frame_progress = 0.926822
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(3, -3)

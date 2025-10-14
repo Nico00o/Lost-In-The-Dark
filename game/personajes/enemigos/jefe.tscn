@@ -1,4 +1,4 @@
-[gd_scene load_steps=24 format=3 uid="uid://dldkpp7s1praf"]
+[gd_scene load_steps=22 format=3 uid="uid://dldkpp7s1praf"]
 
 [ext_resource type="Texture2D" uid="uid://dkdn78wc5q7gr" path="res://game/personajes/enemigos/sprites/sprite-lider de la secta.png" id="1_d5wki"]
 
@@ -13,10 +13,6 @@ region = Rect2(256, 256, 128, 128)
 [sub_resource type="AtlasTexture" id="AtlasTexture_gtv80"]
 atlas = ExtResource("1_d5wki")
 region = Rect2(384, 256, 128, 128)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_ye4uo"]
-atlas = ExtResource("1_d5wki")
-region = Rect2(0, 128, 128, 128)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_8sx53"]
 atlas = ExtResource("1_d5wki")
@@ -41,10 +37,6 @@ region = Rect2(768, 128, 128, 128)
 [sub_resource type="AtlasTexture" id="AtlasTexture_yudmf"]
 atlas = ExtResource("1_d5wki")
 region = Rect2(640, 128, 128, 128)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_l14ob"]
-atlas = ExtResource("1_d5wki")
-region = Rect2(896, 128, 128, 128)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_mluhg"]
 atlas = ExtResource("1_d5wki")
@@ -100,9 +92,6 @@ animations = [{
 }, {
 "frames": [{
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_ye4uo")
-}, {
-"duration": 1.0,
 "texture": SubResource("AtlasTexture_8sx53")
 }, {
 "duration": 1.0,
@@ -119,12 +108,9 @@ animations = [{
 }, {
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_yudmf")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_l14ob")
 }],
 "loop": true,
-"name": &"camianr",
+"name": &"caminar",
 "speed": 4.0
 }, {
 "frames": [{
@@ -176,7 +162,7 @@ scale = Vector2(1, 1.29688)
 sprite_frames = SubResource("SpriteFrames_t2vqj")
 animation = &"reposo"
 autoplay = "reposo"
-frame_progress = 0.213748
+frame_progress = 0.300218
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(-1.5, -0.5)

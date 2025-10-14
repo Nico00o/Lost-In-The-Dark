@@ -192,9 +192,9 @@ script = ExtResource("1_snf5c")
 position = Vector2(4, 3)
 scale = Vector2(2.34375, 3.07812)
 sprite_frames = SubResource("SpriteFrames_qjede")
-animation = &"reposo"
+animation = &"atacar"
 autoplay = "reposo"
-frame_progress = 0.968532
+frame_progress = 0.864088
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(1, -4.5)
