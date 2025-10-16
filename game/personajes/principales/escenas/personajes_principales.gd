@@ -10,8 +10,6 @@ signal personaje_cambiado(show_joseph)
 @onready var fade_rect: ColorRect = $CanvasLayer/Fade
 @onready var circulo_cambio: AnimatedSprite2D = $"../barradevida/AnimatedSprite2D"
 
-
-
 var showing_joseph := true
 var deadzone: float = 500
 var camera_smooth: float = 0.1
@@ -39,15 +37,22 @@ func _ready():
 	add_child(cooldown_timer)
 	cooldown_timer.timeout.connect(_update_cooldown_label)
 	
-	# barra de vida
+	# Conectar barra de vida
 	marius.connect("vida_cambiada", Callable(self, "_on_vida_cambiada"))
 	joseph.connect("vida_cambiada", Callable(self, "_on_vida_cambiada"))
 	marius.connect("personaje_muerto", Callable(self, "_on_personaje_muerto"))
 	joseph.connect("personaje_muerto", Callable(self, "_on_personaje_muerto"))
+	
+	# 🔹 Conectar HUD al cambio de personaje
+	var hud_node = get_node_or_null("../HUD")  # Ajustar según la jerarquía
+	if hud_node:
+		connect("personaje_cambiado", Callable(hud_node, "_on_personaje_cambiado"))
+	else:
+		print("⚠️ No se encontró el HUD para conectar la señal.")
+
 
 func _on_vida_cambiada(nombre_personaje: String, vida_actual: int):
 	barra_vida.actualizar_barra(nombre_personaje, vida_actual)
-
 
 
 func _input(event):
@@ -56,7 +61,7 @@ func _input(event):
 		personaje.recibir_danio(20)
 		
 	if event is InputEventKey and event.pressed and not event.echo and event.keycode == KEY_TAB:
-		# 🔹 Evitar cambiar si uno está muerto
+		# Evitar cambiar si uno está muerto
 		if showing_joseph and not marius.is_alive:
 			print("❌ No podés cambiar: Marius está muerto.")
 			return
@@ -64,7 +69,7 @@ func _input(event):
 			print("❌ No podés cambiar: Joseph está muerto.")
 			return
 
-		# 🔹 Evitar cambiar durante el cooldown o animación
+		# Evitar cambiar durante el cooldown o animación
 		if not switching and can_switch:
 			switching = true
 			can_switch = false
@@ -78,20 +83,20 @@ func _input(event):
 
 
 func play_switch_fx() -> void:
-	# 🔹 Bloquear movimiento
+	# Bloquear movimiento
 	joseph.can_move = false
 	marius.can_move = false
 
-	# 🔹 Mostrar giro del círculo de cambio
+	# Animación del círculo
 	if showing_joseph:
-		circulo_cambio.play("cambio1") # gira horario
+		circulo_cambio.play("cambio1")
 	else:
-		circulo_cambio.play("cambio2") # gira antihorario
+		circulo_cambio.play("cambio2")
 
 	var current = joseph if showing_joseph else marius
 	var fx: AnimatedSprite2D = current.get_node("AnimatedSprite2D/fx")
 
-	# 🔹 Animación de salida
+	# Animación de salida
 	fx.visible = true
 	fx.play("salida")
 	await fx.animation_finished
@@ -99,12 +104,12 @@ func play_switch_fx() -> void:
 	fx.frame = 0
 	fx.visible = false
 
-	# 🔹 Cambiar personaje
+	# Cambiar personaje
 	showing_joseph = !showing_joseph
 	activate_character(showing_joseph)
 	emit_signal("personaje_cambiado", showing_joseph)
 
-	# 🔹 Animación de entrada
+	# Animación de entrada
 	var next_char = joseph if showing_joseph else marius
 	var next_fx: AnimatedSprite2D = next_char.get_node("AnimatedSprite2D/fx")
 	next_fx.visible = true
@@ -114,20 +119,17 @@ func play_switch_fx() -> void:
 	next_fx.frame = 0
 	next_fx.visible = false
 
-	# 🔹 Cuando termina la animación de entrada, el círculo se queda en su estado “defecto” correspondiente
+	# Círculo vuelve al estado defecto
 	if showing_joseph:
 		circulo_cambio.play("defecto1")
 	else:
 		circulo_cambio.play("defecto2")
 
-	# 🔹 Desbloquear movimiento
+	# Desbloquear movimiento
 	joseph.can_move = true
 	marius.can_move = true
 
 	switching = false
-
-
-
 
 
 func activate_character(show_joseph: bool) -> void:
@@ -154,7 +156,7 @@ func activate_character(show_joseph: bool) -> void:
 	_set_collision_enabled(next_char, true)
 	_set_collision_enabled(prev, false)
 
-	#Cambiar la barra 
+	# Cambiar la barra de vida
 	if barra_vida:
 		barra_vida.barra_joseph.visible = show_joseph
 		barra_vida.barra_marius.visible = not show_joseph
@@ -167,9 +169,6 @@ func _set_collision_enabled(character: CharacterBody2D, enabled: bool) -> void:
 
 
 func _physics_process(_delta):
-	if not camera:
-		return
-
 	var target = joseph if showing_joseph else marius
 	var camera_pos = camera.global_position
 	var desired_pos = Vector2(target.global_position.x + camera_offset_x, camera_fixed_y)
@@ -178,15 +177,13 @@ func _physics_process(_delta):
 
 
 func start_switch_cooldown() -> void:
-	# 🔹 desactivar visualmente el círculo durante cooldown
 	if showing_joseph:
 		circulo_cambio.play("desactivado1")
 	else:
-		circulo_cambio.play("desactivado1")
+		circulo_cambio.play("desactivado2")
 
 	await get_tree().create_timer(switch_cooldown).timeout
 
-	# 🔹 si ambos siguen vivos, volver a la animación normal
 	if joseph.is_alive and marius.is_alive:
 		if showing_joseph:
 			circulo_cambio.play("defecto1")
@@ -198,10 +195,9 @@ func start_switch_cooldown() -> void:
 	cooldown_label.visible = false
 
 
-
 func _update_cooldown_label() -> void:
 	var elapsed = (Time.get_ticks_msec() / 1000.0) - cooldown_start_time
-	var remaining = max(0, int(ceil(switch_cooldown - elapsed)))  # entero, sin decimales
+	var remaining = max(0, int(ceil(switch_cooldown - elapsed)))
 	if remaining <= 0:
 		cooldown_timer.stop()
 		cooldown_label.visible = false
@@ -210,7 +206,6 @@ func _update_cooldown_label() -> void:
 
 
 func show_cooldown_message():
-	# por seguridad, también puede mostrar el tiempo restante si se llama directamente
 	_update_cooldown_label()
 
 
@@ -220,7 +215,7 @@ func _game_over():
 	joseph.can_move = false
 	marius.can_move = false
 
-	var tree := get_tree() # guardar antes del await
+	var tree := get_tree()
 
 	var tween = create_tween()
 	fade_rect.color.a = 0
@@ -232,7 +227,6 @@ func _game_over():
 	tree.change_scene_to_file("res://game/menus/menu_gameover/gameover.tscn")
 
 
-
 func _on_vida_joseph(vida_actual: int):
 	barra_vida._actualizar_barra(barra_vida.barra_joseph, vida_actual, "Joseph")
 
@@ -242,26 +236,21 @@ func _on_vida_marius(vida_actual: int):
 func _on_personaje_muerto(nombre_personaje: String):
 	print("⚰️", nombre_personaje, "ha muerto")
 
-	# Si ambos murieron → game over
 	if not joseph.is_alive and not marius.is_alive:
 		_game_over()
 		return
 
-	# Si muere Joseph y Marius está vivo → cambiar automáticamente a Marius
 	if nombre_personaje == "Joseph" and marius.is_alive and showing_joseph:
 		showing_joseph = false
 		activate_character(showing_joseph)
 		emit_signal("personaje_cambiado", showing_joseph)
 		print("Cambio automático a Marius")
-
-	# Si muere Marius y Joseph está vivo → cambiar automáticamente a Joseph
 	elif nombre_personaje == "Marius" and joseph.is_alive and not showing_joseph:
 		showing_joseph = true
 		activate_character(showing_joseph)
 		emit_signal("personaje_cambiado", showing_joseph)
 		print("Cambio automático a Joseph")
 
-	# 🔹 Si uno está muerto, el cambio queda desactivado permanentemente
 	if not joseph.is_alive or not marius.is_alive:
 		if showing_joseph:
 			circulo_cambio.play("desactivado1")
