@@ -19,6 +19,7 @@ config/icon="res://icon.svg"
 
 GlobalSetting="*res://Global_Setting.gd"
 DialogueManager="*res://addons/dialogue_manager/dialogue_manager.gd"
+DatosInventario="*res://DatosInventario.gd"
 
 [dialogue_manager]
 

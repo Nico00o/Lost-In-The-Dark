@@ -1,0 +1,129 @@
+[gd_scene load_steps=5 format=3 uid="uid://b3yrambf2tmhm"]
+
+[ext_resource type="Script" uid="uid://m72tr6b5p6ms" path="res://game/menus/menu_inventario/hud.gd" id="1_iymgy"]
+[ext_resource type="Texture2D" uid="uid://dupfpygspxuql" path="res://game/menus/menu_inventario/hud/triangulohud.png" id="2_otyap"]
+[ext_resource type="Texture2D" uid="uid://d25p67wohdw3h" path="res://game/menus/menu_inventario/hud/sin objeto equipado.png" id="3_3j2ro"]
+[ext_resource type="Texture2D" uid="uid://kj33xip0hrl8" path="res://game/menus/menu_inventario/hud/decoracionhudtriangulo.png" id="4_p2y2g"]
+
+[node name="HUD" type="CanvasLayer"]
+layer = 128
+script = ExtResource("1_iymgy")
+
+[node name="Triangulo" type="TextureRect" parent="."]
+offset_left = 1075.0
+offset_top = 6.0
+offset_right = 2768.0
+offset_bottom = 1963.0
+scale = Vector2(0.1, 0.1)
+mouse_filter = 2
+texture = ExtResource("2_otyap")
+stretch_mode = 5
+
+[node name="Slot1" type="Control" parent="Triangulo"]
+anchors_preset = 0
+offset_left = 207.143
+offset_top = -85.7142
+offset_right = 247.143
+offset_bottom = -45.7143
+scale = Vector2(0.9, 0.9)
+mouse_filter = 2
+
+[node name="FondoVacio" type="TextureRect" parent="Triangulo/Slot1"]
+offset_left = 214.285
+offset_top = 169.312
+offset_right = 1294.28
+offset_bottom = 1249.31
+scale = Vector2(0.95, 0.95)
+texture = ExtResource("3_3j2ro")
+stretch_mode = 5
+
+[node name="Amuleto" type="TextureRect" parent="Triangulo/Slot1"]
+layout_mode = 0
+offset_left = 280.129
+offset_top = 161.082
+offset_right = 653.129
+offset_bottom = 574.082
+scale = Vector2(2.5, 2.5)
+
+[node name="Decoracion" type="TextureRect" parent="Triangulo/Slot1"]
+z_index = 2
+offset_left = 197.824
+offset_top = 152.851
+offset_right = 1277.82
+offset_bottom = 1232.85
+texture = ExtResource("4_p2y2g")
+stretch_mode = 5
+
+[node name="Slot2" type="Control" parent="Triangulo"]
+anchors_preset = 0
+offset_left = -1378.57
+offset_top = 814.286
+offset_right = -1338.57
+offset_bottom = 854.286
+scale = Vector2(0.9, 0.9)
+mouse_filter = 2
+
+[node name="FondoVacio" type="TextureRect" parent="Triangulo/Slot2"]
+layout_mode = 0
+offset_left = 1367.14
+offset_top = 214.58
+offset_right = 2447.14
+offset_bottom = 1294.58
+scale = Vector2(0.95, 0.95)
+texture = ExtResource("3_3j2ro")
+stretch_mode = 5
+
+[node name="Amuleto" type="TextureRect" parent="Triangulo/Slot2"]
+layout_mode = 0
+offset_left = 1424.75
+offset_top = 189.888
+offset_right = 1797.75
+offset_bottom = 602.888
+scale = Vector2(2.5, 2.5)
+
+[node name="Decoracion" type="TextureRect" parent="Triangulo/Slot2"]
+z_index = 2
+layout_mode = 0
+offset_left = 1350.68
+offset_top = 189.888
+offset_right = 2430.68
+offset_bottom = 1269.89
+texture = ExtResource("4_p2y2g")
+stretch_mode = 5
+
+[node name="Slot3" type="Control" parent="Triangulo"]
+anchors_preset = 0
+offset_left = 3035.71
+offset_top = 792.857
+offset_right = 3075.71
+offset_bottom = 832.857
+scale = Vector2(0.9, 0.9)
+mouse_filter = 2
+
+[node name="FondoVacio" type="TextureRect" parent="Triangulo/Slot3"]
+layout_mode = 0
+offset_left = -2368.9
+offset_top = 213.698
+offset_right = -1288.9
+offset_bottom = 1293.7
+scale = Vector2(0.95, 0.95)
+texture = ExtResource("3_3j2ro")
+stretch_mode = 5
+
+[node name="Amuleto" type="TextureRect" parent="Triangulo/Slot3"]
+layout_mode = 0
+offset_left = -2327.75
+offset_top = 230.159
+offset_right = -1954.75
+offset_bottom = 643.159
+scale = Vector2(2.5, 2.5)
+
+[node name="Decoracion" type="TextureRect" parent="Triangulo/Slot3"]
+z_index = 2
+layout_mode = 0
+offset_left = -2404.76
+offset_top = 214.286
+offset_right = -1324.76
+offset_bottom = 1294.29
+texture = ExtResource("4_p2y2g")
+stretch_mode = 5
