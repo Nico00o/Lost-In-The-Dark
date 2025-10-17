@@ -7344,6 +7344,11 @@ position = Vector2(19069, 835)
 scale = Vector2(3.61797, 3.85)
 texture = ExtResource("21_3u1q3")
 
+[node name="Arbusto6" type="Sprite2D" parent="."]
+position = Vector2(23605, 850)
+scale = Vector2(3.61797, 3.85)
+texture = ExtResource("21_3u1q3")
+
 [node name="Arbusto3" type="Sprite2D" parent="."]
 position = Vector2(7791, 869)
 scale = Vector2(3.61797, 3.85)
