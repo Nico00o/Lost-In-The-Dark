@@ -267,3 +267,17 @@ func _on_personaje_muerto(nombre_personaje: String):
 			circulo_cambio.play("desactivado1")
 		else:
 			circulo_cambio.play("desactivado2")
+
+func die():
+	print("💀 El tiempo se acabó. Los personajes mueren.")
+
+	# Desactivar movimiento
+	joseph.can_move = false
+	marius.can_move = false
+
+	# Marcar ambos como muertos
+	joseph.is_alive = false
+	marius.is_alive = false
+
+	# Llamar al game over
+	_game_over()

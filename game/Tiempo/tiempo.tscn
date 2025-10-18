@@ -1,0 +1,23 @@
+[gd_scene load_steps=2 format=3 uid="uid://boyiqryke7wf8"]
+
+[ext_resource type="Script" uid="uid://csul7x0suqu0x" path="res://game/Tiempo/control.gd" id="1_ly6pi"]
+
+[node name="TimerHUD" type="CanvasLayer"]
+
+[node name="HUDControl" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+script = ExtResource("1_ly6pi")
+
+[node name="TiempoLabel" type="Label" parent="HUDControl"]
+layout_mode = 0
+offset_left = 980.0
+offset_top = 2.0
+offset_right = 1065.0
+offset_bottom = 25.0
+scale = Vector2(3.48745, 3.70342)
+text = "Tiempo: 90"
+
+[node name="Temporizador" type="Timer" parent="HUDControl"]
