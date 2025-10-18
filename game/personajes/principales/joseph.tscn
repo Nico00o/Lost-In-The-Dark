@@ -4,27 +4,16 @@
 [ext_resource type="Texture2D" uid="uid://iirhl6vv1vv3" path="res://game/personajes/principales/sprites del hno.png" id="1_upi6y"]
 [ext_resource type="Texture2D" uid="uid://bin5dmvkjb3ko" path="res://game/personajes/principales/caminar,arma,joseph.png" id="3_4emhh"]
 [ext_resource type="Texture2D" uid="uid://bt0aj8v8nnlwk" path="res://game/accesorios/fx/personajes/pipo-nazoobj02b_480.png" id="3_8fe1n"]
+[ext_resource type="Texture2D" uid="uid://71s1nbix85cm" path="res://game/personajes/principales/spritesheet-transparent-removebg-preview.png" id="4_2fr5g"]
 [ext_resource type="Texture2D" uid="uid://cpxl5eb8tu1s8" path="res://game/accesorios/fx/personajes/salida joseph.png" id="4_8fe1n"]
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_ppjlb"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_qbh84"]
 atlas = ExtResource("1_upi6y")
-region = Rect2(128, 0, 128, 128)
+region = Rect2(1152, 0, 128, 128)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_p8kmn"]
 atlas = ExtResource("1_upi6y")
 region = Rect2(256, 0, 128, 128)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_8fe1n"]
-atlas = ExtResource("1_upi6y")
-region = Rect2(384, 0, 128, 128)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_4emhh"]
-atlas = ExtResource("1_upi6y")
-region = Rect2(512, 0, 128, 128)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_vqius"]
-atlas = ExtResource("1_upi6y")
-region = Rect2(640, 0, 128, 128)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_k75gc"]
 atlas = ExtResource("1_upi6y")
@@ -34,13 +23,17 @@ region = Rect2(768, 0, 128, 128)
 atlas = ExtResource("1_upi6y")
 region = Rect2(896, 0, 128, 128)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_2vf7o"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_4emhh"]
 atlas = ExtResource("1_upi6y")
-region = Rect2(1024, 0, 128, 128)
+region = Rect2(512, 0, 128, 128)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_qbh84"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_ppjlb"]
 atlas = ExtResource("1_upi6y")
-region = Rect2(1152, 0, 128, 128)
+region = Rect2(128, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_8fe1n"]
+atlas = ExtResource("1_upi6y")
+region = Rect2(384, 0, 128, 128)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_i4ud4"]
 atlas = ExtResource("3_4emhh")
@@ -190,23 +183,18 @@ region = Rect2(1024, 640, 128, 128)
 atlas = ExtResource("1_upi6y")
 region = Rect2(1152, 640, 128, 128)
 
+[sub_resource type="AtlasTexture" id="AtlasTexture_1voko"]
+atlas = ExtResource("4_2fr5g")
+region = Rect2(128, 128, 128, 128)
+
 [sub_resource type="SpriteFrames" id="SpriteFrames_ih1se"]
 animations = [{
 "frames": [{
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_ppjlb")
+"texture": SubResource("AtlasTexture_qbh84")
 }, {
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_p8kmn")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_8fe1n")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_4emhh")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_vqius")
 }, {
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_k75gc")
@@ -215,14 +203,17 @@ animations = [{
 "texture": SubResource("AtlasTexture_6ufyk")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_2vf7o")
+"texture": SubResource("AtlasTexture_4emhh")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_qbh84")
+"texture": SubResource("AtlasTexture_ppjlb")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_8fe1n")
 }],
 "loop": true,
 "name": &"caminar",
-"speed": 5.0
+"speed": 7.0
 }, {
 "frames": [{
 "duration": 1.0,
@@ -364,6 +355,14 @@ animations = [{
 "loop": true,
 "name": &"reposo",
 "speed": 6.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_1voko")
+}],
+"loop": true,
+"name": &"saltar",
+"speed": 5.0
 }]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_jraif"]
@@ -741,8 +740,9 @@ script = ExtResource("1_ppjlb")
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 scale = Vector2(1.65, 1.65)
 sprite_frames = SubResource("SpriteFrames_ih1se")
-animation = &"recibir daño"
+animation = &"caminar"
 autoplay = "reposo"
+frame_progress = 0.805466
 
 [node name="fx" type="AnimatedSprite2D" parent="AnimatedSprite2D"]
 visible = false
