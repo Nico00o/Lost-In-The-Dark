@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dfficyiabkh7g"
-path="res://.godot/imported/inmunerable al daño(1).png-51a8ecae7be4aac18c0b71f8641ef82e.ctex"
+uid="uid://ddyhxl7cqjg8p"
+path="res://.godot/imported/estrella nula.png-aa5d44c36cdab1acb8b99d41bfecaa73.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://game/menus/menu_inventario/objetos/inmunerable al daño(1).png"
-dest_files=["res://.godot/imported/inmunerable al daño(1).png-51a8ecae7be4aac18c0b71f8641ef82e.ctex"]
+source_file="res://game/menus/menu_inventario/estrella nula.png"
+dest_files=["res://.godot/imported/estrella nula.png-aa5d44c36cdab1acb8b99d41bfecaa73.ctex"]
 
 [params]
 

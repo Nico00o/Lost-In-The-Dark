@@ -15,44 +15,40 @@ var deadzone: float = 500
 var camera_smooth: float = 0.1
 var camera_fixed_y: float = 300
 var start_x := 0.0
-var switching := false  # evita spamear Tab
-var can_switch := true        # controla el cooldown
-var switch_cooldown := 15.0  # segundos de espera
+var switching := false
+var can_switch := true
+var switch_cooldown := 15.0
 
 @export var camera_offset_x := -650.0
 
 var cooldown_timer: Timer
-var cooldown_start_time := 0.0  # nuevo
+var elapsed_cooldown := 0.0
 
 func _ready():
-	# Activar el personaje inicial correctamente
 	activate_character(showing_joseph)
 	emit_signal("personaje_cambiado", showing_joseph)
 
-	# Crear el Timer para el contador si no existe en la escena
+	# 🔹 Crear el timer que se pausa junto al juego
 	cooldown_timer = Timer.new()
-	cooldown_timer.wait_time = 1.0  # actualizar cada segundo
+	cooldown_timer.wait_time = 1.0
 	cooldown_timer.one_shot = false
 	cooldown_timer.autostart = false
+	cooldown_timer.process_mode = Node.PROCESS_MODE_PAUSABLE  # <--- importante
 	add_child(cooldown_timer)
 	cooldown_timer.timeout.connect(_update_cooldown_label)
-	
-	# Conectar barra de vida
+
+	# Conexiones de vida
 	marius.connect("vida_cambiada", Callable(self, "_on_vida_cambiada"))
 	joseph.connect("vida_cambiada", Callable(self, "_on_vida_cambiada"))
 	marius.connect("personaje_muerto", Callable(self, "_on_personaje_muerto"))
 	joseph.connect("personaje_muerto", Callable(self, "_on_personaje_muerto"))
-	
-	# 🔹 Conectar HUD al cambio de personaje
-	var hud_node = get_node_or_null("../HUD")  # Ajustar según la jerarquía
+
+	# HUD
+	var hud_node = get_node_or_null("../HUD")
 	if hud_node:
 		connect("personaje_cambiado", Callable(hud_node, "_on_personaje_cambiado"))
 	else:
 		print("⚠️ No se encontró el HUD para conectar la señal.")
-
-
-func _on_vida_cambiada(nombre_personaje: String, vida_actual: int):
-	barra_vida.actualizar_barra(nombre_personaje, vida_actual)
 
 
 func _input(event):
@@ -61,7 +57,6 @@ func _input(event):
 		personaje.recibir_danio(20)
 		
 	if event is InputEventKey and event.pressed and not event.echo and event.keycode == KEY_TAB:
-		# Evitar cambiar si uno está muerto
 		if showing_joseph and not marius.is_alive:
 			print("❌ No podés cambiar: Marius está muerto.")
 			return
@@ -69,11 +64,10 @@ func _input(event):
 			print("❌ No podés cambiar: Joseph está muerto.")
 			return
 
-		# Evitar cambiar durante el cooldown o animación
 		if not switching and can_switch:
 			switching = true
 			can_switch = false
-			cooldown_start_time = Time.get_ticks_msec() / 1000.0
+			elapsed_cooldown = 0.0
 			cooldown_label.visible = true
 			cooldown_timer.start()
 			await play_switch_fx()
@@ -83,11 +77,9 @@ func _input(event):
 
 
 func play_switch_fx() -> void:
-	# Bloquear movimiento
 	joseph.can_move = false
 	marius.can_move = false
 
-	# Animación del círculo
 	if showing_joseph:
 		circulo_cambio.play("cambio1")
 	else:
@@ -96,7 +88,6 @@ func play_switch_fx() -> void:
 	var current = joseph if showing_joseph else marius
 	var fx: AnimatedSprite2D = current.get_node("AnimatedSprite2D/fx")
 
-	# Animación de salida
 	fx.visible = true
 	fx.play("salida")
 	await fx.animation_finished
@@ -104,12 +95,10 @@ func play_switch_fx() -> void:
 	fx.frame = 0
 	fx.visible = false
 
-	# Cambiar personaje
 	showing_joseph = !showing_joseph
 	activate_character(showing_joseph)
 	emit_signal("personaje_cambiado", showing_joseph)
 
-	# Animación de entrada
 	var next_char = joseph if showing_joseph else marius
 	var next_fx: AnimatedSprite2D = next_char.get_node("AnimatedSprite2D/fx")
 	next_fx.visible = true
@@ -119,16 +108,13 @@ func play_switch_fx() -> void:
 	next_fx.frame = 0
 	next_fx.visible = false
 
-	# Círculo vuelve al estado defecto
 	if showing_joseph:
 		circulo_cambio.play("defecto1")
 	else:
 		circulo_cambio.play("defecto2")
 
-	# Desbloquear movimiento
 	joseph.can_move = true
 	marius.can_move = true
-
 	switching = false
 
 
@@ -145,10 +131,8 @@ func activate_character(show_joseph: bool) -> void:
 
 	next_char.visible = true
 	_set_collision_enabled(next_char, false)
-
 	next_char.position = prev.position
 	next_char.velocity = prev.velocity
-
 	next_char.is_active = true
 	prev.is_active = false
 	prev.visible = false
@@ -156,7 +140,6 @@ func activate_character(show_joseph: bool) -> void:
 	_set_collision_enabled(next_char, true)
 	_set_collision_enabled(prev, false)
 
-	# Cambiar la barra de vida
 	if barra_vida:
 		barra_vida.barra_joseph.visible = show_joseph
 		barra_vida.barra_marius.visible = not show_joseph
@@ -176,13 +159,21 @@ func _physics_process(_delta):
 	camera.global_position = camera_pos
 
 
+# 🔹 Nuevo sistema de cooldown pausable
 func start_switch_cooldown() -> void:
 	if showing_joseph:
 		circulo_cambio.play("desactivado1")
 	else:
 		circulo_cambio.play("desactivado2")
 
-	await get_tree().create_timer(switch_cooldown).timeout
+	var local_timer := Timer.new()
+	local_timer.one_shot = true
+	local_timer.wait_time = switch_cooldown
+	local_timer.process_mode = Node.PROCESS_MODE_PAUSABLE  # 🔸 se pausa con el juego
+	add_child(local_timer)
+	local_timer.start()
+	await local_timer.timeout
+	local_timer.queue_free()
 
 	if joseph.is_alive and marius.is_alive:
 		if showing_joseph:
@@ -196,8 +187,8 @@ func start_switch_cooldown() -> void:
 
 
 func _update_cooldown_label() -> void:
-	var elapsed = (Time.get_ticks_msec() / 1000.0) - cooldown_start_time
-	var remaining = max(0, int(ceil(switch_cooldown - elapsed)))
+	elapsed_cooldown += 1.0  # solo avanza cuando no está pausado
+	var remaining = max(0, int(ceil(switch_cooldown - elapsed_cooldown)))
 	if remaining <= 0:
 		cooldown_timer.stop()
 		cooldown_label.visible = false
@@ -209,30 +200,13 @@ func show_cooldown_message():
 	_update_cooldown_label()
 
 
-func _game_over():
-	print("💀 Ambos personajes han muerto. Iniciando Game Over...")
+# ======================================================
+# GAME OVER Y VIDA
+# ======================================================
 
-	joseph.can_move = false
-	marius.can_move = false
+func _on_vida_cambiada(nombre_personaje: String, vida_actual: int):
+	barra_vida.actualizar_barra(nombre_personaje, vida_actual)
 
-	var tree := get_tree()
-
-	var tween = create_tween()
-	fade_rect.color.a = 0
-	tween.tween_property(fade_rect, "color:a", 1.0, 2.0)
-	await tween.finished
-
-	await tree.create_timer(0.5).timeout
-
-	tree.change_scene_to_file("res://game/menus/menu_gameover/gameover.tscn")
-
-
-func _on_vida_joseph(vida_actual: int):
-	barra_vida._actualizar_barra(barra_vida.barra_joseph, vida_actual, "Joseph")
-
-func _on_vida_marius(vida_actual: int):
-	barra_vida._actualizar_barra(barra_vida.barra_marius, vida_actual, "Marius")
-	
 func _on_personaje_muerto(nombre_personaje: String):
 	print("⚰️", nombre_personaje, "ha muerto")
 
@@ -256,3 +230,16 @@ func _on_personaje_muerto(nombre_personaje: String):
 			circulo_cambio.play("desactivado1")
 		else:
 			circulo_cambio.play("desactivado2")
+
+
+func _game_over():
+	print("💀 Ambos personajes han muerto. Iniciando Game Over...")
+	joseph.can_move = false
+	marius.can_move = false
+	var tree := get_tree()
+	var tween = create_tween()
+	fade_rect.color.a = 0
+	tween.tween_property(fade_rect, "color:a", 1.0, 2.0)
+	await tween.finished
+	await tree.create_timer(0.5).timeout
+	tree.change_scene_to_file("res://game/menus/menu_gameover/gameover.tscn")

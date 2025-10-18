@@ -6,14 +6,14 @@
 [ext_resource type="Texture2D" uid="uid://kj33xip0hrl8" path="res://game/menus/menu_inventario/hud/decoracionhudtriangulo.png" id="4_p2y2g"]
 
 [node name="HUD" type="CanvasLayer"]
-layer = 128
+layer = 100
 script = ExtResource("1_iymgy")
 
 [node name="Triangulo" type="TextureRect" parent="."]
-offset_left = 1075.0
-offset_top = 6.0
-offset_right = 2768.0
-offset_bottom = 1963.0
+offset_left = 1067.0
+offset_top = 52.0
+offset_right = 2760.0
+offset_bottom = 2009.0
 scale = Vector2(0.1, 0.1)
 mouse_filter = 2
 texture = ExtResource("2_otyap")
@@ -29,11 +29,12 @@ scale = Vector2(0.9, 0.9)
 mouse_filter = 2
 
 [node name="FondoVacio" type="TextureRect" parent="Triangulo/Slot1"]
-offset_left = 214.285
-offset_top = 169.312
-offset_right = 1294.28
-offset_bottom = 1249.31
-scale = Vector2(0.95, 0.95)
+layout_mode = 0
+offset_left = 247.618
+offset_top = 206.349
+offset_right = 1327.61
+offset_bottom = 1286.35
+scale = Vector2(0.9, 0.9)
 texture = ExtResource("3_3j2ro")
 stretch_mode = 5
 
@@ -47,6 +48,7 @@ scale = Vector2(2.5, 2.5)
 
 [node name="Decoracion" type="TextureRect" parent="Triangulo/Slot1"]
 z_index = 2
+layout_mode = 0
 offset_left = 197.824
 offset_top = 152.851
 offset_right = 1277.82
@@ -65,11 +67,11 @@ mouse_filter = 2
 
 [node name="FondoVacio" type="TextureRect" parent="Triangulo/Slot2"]
 layout_mode = 0
-offset_left = 1367.14
-offset_top = 214.58
-offset_right = 2447.14
-offset_bottom = 1294.58
-scale = Vector2(0.95, 0.95)
+offset_left = 1398.41
+offset_top = 239.682
+offset_right = 2478.41
+offset_bottom = 1319.68
+scale = Vector2(0.9, 0.9)
 texture = ExtResource("3_3j2ro")
 stretch_mode = 5
 
@@ -102,11 +104,11 @@ mouse_filter = 2
 
 [node name="FondoVacio" type="TextureRect" parent="Triangulo/Slot3"]
 layout_mode = 0
-offset_left = -2368.9
-offset_top = 213.698
-offset_right = -1288.9
-offset_bottom = 1293.7
-scale = Vector2(0.95, 0.95)
+offset_left = -2350.79
+offset_top = 263.492
+offset_right = -1270.79
+offset_bottom = 1343.49
+scale = Vector2(0.9, 0.9)
 texture = ExtResource("3_3j2ro")
 stretch_mode = 5
 
