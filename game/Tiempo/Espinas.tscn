@@ -1,0 +1,18 @@
+[gd_scene load_steps=4 format=3 uid="uid://cac8sgcwm3rim"]
+
+[ext_resource type="Script" uid="uid://dhmywml13o0wl" path="res://area_2d.gd" id="1_jdc6k"]
+[ext_resource type="Texture2D" uid="uid://cuiw2sr0pg8xo" path="res://game/escenarios/escenario_1/tiles/Tiles separados/Espinas.png" id="2_67iiy"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ma7nc"]
+size = Vector2(185, 92)
+
+[node name="Espinas" type="Area2D"]
+script = ExtResource("1_jdc6k")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+scale = Vector2(0.204612, 0.228752)
+texture = ExtResource("2_67iiy")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0.5, 42)
+shape = SubResource("RectangleShape2D_ma7nc")

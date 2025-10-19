@@ -1,0 +1,33 @@
+[gd_scene load_steps=7 format=3 uid="uid://chxrlprljyfo7"]
+
+[ext_resource type="PackedScene" uid="uid://buhyov4ntwj2b" path="res://game/escenarios/escenario_1/parallax/parallax_escenario1.tscn" id="1_33xm1"]
+[ext_resource type="Script" uid="uid://bcvvtksxmi7vx" path="res://game/Tiempo/escenario_reloj.gd" id="1_fbbg8"]
+[ext_resource type="PackedScene" uid="uid://dk3l5o2qwtgli" path="res://game/escenarios/escenario_1/tiles/OpcionContrareloj.tscn" id="2_8ks60"]
+[ext_resource type="PackedScene" uid="uid://f686u3vbjnlv" path="res://game/personajes/principales/escenas/personajes principales.tscn" id="3_2ciss"]
+[ext_resource type="PackedScene" uid="uid://uxnd23h2vq6k" path="res://game/accesorios/barra de vida/barra devida.tscn" id="3_8ks60"]
+[ext_resource type="PackedScene" uid="uid://boyiqryke7wf8" path="res://game/Tiempo/tiempo.tscn" id="6_c2pa7"]
+
+[node name="Node2D" type="Node2D"]
+script = ExtResource("1_fbbg8")
+
+[node name="TimerHUD" parent="." instance=ExtResource("6_c2pa7")]
+layer = 40
+
+[node name="ParallaxEscenario1" parent="." instance=ExtResource("1_33xm1")]
+
+[node name="Tilemapescenario1" parent="." instance=ExtResource("2_8ks60")]
+
+[node name="barradevida" parent="." instance=ExtResource("3_8ks60")]
+
+[node name="PersonajesPrincipales" parent="." instance=ExtResource("3_2ciss")]
+
+[node name="Camera2D2" type="Camera2D" parent="PersonajesPrincipales"]
+position = Vector2(-4285, 163)
+scale = Vector2(1.37209, 3.89145)
+anchor_mode = 0
+ignore_rotation = false
+zoom = Vector2(0.54, 0.56)
+limit_left = 0
+limit_top = 0
+limit_bottom = 720
+limit_smoothed = true

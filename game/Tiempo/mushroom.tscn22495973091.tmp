@@ -1,0 +1,51 @@
+[gd_scene load_steps=6 format=3 uid="uid://djsasicvj5pqv"]
+
+[ext_resource type="Script" uid="uid://tupmtinb0v1i" path="res://mushroom.gd" id="1_gtbqh"]
+[ext_resource type="Texture2D" uid="uid://dhair0uapear" path="res://game/escenarios/escenario_1/tiles/Tiles separados/untitled_0002.png" id="2_vrqpk"]
+[ext_resource type="Texture2D" uid="uid://ffw84w42btp5" path="res://game/escenarios/escenario_1/tiles/Tiles separados/untitled_0001.png" id="3_i7c28"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_31io1"]
+size = Vector2(18.3124, 6.79918)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_wxs78"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_vrqpk")
+}],
+"loop": true,
+"name": &"bounce",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("3_i7c28")
+}],
+"loop": true,
+"name": &"idle",
+"speed": 5.0
+}]
+
+[node name="Mushroom" type="Node2D"]
+script = ExtResource("1_gtbqh")
+launch_strength = null
+cooldown_time = null
+bounce_anim = null
+idle_anim = null
+
+[node name="HitArea" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="HitArea"]
+position = Vector2(195, -1266)
+scale = Vector2(1054.81, -1147.2)
+shape = SubResource("RectangleShape2D_31io1")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+position = Vector2(158.875, 709)
+scale = Vector2(23.1847, 19.4286)
+sprite_frames = SubResource("SpriteFrames_wxs78")
+animation = &"bounce"
+
+[node name="CooldownTimer" type="Timer" parent="."]
+
+[connection signal="timeout" from="CooldownTimer" to="." method="_on_cooldown_timer_timeout"]
