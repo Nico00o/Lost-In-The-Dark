@@ -32,28 +32,3 @@ transform = Transform2D(1, 0, 0, 1, 0, 0)
 
 [node name="PersonajesPrincipales" parent="." instance=ExtResource("3_3j1ud")]
 
-[node name="Camera2D2" type="Camera2D" parent="PersonajesPrincipales"]
-position = Vector2(-4285, 163)
-scale = Vector2(1.37209, 3.89145)
-anchor_mode = 0
-ignore_rotation = false
-zoom = Vector2(0.54, 0.56)
-limit_left = 0
-limit_top = 0
-limit_bottom = 720
-limit_smoothed = true
-<<<<<<< HEAD
-
-[node name="Pausa" parent="." instance=ExtResource("5_75aa8")]
-layer = 128
-scale = Vector2(1, 1)
-transform = Transform2D(1, 0, 0, 1, 0, 0)
-
-[node name="Inventario" parent="." instance=ExtResource("6_uxtjq")]
-
-[node name="HUD" parent="." instance=ExtResource("7_dtrnw")]
-
-[node name="osomutado" parent="." instance=ExtResource("8_hqssn")]
-position = Vector2(5507, 846)
-=======
->>>>>>> e1b57c2cbb0d6581b71efbad801be5ca83fe4a99
