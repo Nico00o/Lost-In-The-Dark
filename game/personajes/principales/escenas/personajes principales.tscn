@@ -34,11 +34,12 @@ layer = 110
 
 [node name="CooldownLabel" type="Label" parent="CanvasLayer"]
 z_index = 2000
-offset_left = 496.0
-offset_top = 624.0
-offset_right = 821.0
-offset_bottom = 679.0
+offset_left = -109.0
+offset_top = 62.0
+offset_right = 216.0
+offset_bottom = 117.0
 label_settings = SubResource("LabelSettings_xmp0y")
+horizontal_alignment = 1
 
 [node name="Fade" type="ColorRect" parent="CanvasLayer"]
 clip_contents = true

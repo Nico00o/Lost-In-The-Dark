@@ -8,28 +8,11 @@ extends CanvasLayer
 ]
 
 func _ready():
-	# 🔹 Equipar objetos distintos para probar (solo si no están equipados ya)
-	if DatosInventario.obtener_equipados()[1] == null:
-		DatosInventario.cambiar_personaje("marius")
-		DatosInventario.equipar_objeto(1, {"icono": preload("res://game/menus/menu_inventario/objetos/recupera vida.png")})
+	# Inicializar HUD con el personaje activo real
+	actualizar_slots(DatosInventario.personaje_activo)
 
-		DatosInventario.cambiar_personaje("joseph")
-		DatosInventario.equipar_objeto(1, {"icono": preload("res://game/menus/menu_inventario/objetos/aumenta la velocidad en 10(1).png")})
-
-	# 🔹 Inicializar HUD con el personaje que está activo en escena
-	var pp = get_node("../PersonajesPrincipales")  # Ajustá según tu jerarquía
-	if pp:
-		if pp.showing_joseph:
-			DatosInventario.cambiar_personaje("joseph")
-		else:
-			DatosInventario.cambiar_personaje("marius")
-	else:
-		# Si no encontramos el nodo, dejamos Marius por defecto
-		DatosInventario.cambiar_personaje("marius")
-
-	actualizar_slots()
-
-	# 🔹 Conectar señal de cambio de personaje desde PersonajesPrincipales
+	# Conectar señal de cambio de personaje desde PersonajesPrincipales
+	var pp = get_node_or_null("../PersonajesPrincipales")
 	if pp:
 		var callable = Callable(self, "_on_personaje_cambiado")
 		if not pp.is_connected("personaje_cambiado", callable):
@@ -37,36 +20,49 @@ func _ready():
 	else:
 		print("⚠️ No se encontró el nodo PersonajesPrincipales para conectar la señal.")
 
+	# Conectar señal del singleton para actualizar cuando se equipa/desequipa
+	var s = DatosInventario
+	var callable2 = Callable(self, "_on_amuleto_actualizado")
+	if not s.is_connected("amuleto_actualizado", callable2):
+		s.connect("amuleto_actualizado", callable2)
 
-# ===========================================================
-# 🔹 Actualiza los slots del HUD según el personaje activo
-# ===========================================================
-func actualizar_slots():
-	var equipados = DatosInventario.obtener_equipados()
+	# 🔹 Forzar actualización inicial del HUD con los equipados del personaje activo
+	_on_amuleto_actualizado(DatosInventario.personaje_activo)
+
+
+# 🔹 Actualiza los slots del HUD según el personaje activo real
+func actualizar_slots(personaje: String):
+	var equipados = DatosInventario.amuletos_personaje[personaje.to_lower()]
 
 	for i in range(3):
 		var slot = slots[i]
-		var fondo = slot.get_node("FondoVacio")
-		var amuleto = slot.get_node("Amuleto")
-		var decoracion = slot.get_node("Decoracion")
+		var fondo = slot.get_node("FondoVacio") as CanvasItem
+		var amuleto = slot.get_node("Amuleto") as TextureRect
+		var decoracion = slot.get_node("Decoracion") as CanvasItem
 
 		if i < equipados.size() and equipados[i] != null:
-			amuleto.texture = equipados[i].icono
+			var item_dict = equipados[i]
+			if "icono" in item_dict and ResourceLoader.exists(item_dict.icono):
+				amuleto.texture = load(item_dict.icono)
+			else:
+				amuleto.texture = null
 			fondo.visible = false
 		else:
 			amuleto.texture = null
 			fondo.visible = true
 
-		decoracion.visible = true  # Siempre visible
+		decoracion.visible = true
 
 
-# ===========================================================
-# 🔁 Reacción al cambio de personaje
-# ===========================================================
+# 🔸 Reacción al cambio de personaje en el juego (TAB)
 func _on_personaje_cambiado(show_joseph: bool) -> void:
-	if show_joseph:
-		DatosInventario.cambiar_personaje("joseph")
-	else:
-		DatosInventario.cambiar_personaje("marius")
+	var nuevo_personaje = "joseph" if show_joseph else "marius"
+	DatosInventario.cambiar_personaje(nuevo_personaje)
+	actualizar_slots(DatosInventario.personaje_activo)
 
-	actualizar_slots()
+
+# 🔸 Reacción cuando se equipa o desequipa un amuleto
+func _on_amuleto_actualizado(personaje: String) -> void:
+	# Solo actualiza el HUD si el personaje del evento es el activo
+	if personaje == DatosInventario.personaje_activo:
+		actualizar_slots(personaje)
