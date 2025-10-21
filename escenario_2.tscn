@@ -1,0 +1,28 @@
+[gd_scene load_steps=4 format=3 uid="uid://sft1sa6xb75a"]
+
+[ext_resource type="PackedScene" uid="uid://cbaxsemx4gw2x" path="res://tilemapescenario_2.tscn" id="1_nyq8o"]
+[ext_resource type="PackedScene" uid="uid://dgkcvc54lkoth" path="res://parallax_escanario_2.tscn" id="2_ohcvn"]
+[ext_resource type="PackedScene" uid="uid://f686u3vbjnlv" path="res://game/personajes/principales/escenas/personajes principales.tscn" id="3_dmn3s"]
+
+[node name="Escenario2" type="Node2D"]
+
+[node name="Tilemapescenario2" parent="." instance=ExtResource("1_nyq8o")]
+
+[node name="parallax_escanario2" parent="." instance=ExtResource("2_ohcvn")]
+
+[node name="PersonajesPrincipales" parent="." instance=ExtResource("3_dmn3s")]
+position = Vector2(141, -50)
+
+[node name="Camera2D2" type="Camera2D" parent="PersonajesPrincipales"]
+position = Vector2(-4285, 163)
+scale = Vector2(1.37209, 3.89145)
+anchor_mode = 0
+ignore_rotation = false
+zoom = Vector2(0.54, 0.56)
+limit_left = 0
+limit_top = 0
+limit_bottom = 720
+limit_smoothed = true
+
+[node name="CanvasModulate" type="CanvasModulate" parent="."]
+color = Color(0.439958, 0.000416331, 0.515563, 1)

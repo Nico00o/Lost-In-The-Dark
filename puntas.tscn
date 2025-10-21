@@ -1,7 +1,7 @@
 [gd_scene load_steps=9 format=3 uid="uid://daxtjedc1k6i4"]
 
 [ext_resource type="Texture2D" uid="uid://che4chl0wqjko" path="res://game/escenarios/escenario_1/tiles/puntas abajo.png" id="1_gp26a"]
-[ext_resource type="Script" uid="uid://djbxp7b1ow5ah" path="res://area_2d.gd" id="2_vn1dm"]
+[ext_resource type="Script" path="res://area_2d.gd" id="2_vn1dm"]
 [ext_resource type="Texture2D" uid="uid://c2obxw3gr83x7" path="res://game/escenarios/escenario_1/tiles/puntas arriba.png" id="3_b3hw2"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_4lamw"]

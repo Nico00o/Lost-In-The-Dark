@@ -15,6 +15,9 @@ layer = 40
 
 [node name="ParallaxEscenario1" parent="." instance=ExtResource("1_33xm1")]
 
+[node name="CanvasModulate" type="CanvasModulate" parent="ParallaxEscenario1"]
+color = Color(0.634545, 0.10181, 0.421001, 1)
+
 [node name="Tilemapescenario1" parent="." instance=ExtResource("2_8ks60")]
 
 [node name="barradevida" parent="." instance=ExtResource("3_8ks60")]

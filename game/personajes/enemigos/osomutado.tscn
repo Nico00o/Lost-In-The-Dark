@@ -1,19 +1,7 @@
-[gd_scene load_steps=28 format=3 uid="uid://cls2sa71ylhcm"]
+[gd_scene load_steps=27 format=3 uid="uid://cls2sa71ylhcm"]
 
 [ext_resource type="Script" uid="uid://deoigrrvxy6pb" path="res://game/personajes/enemigos/enemigo.gd" id="1_snf5c"]
 [ext_resource type="Texture2D" uid="uid://cuv5cxrvl7dxf" path="res://game/personajes/enemigos/sprites/sprite-lobo mutado.png" id="1_umh1d"]
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_snf5c"]
-atlas = ExtResource("1_umh1d")
-region = Rect2(0, 256, 128, 128)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_kseao"]
-atlas = ExtResource("1_umh1d")
-region = Rect2(128, 256, 128, 128)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_ywh4k"]
-atlas = ExtResource("1_umh1d")
-region = Rect2(512, 256, 128, 128)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_pyi1m"]
 atlas = ExtResource("1_umh1d")
@@ -99,15 +87,6 @@ region = Rect2(896, 0, 128, 128)
 animations = [{
 "frames": [{
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_snf5c")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_kseao")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_ywh4k")
-}, {
-"duration": 1.0,
 "texture": SubResource("AtlasTexture_pyi1m")
 }, {
 "duration": 1.0,
@@ -120,7 +99,7 @@ animations = [{
 "texture": SubResource("AtlasTexture_l6b4o")
 }],
 "loop": true,
-"name": &"atacar",
+"name": &"ataque",
 "speed": 5.0
 }, {
 "frames": [{
@@ -183,7 +162,13 @@ animations = [{
 }]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_umh1d"]
-size = Vector2(232, 289)
+size = Vector2(190, 268)
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_snf5c"]
+radius = 1140.05
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_kseao"]
+radius = 128.876
 
 [node name="osomutado" type="CharacterBody2D"]
 script = ExtResource("1_snf5c")
@@ -192,11 +177,22 @@ script = ExtResource("1_snf5c")
 position = Vector2(4, 3)
 scale = Vector2(2.34375, 3.07812)
 sprite_frames = SubResource("SpriteFrames_qjede")
-animation = &"atacar"
+animation = &"ataque"
 autoplay = "reposo"
-frame_progress = 0.864088
+frame_progress = 0.467347
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(1, -4.5)
+position = Vector2(-8, 6)
 shape = SubResource("RectangleShape2D_umh1d")
 metadata/_edit_group_ = true
+
+[node name="Detector" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Detector"]
+shape = SubResource("CircleShape2D_snf5c")
+
+[node name="AttackArea" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="AttackArea"]
+position = Vector2(3, 16)
+shape = SubResource("CircleShape2D_kseao")
