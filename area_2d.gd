@@ -1,6 +1,5 @@
 extends Area2D
 
-
 @export var damage := 20
 @export var tiempo_activado := 2.0
 @export var tiempo_desactivado := 2.0
@@ -32,4 +31,4 @@ func _loop_trampa():
 	colision.disabled = true
 	activa = false
 
-	_loop_trampa() # se repite indefinidamente
+	_loop_trampa()

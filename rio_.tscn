@@ -1,0 +1,30 @@
+[gd_scene load_steps=6 format=3 uid="uid://dd0nh4rl7lvpg"]
+
+[ext_resource type="Shader" uid="uid://3nr5e3hqnd7s" path="res://cacada_.gdshader" id="1_r3ap1"]
+[ext_resource type="Texture2D" uid="uid://bnocy5garhk3w" path="res://game/escenarios/escenario_2/lava river.png" id="2_r3ap1"]
+[ext_resource type="Texture2D" uid="uid://bgqb685dmeyqe" path="res://game/escenarios/escenario_2/8.PNG" id="4_xpyxs"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_xpyxs"]
+shader = ExtResource("1_r3ap1")
+shader_parameter/tex = ExtResource("4_xpyxs")
+shader_parameter/speed = 0.4
+shader_parameter/tile_x = 6.0
+shader_parameter/tile_y = 1.0
+shader_parameter/direction = Vector2(1, 0)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ffps6"]
+size = Vector2(129.706, 130.259)
+
+[node name="rio y cascada" type="Node2D"]
+
+[node name="rio" type="Sprite2D" parent="."]
+material = SubResource("ShaderMaterial_xpyxs")
+position = Vector2(3473.54, 1014.69)
+rotation = 0.00800225
+scale = Vector2(53.5688, 3.42837)
+texture = ExtResource("2_r3ap1")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="rio"]
+visible = false
+position = Vector2(0.184174, -1.12323)
+shape = SubResource("RectangleShape2D_ffps6")

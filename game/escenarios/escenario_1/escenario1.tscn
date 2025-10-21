@@ -19,7 +19,16 @@ position = Vector2(6, 22)
 
 [node name="barradevida" parent="." instance=ExtResource("3_75aa8")]
 
-[node name="PersonajesPrincipales" parent="." groups=["personajes"] instance=ExtResource("3_3j1ud")]
+[node name="Pausa" parent="." instance=ExtResource("5_75aa8")]
+layer = 128
+scale = Vector2(1, 1)
+transform = Transform2D(1, 0, 0, 1, 0, 0)
+
+[node name="Inventario" parent="." instance=ExtResource("6_uxtjq")]
+
+[node name="HUD" parent="." instance=ExtResource("7_dtrnw")]
+
+[node name="PersonajesPrincipales" parent="." instance=ExtResource("3_3j1ud")]
 
 [node name="Camera2D2" type="Camera2D" parent="PersonajesPrincipales"]
 position = Vector2(-4285, 163)
@@ -31,12 +40,3 @@ limit_left = 0
 limit_top = 0
 limit_bottom = 720
 limit_smoothed = true
-
-[node name="Pausa" parent="." instance=ExtResource("5_75aa8")]
-layer = 128
-scale = Vector2(1, 1)
-transform = Transform2D(1, 0, 0, 1, 0, 0)
-
-[node name="Inventario" parent="." instance=ExtResource("6_uxtjq")]
-
-[node name="HUD" parent="." instance=ExtResource("7_dtrnw")]

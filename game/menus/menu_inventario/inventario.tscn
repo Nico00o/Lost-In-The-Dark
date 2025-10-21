@@ -170,13 +170,15 @@ offset_bottom = 96.9677
 texture_normal = ExtResource("5_qrmd4")
 texture_hover = ExtResource("6_abf6f")
 
-[node name="StatsVBox" type="VBoxContainer" parent="Panel"]
-layout_mode = 0
-offset_left = 134.895
-offset_top = 712.719
-offset_right = 174.895
-offset_bottom = 752.719
-scale = Vector2(16.6797, 4.36595)
+[node name="LabelDaño" type="Label" parent="Panel"]
+layout_mode = 2
+offset_left = 245.809
+offset_top = 717.211
+offset_right = 285.809
+offset_bottom = 740.211
+scale = Vector2(1.0163, 1.84179)
+theme_override_colors/font_shadow_color = Color(1, 1, 1, 1)
+theme_override_constants/shadow_offset_x = 0
 
 [node name="ItemsHBox" type="HBoxContainer" parent="Panel"]
 layout_mode = 0
@@ -272,3 +274,29 @@ layout_mode = 2
 texture_normal = ExtResource("7_bqbb8")
 ignore_texture_size = true
 stretch_mode = 6
+
+[node name="InfoHover" type="TextureRect" parent="Panel"]
+visible = false
+layout_mode = 0
+offset_left = 1095.65
+offset_top = 155.72
+offset_right = 1782.65
+offset_bottom = 945.72
+mouse_filter = 2
+stretch_mode = 5
+
+[node name="LabelSalud" type="Label" parent="Panel"]
+layout_mode = 0
+offset_left = 251.805
+offset_top = 780.098
+offset_right = 291.805
+offset_bottom = 803.098
+scale = Vector2(1.35972, 1.74218)
+
+[node name="LabelVelocidad" type="Label" parent="Panel"]
+layout_mode = 0
+offset_left = 325.248
+offset_top = 842.985
+offset_right = 365.248
+offset_bottom = 865.985
+scale = Vector2(1.35972, 1.80207)

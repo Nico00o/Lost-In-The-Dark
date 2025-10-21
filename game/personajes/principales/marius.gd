@@ -16,6 +16,7 @@ signal personaje_muerto(nombre_personaje: String)
 var is_active = false
 var is_alive = true
 var health = 160
+var dano = 10
 const max_health = 160
 var is_facing_right = true 
 var can_move: bool = true

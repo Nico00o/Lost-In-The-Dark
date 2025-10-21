@@ -15,23 +15,50 @@ var amuletos_personaje := {
 	"marius": [null, null, null]
 }
 
+var referencia_joseph: Node = null
+var referencia_marius: Node = null
+
+
 # Inventario compartido
 var inventario_global := []
 
 # Objetos del juego
 var objetos_totales := [
-	{"Mascara del olvido":"Invulnerable al daño", "icono":"res://game/menus/menu_inventario/objetos/invulnerable al daño.png"},
-	{"Emblema del velo Alado":"Aumenta Velocidad un 10%", "icono":"res://game/menus/menu_inventario/objetos/aumenta la velocidad en 10(1).png"},
-	{"l":"Cambia Instantaneamente", "icono":"res://game/menus/menu_inventario/objetos/permite cambiar instantaneamente.png"},
-	{"Semilla del retorno":"Revive a un personaje muerto", "icono":"res://game/menus/menu_inventario/objetos/revive a un personaje(1).png"},
-	{"Gema del Pulso Carmesi":"Recupera 40 de hp", "icono":"res://game/menus/menu_inventario/objetos/recupera vida.png"},
-	{"Rostro del Ritmo Sagrado":"Aumenta velocidad de ataque un 10%", "icono":"res://game/menus/menu_inventario/objetos/aumenta la barra de vida en 2(1).png"},
-	{"Marca del Devoraluz":"Aumenta el ataque un 40%", "icono":"res://game/menus/menu_inventario/objetos/aumenta el ataque en 10(1).png"},
-	{"Nucleo del vinculo Sombrio":"Aumenta la resistencia un 30%", "icono":"res://game/menus/menu_inventario/objetos/aumenta la resistencia en 10.png"},
+	{"Mascara del olvido":"Invulnerable al daño",
+	"icono":"res://game/menus/menu_inventario/objetos/invulnerable al daño.png",
+	"imagen_info":"res://game/menus/menu_inventario/hover/mascara del olvido.png"},
+	
+	{"Emblema del velo Alado":"Aumenta Velocidad un 10%",
+	 "icono":"res://game/menus/menu_inventario/objetos/aumenta la velocidad en 10(1).png",
+	"imagen_info":"res://game/menus/menu_inventario/hover/emblema del velo alado.png"},
+	
+	{"orbe":"Cambia Instantaneamente",
+	 "icono":"res://game/menus/menu_inventario/objetos/permite cambiar instantaneamente.png",
+	"imagen_info":"res://game/menus/menu_inventario/hover/orbe del espejo vivo.png"},
+	
+	{"Semilla del retorno":"Revive a un personaje muerto",
+	 "icono":"res://game/menus/menu_inventario/objetos/revive a un personaje(1).png",
+	"imagen_info":"res://game/menus/menu_inventario/hover/semilla del retorno.png"},
+	
+	{"Gema del Pulso Carmesi":"Recupera 40 de hp",
+	"icono":"res://game/menus/menu_inventario/objetos/recupera vida.png",
+	"imagen_info":"res://game/menus/menu_inventario/hover/gema del pulso carmesi.png"},
+	
+	{"Rostro del Ritmo Sagrado":"Aumenta velocidad de ataque un 10%",
+	 "icono":"res://game/menus/menu_inventario/objetos/aumenta la barra de vida en 2(1).png",
+	"imagen_info":"res://game/menus/menu_inventario/hover/rostro del ritmo sagrado.png"},
+	
+	{"Marca del Devoraluz":"Aumenta el ataque un 40%", 
+	"icono":"res://game/menus/menu_inventario/objetos/aumenta el ataque en 10(1).png",
+	"imagen_info":"res://game/menus/menu_inventario/hover/marca del devoraluz.png"},
+	
+	{"Nucleo del vinculo Sombrio":"Aumenta la resistencia un 30%", 
+	"icono":"res://game/menus/menu_inventario/objetos/aumenta la resistencia en 10.png", 
+	"imagen_info":"res://game/menus/menu_inventario/hover/nucleo del vinculo sombrio.png"},
 ]
 
 # Personaje activo actual
-var personaje_activo: String = "marius"
+var personaje_activo: String = "joseph"
 
 # -------------------------
 # Inventario compartido
