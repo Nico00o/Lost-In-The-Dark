@@ -13,6 +13,9 @@ signal personaje_muerto(nombre_personaje: String)
 
 @onready var animate_sprite = $AnimatedSprite2D
 
+
+var velocidad_original: float = velocidad_mov
+var is_invulnerable: bool = false
 var is_active = false
 var is_alive = true
 var health = 120
@@ -21,6 +24,12 @@ const max_health = 120
 var is_facing_right = true 
 var can_move: bool = true
 var puede_disparar: bool = true
+
+func curar_hp(cantidad: int):
+	health = min(max_health, health + cantidad)
+	emit_signal("vida_cambiada", name, health)
+	print(name, "recibió curación de", cantidad, "HP. Vida:", health)
+
 
 func update_animations():
 	if not can_move:
@@ -83,17 +92,16 @@ func saltar():
 # Daño y animación de golpe
 # ----------------------------
 func recibir_danio(cant: int):
-	if not is_alive or not is_active:
+	if not is_alive or not is_active or is_invulnerable:
+		if is_invulnerable:
+			print(name, "está protegido por la Máscara del Olvido, no recibe daño")
 		return
 
 	health -= cant
 	health = clamp(health, 0, max_health)
+	print(name, "recibió", cant, "de daño. Vida:", health)
+	emit_signal("vida_cambiada", name, health)
 
-	print(name, " recibió ", cant, " de daño. Vida: ", health)
-
-	emit_signal("vida_cambiada", "Joseph", health)
-
-	# Congelar movimiento y mostrar animación de daño
 	can_move = false
 	animate_sprite.play("recibir daño")
 	await animate_sprite.animation_finished
@@ -102,8 +110,9 @@ func recibir_danio(cant: int):
 	if health <= 0:
 		is_alive = false
 		animate_sprite.play("muerto")
-		print(name, " ha muerto")
+		print(name, "ha muerto")
 		emit_signal("personaje_muerto", name)
+<<<<<<< HEAD
 func _disparar():
 		if not is_active or not is_alive or not puede_disparar:
 			return
@@ -146,3 +155,29 @@ func _process(_delta):
 	# 🔹 Llama a la función de disparo
 	if Input.is_action_just_pressed("disparar"):
 		_disparar()
+=======
+
+
+func revivir(valor_hp: int = -1):
+	if is_alive:
+		return  # Ya está vivo
+	
+	is_alive = true
+	if valor_hp <= 0:
+		# Valor por defecto: 50% de HP
+		health = int(max_health * 0.5)
+	else:
+		health = clamp(valor_hp, 0, max_health)
+
+	can_move = true
+	animate_sprite.play("reposo")  # Animación de revivir
+	print(name, "ha sido revivido con", health, "HP")
+	emit_signal("vida_cambiada", name, health)
+
+func aplicar_impulso(fuerza: Vector2) -> void:
+	if not is_alive or not is_active:
+		return
+
+	velocity = fuerza
+	move_and_slide()
+>>>>>>> d0841fa3aa1883a7d2d6b8eeee3ec6506ecb4e9e

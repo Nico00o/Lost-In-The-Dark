@@ -1,0 +1,49 @@
+[gd_scene load_steps=6 format=3 uid="uid://cfvj1ugq8hkw6"]
+
+[ext_resource type="Script" uid="uid://bontmpuiyjtai" path="res://hongo_lateral.gd" id="1_5f53p"]
+[ext_resource type="Texture2D" uid="uid://wauv3usvnjlq" path="res://game/Tiempo/Hongo Verde_0002.png" id="2_5ntd5"]
+[ext_resource type="Texture2D" uid="uid://262sj05og8x2" path="res://game/Tiempo/Hongo Verde_0001.png" id="3_5ntd5"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_1sl52"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("3_5ntd5")
+}],
+"loop": true,
+"name": &"reposo",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_5ntd5")
+}],
+"loop": true,
+"name": &"salto",
+"speed": 5.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_pi3wu"]
+size = Vector2(10.3147, 5.24407)
+
+[node name="HongoLateral" type="Node2D"]
+script = ExtResource("1_5f53p")
+
+[node name="SpriteHolder" type="Node2D" parent="."]
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="SpriteHolder"]
+position = Vector2(158.875, 709)
+scale = Vector2(23.1847, 19.4286)
+sprite_frames = SubResource("SpriteFrames_1sl52")
+animation = &"reposo"
+
+[node name="Hit" type="Area2D" parent="."]
+
+[node name="Collision2D" type="CollisionShape2D" parent="Hit"]
+position = Vector2(206, -711)
+scale = Vector2(1054.81, -1147.2)
+shape = SubResource("RectangleShape2D_pi3wu")
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 0.19
+one_shot = true

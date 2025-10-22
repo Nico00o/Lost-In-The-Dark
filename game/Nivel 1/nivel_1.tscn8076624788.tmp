@@ -1,0 +1,27 @@
+[gd_scene load_steps=5 format=3 uid="uid://qb24a13kwr1d"]
+
+[ext_resource type="PackedScene" uid="uid://buhyov4ntwj2b" path="res://game/escenarios/escenario_1/parallax/parallax_escenario1.tscn" id="1_l6b30"]
+[ext_resource type="PackedScene" uid="uid://chcmum6spnowo" path="res://game/escenarios/escenario_1/tiles/Version2Escenario.tscn" id="2_4pe1q"]
+[ext_resource type="PackedScene" uid="uid://uxnd23h2vq6k" path="res://game/accesorios/barra de vida/barra devida.tscn" id="3_4pe1q"]
+[ext_resource type="PackedScene" uid="uid://f686u3vbjnlv" path="res://game/personajes/principales/escenas/personajes principales.tscn" id="3_7mibn"]
+
+[node name="Nivel 1" type="Node2D"]
+
+[node name="ParallaxEscenario1" parent="." instance=ExtResource("1_l6b30")]
+
+[node name="Tilemapescenario1" parent="." instance=ExtResource("2_4pe1q")]
+
+[node name="barradevida" parent="." instance=ExtResource("3_4pe1q")]
+
+[node name="PersonajesPrincipales" parent="." instance=ExtResource("3_7mibn")]
+
+[node name="Camera2D2" type="Camera2D" parent="PersonajesPrincipales"]
+position = Vector2(-4285, 163)
+scale = Vector2(1.37209, 3.89145)
+anchor_mode = 0
+ignore_rotation = false
+zoom = Vector2(0.54, 0.56)
+limit_left = 0
+limit_top = 0
+limit_bottom = 720
+limit_smoothed = true

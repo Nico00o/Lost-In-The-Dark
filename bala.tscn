@@ -1,4 +1,8 @@
+<<<<<<< HEAD
 [gd_scene load_steps=4 format=3 uid="uid://stm3ckv834rg"]
+=======
+[gd_scene load_steps=0 format=3 uid="uid://stm3ckv834rg"]
+>>>>>>> d0841fa3aa1883a7d2d6b8eeee3ec6506ecb4e9e
 
 [ext_resource type="Script" uid="uid://dxjl70f7vhcrh" path="res://bala.gd" id="1_ag3k0"]
 [ext_resource type="Texture2D" uid="uid://cqvvlienrc7p1" path="res://game/escenarios/escenario_1/image-removebg-preview.png" id="1_jk513"]

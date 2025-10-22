@@ -7292,6 +7292,7 @@ tile_map_data = PackedByteArray("AAALAAwABwABADIAAACaAPL/AQAGAA4AAACaAPP/AQAGAA8
 tile_set = SubResource("TileSet_rp2hk")
 
 [node name="CartelDialogo" type="Area2D" parent="."]
+visible = false
 script = ExtResource("6_1xewf")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="CartelDialogo"]

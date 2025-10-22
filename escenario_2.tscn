@@ -1,20 +1,25 @@
-[gd_scene load_steps=4 format=3 uid="uid://sft1sa6xb75a"]
+[gd_scene load_steps=10 format=3 uid="uid://c8yv0acc0ptpa"]
 
 [ext_resource type="PackedScene" uid="uid://cbaxsemx4gw2x" path="res://tilemapescenario_2.tscn" id="1_nyq8o"]
+[ext_resource type="PackedScene" uid="uid://b3yrambf2tmhm" path="res://game/menus/menu_inventario/hud.tscn" id="2_1v4cq"]
 [ext_resource type="PackedScene" uid="uid://dgkcvc54lkoth" path="res://parallax_escanario_2.tscn" id="2_ohcvn"]
 [ext_resource type="PackedScene" uid="uid://f686u3vbjnlv" path="res://game/personajes/principales/escenas/personajes principales.tscn" id="3_dmn3s"]
+[ext_resource type="PackedScene" uid="uid://bbi7ow615r588" path="res://game/menus/menu_inventario/recogeritem/item_mundo.tscn" id="4_1v4cq"]
+[ext_resource type="PackedScene" uid="uid://bjm7sslyko3o8" path="res://game/menus/menu_inventario/recogeritem/popup_recoger_item.tscn" id="5_7ajlq"]
+[ext_resource type="PackedScene" uid="uid://cxq4u34w02hhy" path="res://game/menus/menu_inventario/inventario.tscn" id="6_gfn1t"]
+[ext_resource type="PackedScene" uid="uid://uxnd23h2vq6k" path="res://game/accesorios/barra de vida/barra devida.tscn" id="7_xidxa"]
+[ext_resource type="PackedScene" uid="uid://o555jbqws6us" path="res://game/menus/menu_principal/Causa.tscn" id="8_o1tn4"]
 
 [node name="Escenario2" type="Node2D"]
 
-[node name="Tilemapescenario2" parent="." instance=ExtResource("1_nyq8o")]
+[node name="barradevida" parent="." instance=ExtResource("7_xidxa")]
 
-[node name="parallax_escanario2" parent="." instance=ExtResource("2_ohcvn")]
+[node name="HUD" parent="." instance=ExtResource("2_1v4cq")]
 
 [node name="PersonajesPrincipales" parent="." instance=ExtResource("3_dmn3s")]
-position = Vector2(141, -50)
 
 [node name="Camera2D2" type="Camera2D" parent="PersonajesPrincipales"]
-position = Vector2(-4285, 163)
+position = Vector2(-4163, 185)
 scale = Vector2(1.37209, 3.89145)
 anchor_mode = 0
 ignore_rotation = false
@@ -24,5 +29,17 @@ limit_top = 0
 limit_bottom = 720
 limit_smoothed = true
 
+[node name="Tilemapescenario2" parent="." instance=ExtResource("1_nyq8o")]
+
+[node name="parallax_escanario2" parent="." instance=ExtResource("2_ohcvn")]
+
 [node name="CanvasModulate" type="CanvasModulate" parent="."]
 color = Color(0.439958, 0.000416331, 0.515563, 1)
+
+[node name="ItemMundo" parent="." instance=ExtResource("4_1v4cq")]
+
+[node name="PopupRecogerItem" parent="." instance=ExtResource("5_7ajlq")]
+
+[node name="Inventario" parent="." instance=ExtResource("6_gfn1t")]
+
+[node name="Pausa" parent="." instance=ExtResource("8_o1tn4")]

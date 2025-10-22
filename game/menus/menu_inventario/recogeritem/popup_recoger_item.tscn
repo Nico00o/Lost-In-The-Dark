@@ -1,0 +1,11 @@
+[gd_scene load_steps=2 format=3 uid="uid://bjm7sslyko3o8"]
+
+[ext_resource type="Script" uid="uid://b8mjkrmk7mptb" path="res://popup_recoger_item.gd" id="1_80ynn"]
+
+[node name="PopupRecogerItem" type="CanvasLayer"]
+script = ExtResource("1_80ynn")
+
+[node name="Imagen" type="TextureRect" parent="."]
+offset_right = 1920.0
+offset_bottom = 1080.0
+scale = Vector2(0.668598, 0.671823)

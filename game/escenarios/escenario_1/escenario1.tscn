@@ -1,4 +1,8 @@
+<<<<<<< HEAD
 [gd_scene load_steps=8 format=3 uid="uid://dh0eytik2vdkn"]
+=======
+[gd_scene load_steps=10 format=3 uid="uid://dh0eytik2vdkn"]
+>>>>>>> d0841fa3aa1883a7d2d6b8eeee3ec6506ecb4e9e
 
 [ext_resource type="PackedScene" uid="uid://buhyov4ntwj2b" path="res://game/escenarios/escenario_1/parallax/parallax_escenario1.tscn" id="1_6ofg3"]
 [ext_resource type="PackedScene" uid="uid://yftpqvxgasnp" path="res://game/escenarios/escenario_1/tiles/tilemapescenario1.tscn" id="2_3j1ud"]
@@ -7,15 +11,18 @@
 [ext_resource type="PackedScene" uid="uid://o555jbqws6us" path="res://game/menus/menu_principal/Causa.tscn" id="5_75aa8"]
 [ext_resource type="PackedScene" uid="uid://cxq4u34w02hhy" path="res://game/menus/menu_inventario/inventario.tscn" id="6_uxtjq"]
 [ext_resource type="PackedScene" uid="uid://b3yrambf2tmhm" path="res://game/menus/menu_inventario/hud.tscn" id="7_dtrnw"]
+<<<<<<< HEAD
+=======
+[ext_resource type="PackedScene" uid="uid://bjm7sslyko3o8" path="res://game/menus/menu_inventario/recogeritem/popup_recoger_item.tscn" id="8_v54ta"]
+[ext_resource type="PackedScene" uid="uid://bbi7ow615r588" path="res://game/menus/menu_inventario/recogeritem/item_mundo.tscn" id="9_738av"]
+>>>>>>> d0841fa3aa1883a7d2d6b8eeee3ec6506ecb4e9e
 
 [node name="Escenario1" type="Node2D"]
-metadata/_edit_horizontal_guides_ = [2401.0]
 
 [node name="Tilemapescenario1" parent="." instance=ExtResource("2_3j1ud")]
 position = Vector2(-23, 53)
 
 [node name="ParallaxEscenario1" parent="." instance=ExtResource("1_6ofg3")]
-visible = false
 position = Vector2(6, 22)
 
 [node name="barradevida" parent="." instance=ExtResource("3_75aa8")]
@@ -30,4 +37,32 @@ transform = Transform2D(1, 0, 0, 1, 0, 0)
 [node name="HUD" parent="." instance=ExtResource("7_dtrnw")]
 
 [node name="PersonajesPrincipales" parent="." instance=ExtResource("3_3j1ud")]
+<<<<<<< HEAD
 position = Vector2(-306, 68)
+=======
+
+[node name="Camera2D2" type="Camera2D" parent="PersonajesPrincipales"]
+position = Vector2(-4285, 163)
+scale = Vector2(1.37209, 3.89145)
+anchor_mode = 0
+ignore_rotation = false
+zoom = Vector2(0.54, 0.56)
+limit_left = 0
+limit_top = 0
+limit_bottom = 720
+limit_smoothed = true
+
+[node name="PopupRecogerItem" parent="." instance=ExtResource("8_v54ta")]
+layer = 128
+
+[node name="ItemMundo" parent="." instance=ExtResource("9_738av")]
+position = Vector2(306, 356)
+
+[node name="ItemMundo2" parent="." instance=ExtResource("9_738av")]
+position = Vector2(-222, 345)
+id_objeto = 1
+
+[node name="ItemMundo3" parent="." instance=ExtResource("9_738av")]
+position = Vector2(-28, 350)
+id_objeto = 4
+>>>>>>> d0841fa3aa1883a7d2d6b8eeee3ec6506ecb4e9e

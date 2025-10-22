@@ -8,8 +8,7 @@ func _ready():
 	btn_salir.pressed.connect(_on_salir_pressed)
 
 func _on_continuar_pressed():
-	print("Reiniciar juego...")
-	get_tree().change_scene_to_file("res://game/escenarios/escenario_1/escenario1.tscn")  # o tu escena principal
+	Escenaanterior.volver_escena()
 
 func _on_salir_pressed():
 	print("Salir al menú...")
