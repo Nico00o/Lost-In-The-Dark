@@ -1,0 +1,28 @@
+[gd_scene load_steps=4 format=3 uid="uid://bseguv01w1s5a"]
+
+[ext_resource type="Script" uid="uid://c7ku10tkvd4m2" path="res://piso_cae.gd" id="1_aqo2a"]
+[ext_resource type="Texture2D" uid="uid://blluejqesx68d" path="res://game/Nivel 1/850cd04d-75d1-41ef-9541-f62f5e104d1c.png" id="2_iyrov"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_f3533"]
+size = Vector2(61, 41)
+
+[node name="PisoCaido" type="Node2D"]
+script = ExtResource("1_aqo2a")
+
+[node name="Area2D" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+scale = Vector2(1.06151, 1.12864)
+shape = SubResource("RectangleShape2D_f3533")
+
+[node name="Piso" type="CharacterBody2D" parent="."]
+
+[node name="Sprite2D" type="Sprite2D" parent="Piso"]
+scale = Vector2(0.0784874, 0.0767014)
+texture = ExtResource("2_iyrov")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Piso"]
+shape = SubResource("RectangleShape2D_f3533")
+
+[node name="Timer" type="Timer" parent="."]
+autostart = true

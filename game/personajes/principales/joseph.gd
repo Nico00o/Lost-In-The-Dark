@@ -126,3 +126,10 @@ func revivir(valor_hp: int = -1):
 	animate_sprite.play("reposo")  # Animación de revivir
 	print(name, "ha sido revivido con", health, "HP")
 	emit_signal("vida_cambiada", name, health)
+
+func aplicar_impulso(fuerza: Vector2) -> void:
+	if not is_alive or not is_active:
+		return
+
+	velocity = fuerza
+	move_and_slide()

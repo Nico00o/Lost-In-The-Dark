@@ -1,4 +1,4 @@
-[gd_scene load_steps=106 format=3 uid="uid://ucwlxgw7swo7"]
+[gd_scene load_steps=105 format=3 uid="uid://ucwlxgw7swo7"]
 
 [ext_resource type="Script" uid="uid://cnvsrlu7lmjgl" path="res://game/personajes/principales/joseph.gd" id="1_ppjlb"]
 [ext_resource type="Texture2D" uid="uid://iirhl6vv1vv3" path="res://game/personajes/principales/sprites del hno.png" id="1_upi6y"]
@@ -114,10 +114,6 @@ region = Rect2(0, 512, 128, 128)
 [sub_resource type="AtlasTexture" id="AtlasTexture_5l01n"]
 atlas = ExtResource("1_upi6y")
 region = Rect2(256, 1024, 128, 128)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_tkk1s"]
-atlas = ExtResource("1_upi6y")
-region = Rect2(768, 1024, 128, 128)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_i88ro"]
 atlas = ExtResource("1_upi6y")
@@ -285,9 +281,6 @@ animations = [{
 "frames": [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_5l01n")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_tkk1s")
 }, {
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_i88ro")
@@ -732,7 +725,7 @@ animations = [{
 size = Vector2(46, 190)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_8fe1n"]
-size = Vector2(128, 208)
+size = Vector2(98, 208)
 
 [node name="Marius" type="CharacterBody2D" groups=["Player"]]
 script = ExtResource("1_ppjlb")
@@ -740,9 +733,9 @@ script = ExtResource("1_ppjlb")
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 scale = Vector2(1.65, 1.65)
 sprite_frames = SubResource("SpriteFrames_ih1se")
-animation = &"caminar"
+animation = &"disparo"
 autoplay = "reposo"
-frame_progress = 0.805466
+frame_progress = 0.517311
 
 [node name="fx" type="AnimatedSprite2D" parent="AnimatedSprite2D"]
 visible = false
@@ -758,5 +751,5 @@ shape = SubResource("RectangleShape2D_lyhig")
 [node name="Area2D" type="Area2D" parent="."]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
-position = Vector2(-8, 0)
+position = Vector2(-13, 0)
 shape = SubResource("RectangleShape2D_8fe1n")
