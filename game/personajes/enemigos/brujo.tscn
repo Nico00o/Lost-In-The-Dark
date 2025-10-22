@@ -96,7 +96,7 @@ animations = [{
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_5413c"]
 size = Vector2(147, 263)
 
-[node name="brujo" type="CharacterBody2D"]
+[node name="brujo" type="CharacterBody2D" groups=["Enemies"]]
 script = ExtResource("1_fv6gq")
 
 [node name="animacion" type="AnimatedSprite2D" parent="."]

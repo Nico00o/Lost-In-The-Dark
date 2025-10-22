@@ -170,7 +170,7 @@ radius = 1140.05
 [sub_resource type="CircleShape2D" id="CircleShape2D_kseao"]
 radius = 128.876
 
-[node name="osomutado" type="CharacterBody2D"]
+[node name="osomutado" type="CharacterBody2D" groups=["Enemies"]]
 script = ExtResource("1_snf5c")
 
 [node name="animacion" type="AnimatedSprite2D" parent="."]
@@ -196,3 +196,11 @@ shape = SubResource("CircleShape2D_snf5c")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="AttackArea"]
 position = Vector2(3, 16)
 shape = SubResource("CircleShape2D_kseao")
+
+[node name="HealthBar" type="ProgressBar" parent="."]
+visible = false
+offset_left = -98.0
+offset_top = -200.0
+offset_right = 70.0
+offset_bottom = -170.0
+max_value = 1.0

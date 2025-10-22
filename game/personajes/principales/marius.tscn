@@ -212,7 +212,7 @@ animations = [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_6rbpg")
 }],
-"loop": true,
+"loop": false,
 "name": &"disparo",
 "speed": 5.0
 }, {

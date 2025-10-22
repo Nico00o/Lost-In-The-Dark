@@ -5,13 +5,17 @@ extends CharacterBody2D
 @export var dano: int = 20
 @export var gravedad: float = 900.0
 @export var cooldown_ataque: float = 1.2
+@export var vida_maxima: int = 100
 
 # --- nodos ---$animacion
 @onready var sprite: AnimatedSprite2D = $animacion
 @onready var detector: Area2D = $Detector
 @onready var attack_area: Area2D = $AttackArea
+@onready var health_bar: ProgressBar = $HealthBar
 
 # estado
+var vida_actual: int 
+var is_alive: bool = true
 var objetivo: CharacterBody2D = null
 var puede_atacar: bool = true
 var persiguiendo: bool = false
@@ -22,6 +26,10 @@ func _ready():
 	detector.body_exited.connect(_on_detector_exited)
 	attack_area.body_entered.connect(_on_attack_area_entered)
 	attack_area.body_exited.connect(_on_attack_area_exited)
+	vida_actual = vida_maxima
+	_actualizar_barra_vida() # Inicializa la barra (generalmente oculta)
+	# ...
+	
 
 func _physics_process(delta):
 	# gravedad
@@ -131,3 +139,50 @@ func _is_in_attack_area() -> bool:
 		if b == objetivo:
 			return true
 	return false
+func recibir_danio(cant: int):
+	if not is_alive:
+		return
+
+	vida_actual -= cant
+	vida_actual = clamp(vida_actual, 0, vida_maxima)
+
+	print(name, " recibió ", cant, " de daño. Vida: ", vida_actual)
+
+	_actualizar_barra_vida()
+
+	if vida_actual <= 0:
+		_morir()
+
+func _actualizar_barra_vida():
+	if health_bar:
+	# 1. Calcula el porcentaje (de 0 a 1)
+		var porcentaje = float(vida_actual) / float(vida_maxima)
+		health_bar.value = porcentaje
+
+	# 2. Muestra la barra si la vida no está completa, o si ya no está muerto
+	health_bar.visible = vida_actual < vida_maxima and is_alive
+
+
+func _morir():
+	is_alive = false
+	velocity.x = 0
+	puede_atacar = false 
+
+	# 1. Asegurarse de que la barra se muestre vacía (o se oculte)
+	_actualizar_barra_vida() 
+	health_bar.visible = false
+
+	# 2. Animación de muerte 
+	sprite.play("muerto")
+
+	# 3. Desactivar colisiones (para que el jugador no choque con el cadáver)
+	set_collision_mask_value(1, false) 
+	# Desactivar detector y ataque
+	detector.monitoring = false
+	attack_area.monitoring = false
+	await sprite.animation_finished
+
+# 4. Esperar a que termine la animación
+
+	
+	queue_free()

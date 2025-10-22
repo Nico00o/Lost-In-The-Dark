@@ -1,4 +1,4 @@
-[gd_scene load_steps=23 format=3 uid="uid://cokcm2jum7iyl"]
+[gd_scene load_steps=25 format=3 uid="uid://cokcm2jum7iyl"]
 
 [ext_resource type="Script" uid="uid://deoigrrvxy6pb" path="res://game/personajes/enemigos/enemigo.gd" id="1_8uyf3"]
 [ext_resource type="Texture2D" uid="uid://dwcqjmdk7j8qw" path="res://game/personajes/enemigos/sprites/sprite-hombre espada.png" id="1_phvlb"]
@@ -150,7 +150,13 @@ animations = [{
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_7fyqx"]
 size = Vector2(211, 325)
 
-[node name="hombrespada" type="CharacterBody2D"]
+[sub_resource type="CircleShape2D" id="CircleShape2D_8uyf3"]
+radius = 1140.05
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_upq03"]
+radius = 128.876
+
+[node name="hombrespada" type="CharacterBody2D" groups=["Enemies"]]
 script = ExtResource("1_8uyf3")
 
 [node name="animacion" type="AnimatedSprite2D" parent="."]
@@ -164,3 +170,23 @@ frame_progress = 0.675367
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(-13.5, -8.5)
 shape = SubResource("RectangleShape2D_7fyqx")
+
+[node name="Detector" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Detector"]
+position = Vector2(-39, -6)
+shape = SubResource("CircleShape2D_8uyf3")
+
+[node name="AttackArea" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="AttackArea"]
+position = Vector2(3, 16)
+shape = SubResource("CircleShape2D_upq03")
+
+[node name="HealthBar" type="ProgressBar" parent="."]
+visible = false
+offset_left = -98.0
+offset_top = -200.0
+offset_right = 70.0
+offset_bottom = -170.0
+max_value = 1.0

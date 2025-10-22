@@ -291,7 +291,7 @@ animations = [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_8jsp6")
 }],
-"loop": true,
+"loop": false,
 "name": &"disparo",
 "speed": 5.0
 }, {

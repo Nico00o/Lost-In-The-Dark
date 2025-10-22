@@ -1,5 +1,5 @@
 extends CharacterBody2D
-
+const Proyectil = preload("res://bala.tscn")
 signal vida_cambiada(nombre_personaje: String, vida_actual: int)
 signal personaje_muerto(nombre_personaje: String)
 
@@ -8,7 +8,8 @@ signal personaje_muerto(nombre_personaje: String)
 @export var gravedad : float = 900.0
 @export var fuerza_salto : float = 400.0
 @export var step_height : int = 8  # altura máxima que puede subir automáticamente
-
+@export var punto_disparo: Vector2 = Vector2(40, -10) 
+@export var cooldown_disparo: float = 0.4
 
 @onready var animate_sprite = $AnimatedSprite2D
 
@@ -20,6 +21,7 @@ var dano = 10
 const max_health = 160
 var is_facing_right = true 
 var can_move: bool = true
+var puede_disparar: bool = true
 
 
 func update_animations():
@@ -100,3 +102,45 @@ func recibir_danio(cant: int):
 		print(name, " ha muerto")
 		emit_signal("personaje_muerto", name)
 		# Podés disparar aquí un game over o cambio de personaje
+func _disparar():
+		if not is_active or not is_alive or not puede_disparar:
+			return
+
+		# 1. Iniciar Cooldown
+		puede_disparar = false
+
+		# 2. Animación de disparo y bloquear movimiento temporalmente
+		can_move = false
+		animate_sprite.play("disparo")
+
+		# 3. Instanciar el proyectil
+		var proyectil_instance = Proyectil.instantiate()
+
+		# 4. Calcular la posición y dirección (usando scale.x para reflejar la posición si está volteado)
+		var offset_x = punto_disparo.x * scale.x 
+		var spawn_pos = global_position + Vector2(offset_x, punto_disparo.y)
+
+		proyectil_instance.global_position = spawn_pos
+		# La dirección depende de si el sprite está volteado (scale.x > 0) o no
+		proyectil_instance.es_derecha = is_facing_right
+
+		# 5. Añadir al árbol de la escena (IMPORTANTE: Se añade al padre de Joseph/Marius, que es PersonajesPrincipales)
+		get_parent().add_child(proyectil_instance)
+
+		# 6. Esperar a que termine la animación de disparo
+		await animate_sprite.animation_finished
+
+		# 7. Volver al estado normal y desbloquear movimiento
+		can_move = true
+		update_animations() 
+
+		# 8. Esperar el cooldown del disparo
+		await get_tree().create_timer(cooldown_disparo).timeout
+		puede_disparar = true
+func _process(_delta):
+	if not is_active or not is_alive:
+		return
+		
+	# 🔹 Llama a la función de disparo
+	if Input.is_action_just_pressed("disparar"):
+		_disparar()
