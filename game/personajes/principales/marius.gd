@@ -100,3 +100,10 @@ func recibir_danio(cant: int):
 		print(name, " ha muerto")
 		emit_signal("personaje_muerto", name)
 		# Podés disparar aquí un game over o cambio de personaje
+
+func aplicar_impulso(fuerza: Vector2) -> void:
+	if not is_alive or not is_active:
+		return
+
+	velocity = fuerza
+	move_and_slide()

@@ -101,3 +101,10 @@ func recibir_danio(cant: int):
 		animate_sprite.play("muerto")
 		print(name, " ha muerto")
 		emit_signal("personaje_muerto", name)
+
+func aplicar_impulso(fuerza: Vector2) -> void:
+	if not is_alive or not is_active:
+		return
+
+	velocity = fuerza
+	move_and_slide()
