@@ -13,6 +13,8 @@ signal personaje_muerto(nombre_personaje: String)
 @onready var animate_sprite = $AnimatedSprite2D
 
 
+var velocidad_original: float = velocidad_mov
+var is_invulnerable: bool = false
 var is_active = false
 var is_alive = true
 var health = 160
@@ -20,6 +22,11 @@ var dano = 10
 const max_health = 160
 var is_facing_right = true 
 var can_move: bool = true
+
+func curar_hp(cantidad: int):
+	health = min(max_health, health + cantidad)
+	emit_signal("vida_cambiada", name, health)
+	print(name, "recibió curación de", cantidad, "HP. Vida:", health)
 
 
 func update_animations():
@@ -77,18 +84,16 @@ func saltar():
 		velocity.y = -fuerza_salto
 # Daño y animación de golpe
 func recibir_danio(cant: int):
-	if not is_alive or not is_active:
+	if not is_alive or not is_active or is_invulnerable:
+		if is_invulnerable:
+			print(name, "está protegido por la Máscara del Olvido, no recibe daño")
 		return
 
 	health -= cant
 	health = clamp(health, 0, max_health)
+	print(name, "recibió", cant, "de daño. Vida:", health)
+	emit_signal("vida_cambiada", name, health)
 
-	print(name, " recibió ", cant, " de daño. Vida: ", health)
-
-	# Emitir señal al HUD
-	emit_signal("vida_cambiada", "Marius", health)
-
-	# Congelar movimiento y mostrar animación de daño
 	can_move = false
 	animate_sprite.play("recibir daño")
 	await animate_sprite.animation_finished
@@ -97,6 +102,22 @@ func recibir_danio(cant: int):
 	if health <= 0:
 		is_alive = false
 		animate_sprite.play("muerto")
-		print(name, " ha muerto")
+		print(name, "ha muerto")
 		emit_signal("personaje_muerto", name)
-		# Podés disparar aquí un game over o cambio de personaje
+
+
+func revivir(valor_hp: int = -1):
+	if is_alive:
+		return  # Ya está vivo
+	
+	is_alive = true
+	if valor_hp <= 0:
+		# Valor por defecto: 50% de HP
+		health = int(max_health * 0.5)
+	else:
+		health = clamp(valor_hp, 0, max_health)
+
+	can_move = true
+	animate_sprite.play("reposo")  # Animación de revivir
+	print(name, "ha sido revivido con", health, "HP")
+	emit_signal("vida_cambiada", name, health)

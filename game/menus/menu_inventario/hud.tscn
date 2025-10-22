@@ -1,9 +1,18 @@
-[gd_scene load_steps=5 format=3 uid="uid://b3yrambf2tmhm"]
+[gd_scene load_steps=9 format=3 uid="uid://b3yrambf2tmhm"]
 
 [ext_resource type="Script" uid="uid://m72tr6b5p6ms" path="res://game/menus/menu_inventario/hud.gd" id="1_iymgy"]
 [ext_resource type="Texture2D" uid="uid://dupfpygspxuql" path="res://game/menus/menu_inventario/hud/triangulohud.png" id="2_otyap"]
 [ext_resource type="Texture2D" uid="uid://d25p67wohdw3h" path="res://game/menus/menu_inventario/hud/sin objeto equipado.png" id="3_3j2ro"]
 [ext_resource type="Texture2D" uid="uid://kj33xip0hrl8" path="res://game/menus/menu_inventario/hud/decoracionhudtriangulo.png" id="4_p2y2g"]
+[ext_resource type="Texture2D" uid="uid://doyayrnra3o0c" path="res://game/menus/menu_inventario/hud/button z.png" id="5_p2y2g"]
+[ext_resource type="Texture2D" uid="uid://cfgkbqbjs5t38" path="res://game/menus/menu_inventario/hud/button y.png" id="6_xw5uc"]
+[ext_resource type="Texture2D" uid="uid://cemqhd5gogrh7" path="res://game/menus/menu_inventario/hud/button x.png" id="7_1pd1g"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_p2y2g"]
+font_size = 200
+shadow_size = 40
+shadow_color = Color(0, 0.0431373, 0, 0.560784)
+shadow_offset = Vector2(0, 0)
 
 [node name="HUD" type="CanvasLayer"]
 layer = 100
@@ -56,6 +65,28 @@ offset_bottom = 1232.85
 texture = ExtResource("4_p2y2g")
 stretch_mode = 5
 
+[node name="BuffLabel" type="Label" parent="Triangulo/Slot1"]
+visible = false
+offset_left = 558.73
+offset_top = 484.127
+offset_right = 786.73
+offset_bottom = 757.127
+scale = Vector2(1.6, 1.6)
+label_settings = SubResource("LabelSettings_p2y2g")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="CooldownLabel" type="Label" parent="Triangulo/Slot1"]
+visible = false
+offset_left = 558.73
+offset_top = 484.127
+offset_right = 786.73
+offset_bottom = 757.127
+scale = Vector2(1.6, 1.6)
+label_settings = SubResource("LabelSettings_p2y2g")
+horizontal_alignment = 1
+vertical_alignment = 1
+
 [node name="Slot2" type="Control" parent="Triangulo"]
 anchors_preset = 0
 offset_left = -1378.57
@@ -93,6 +124,29 @@ offset_bottom = 1269.89
 texture = ExtResource("4_p2y2g")
 stretch_mode = 5
 
+[node name="BuffLabel" type="Label" parent="Triangulo/Slot2"]
+visible = false
+layout_mode = 0
+offset_left = 1698.41
+offset_top = 517.46
+offset_right = 1926.41
+offset_bottom = 790.46
+scale = Vector2(1.6, 1.6)
+label_settings = SubResource("LabelSettings_p2y2g")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="CooldownLabel" type="Label" parent="Triangulo/Slot2"]
+visible = false
+offset_left = 1698.41
+offset_top = 517.46
+offset_right = 1926.41
+offset_bottom = 790.46
+scale = Vector2(1.6, 1.6)
+label_settings = SubResource("LabelSettings_p2y2g")
+horizontal_alignment = 1
+vertical_alignment = 1
+
 [node name="Slot3" type="Control" parent="Triangulo"]
 anchors_preset = 0
 offset_left = 3035.71
@@ -129,3 +183,52 @@ offset_right = -1324.76
 offset_bottom = 1294.29
 texture = ExtResource("4_p2y2g")
 stretch_mode = 5
+
+[node name="BuffLabel" type="Label" parent="Triangulo/Slot3"]
+visible = false
+offset_left = -2039.68
+offset_top = 552.381
+offset_right = -1811.68
+offset_bottom = 825.381
+scale = Vector2(1.6, 1.6)
+label_settings = SubResource("LabelSettings_p2y2g")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="CooldownLabel" type="Label" parent="Triangulo/Slot3"]
+visible = false
+offset_left = -2039.68
+offset_top = 552.381
+offset_right = -1811.68
+offset_bottom = 825.381
+scale = Vector2(1.6, 1.6)
+label_settings = SubResource("LabelSettings_p2y2g")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Slot2ButtonZ" type="TextureRect" parent="."]
+z_index = 1000
+offset_left = 1223.0
+offset_top = 172.0
+offset_right = 1721.0
+offset_bottom = 691.0
+scale = Vector2(0.1, 0.1)
+texture = ExtResource("5_p2y2g")
+
+[node name="Slot1ButtonY" type="TextureRect" parent="."]
+z_index = 1000
+offset_left = 1127.0
+offset_top = 32.0
+offset_right = 1625.0
+offset_bottom = 551.0
+scale = Vector2(0.11, 0.11)
+texture = ExtResource("6_xw5uc")
+
+[node name="Slot3ButtonX" type="TextureRect" parent="."]
+z_index = 1000
+offset_left = 1027.0
+offset_top = 168.0
+offset_right = 1525.0
+offset_bottom = 687.0
+scale = Vector2(0.11, 0.11)
+texture = ExtResource("7_1pd1g")

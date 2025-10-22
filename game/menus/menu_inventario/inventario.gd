@@ -22,16 +22,6 @@ func _ready():
 	btn_cambiar.pressed.connect(_on_btn_cambiar_pressed)
 	btn_salir.pressed.connect(_on_btn_salir_pressed)
 
-	# Inicializar inventario global solo si está vacío
-	if DatosInventario.inventario_global.size() == 0:
-		DatosInventario.agregar_item(DatosInventario.objetos_totales[0])
-		DatosInventario.agregar_item(DatosInventario.objetos_totales[1])
-		DatosInventario.agregar_item(DatosInventario.objetos_totales[4])
-		DatosInventario.agregar_item(DatosInventario.objetos_totales[5])
-		DatosInventario.agregar_item(DatosInventario.objetos_totales[2])
-		DatosInventario.agregar_item(DatosInventario.objetos_totales[3])
-		DatosInventario.agregar_item(DatosInventario.objetos_totales[6])
-		DatosInventario.agregar_item(DatosInventario.objetos_totales[7])
 
 	# Conectar botones
 	for i in range(items_hbox.get_child_count()):
@@ -40,6 +30,10 @@ func _ready():
 			boton.pressed.connect(Callable(self, "_on_item_presionado").bind(i))
 			boton.mouse_entered.connect(Callable(self, "_on_item_hover").bind(i))
 			boton.mouse_exited.connect(Callable(self, "_on_item_unhover"))
+			
+  # 🔹 ASIGNAR EL POPUP AL SINGLETON
+	if DatosInventario.popup_inventario == null:
+		DatosInventario.popup_inventario = get_node("../PopupRecogerItem")
 
 
 	for i in range(equip_slots.get_child_count()):
@@ -48,10 +42,27 @@ func _ready():
 			slot.pressed.connect(Callable(self, "_on_slot_presionado").bind(i))
 			slot.mouse_entered.connect(Callable(self, "_on_slot_hover").bind(i))
 			slot.mouse_exited.connect(Callable(self, "_on_slot_unhover"))
+			
+	if DatosInventario.popup_inventario == null:
+		var root = get_tree().get_root()
+		var popup_node = root.find_node("PopupRecogerItem", true, false)
+		if popup_node:
+			DatosInventario.popup_inventario = popup_node
+			print("✅ popup_inventario asignado desde Inventario:", popup_node)
+	else:
+		print("⚠️ No se encontró PopupRecogerItem en el árbol (desde Inventario.gd)")
 
+	if DatosInventario.has_method("connect"):
+	# conectar señal para actualizar UI automáticamente
+		DatosInventario.connect("item_recogido", Callable(self, "on_item_recogido"))
+	
 	actualizar_personaje()
 	actualizar_items()
 	actualizar_equip_slots()
+
+func on_item_recogido(obj):
+	# si el inventario está visible actualizamos inmediatamente
+	actualizar_items()
 
 
 # ==========================================================
@@ -68,9 +79,13 @@ func _on_item_presionado(idx: int):
 	var equipados = DatosInventario.amuletos_personaje[personaje_modificado]
 
 	# Evitar duplicado
+# item que querés equipar
+	var nombre_objeto = objeto["nombre"]
+
+# recorremos los amuletos equipados
 	for amuleto in equipados:
-		if amuleto != null and amuleto.keys()[0] == objeto.keys()[0]:
-			print("Ya equipado:", objeto.keys()[0])
+		if amuleto != null and amuleto["nombre"] == nombre_objeto:
+			print("Ya equipado:", nombre_objeto)
 			return
 
 	# Máximo 3 slots
@@ -129,10 +144,17 @@ func _abrir_inventario():
 	DatosInventario.cambiar_personaje(personaje_actual)
 	
 	if DatosInventario.referencia_joseph == null or DatosInventario.referencia_marius == null:
-		var personajes = get_tree().get_first_node_in_group("personajes_principales")
-		if personajes:
-			DatosInventario.referencia_joseph = personajes.joseph
-			DatosInventario.referencia_marius = personajes.marius
+		var personajes_root = get_tree().get_first_node_in_group("personajes_principales")
+		if personajes_root:
+			# Buscar dentro del grupo los nodos con nombre exacto
+			DatosInventario.referencia_joseph = personajes_root.get_node_or_null("Joseph")
+			DatosInventario.referencia_marius = personajes_root.get_node_or_null("Marius")
+
+			print("🧩 Joseph encontrado:", DatosInventario.referencia_joseph)
+			print("🧩 Marius encontrado:", DatosInventario.referencia_marius)
+		else:
+			print("❌ No se encontró el grupo 'personajes_principales'")
+
 
 	actualizar_personaje()
 	actualizar_items()
@@ -218,7 +240,9 @@ func _on_item_hover(idx: int):
 
 
 func _on_item_unhover():
-	info_hover.visible = false
+	if info_hover.visible:
+		_efecto_fade_out(info_hover)
+
 
 
 func _efecto_fade_in(node: CanvasItem):

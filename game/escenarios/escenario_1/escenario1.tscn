@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=3 uid="uid://dh0eytik2vdkn"]
+[gd_scene load_steps=10 format=3 uid="uid://dh0eytik2vdkn"]
 
 [ext_resource type="PackedScene" uid="uid://buhyov4ntwj2b" path="res://game/escenarios/escenario_1/parallax/parallax_escenario1.tscn" id="1_6ofg3"]
 [ext_resource type="PackedScene" uid="uid://yftpqvxgasnp" path="res://game/escenarios/escenario_1/tiles/tilemapescenario1.tscn" id="2_3j1ud"]
@@ -7,6 +7,8 @@
 [ext_resource type="PackedScene" uid="uid://o555jbqws6us" path="res://game/menus/menu_principal/Causa.tscn" id="5_75aa8"]
 [ext_resource type="PackedScene" uid="uid://cxq4u34w02hhy" path="res://game/menus/menu_inventario/inventario.tscn" id="6_uxtjq"]
 [ext_resource type="PackedScene" uid="uid://b3yrambf2tmhm" path="res://game/menus/menu_inventario/hud.tscn" id="7_dtrnw"]
+[ext_resource type="PackedScene" uid="uid://bjm7sslyko3o8" path="res://game/menus/menu_inventario/recogeritem/popup_recoger_item.tscn" id="8_v54ta"]
+[ext_resource type="PackedScene" uid="uid://bbi7ow615r588" path="res://game/menus/menu_inventario/recogeritem/item_mundo.tscn" id="9_738av"]
 
 [node name="Escenario1" type="Node2D"]
 
@@ -14,7 +16,6 @@
 position = Vector2(-23, 53)
 
 [node name="ParallaxEscenario1" parent="." instance=ExtResource("1_6ofg3")]
-visible = false
 position = Vector2(6, 22)
 
 [node name="barradevida" parent="." instance=ExtResource("3_75aa8")]
@@ -40,3 +41,17 @@ limit_left = 0
 limit_top = 0
 limit_bottom = 720
 limit_smoothed = true
+
+[node name="PopupRecogerItem" parent="." instance=ExtResource("8_v54ta")]
+layer = 128
+
+[node name="ItemMundo" parent="." instance=ExtResource("9_738av")]
+position = Vector2(306, 356)
+
+[node name="ItemMundo2" parent="." instance=ExtResource("9_738av")]
+position = Vector2(-222, 345)
+id_objeto = 1
+
+[node name="ItemMundo3" parent="." instance=ExtResource("9_738av")]
+position = Vector2(-28, 350)
+id_objeto = 4
