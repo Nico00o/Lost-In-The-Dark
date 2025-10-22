@@ -60,18 +60,22 @@ func _input(event):
 
 
 func _cerrar_popup() -> void:
-	# Fade out y luego reanuda el juego
 	if tween:
 		tween.kill()
 	tween = create_tween()
-	# Animar imagen a 0
-	tween.tween_property(imagen, "modulate:a", 0.0, 0.3).set_trans(Tween.TRANS_SINE).set_ease(Tween.EASE_IN)
-	# Si hay fondo, animarlo también
-	if fondo:
+
+	if is_instance_valid(imagen):
+		tween.tween_property(imagen, "modulate:a", 0.0, 0.3).set_trans(Tween.TRANS_SINE).set_ease(Tween.EASE_IN)
+
+	if is_instance_valid(fondo):
 		tween.tween_property(fondo, "modulate:a", 0.0, 0.3).set_trans(Tween.TRANS_SINE).set_ease(Tween.EASE_IN)
-	# Al finalizar el tween, ocultamos y reanudamos
-	tween.finished.connect(func():
-		visible = false
-		activo = false
-		get_tree().paused = false
-	)
+
+	# Conexión más segura, sin función anónima
+	tween.finished.connect(_on_tween_finished, CONNECT_ONE_SHOT)
+
+func _on_tween_finished() -> void:
+	if not is_instance_valid(self):
+		return
+	visible = false
+	activo = false
+	get_tree().paused = false
