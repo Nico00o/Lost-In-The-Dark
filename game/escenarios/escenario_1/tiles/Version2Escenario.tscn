@@ -1,4 +1,4 @@
-[gd_scene load_steps=47 format=4 uid="uid://chcmum6spnowo"]
+[gd_scene load_steps=47 format=4 uid="uid://bx78u5o2taa4t"]
 
 [ext_resource type="Texture2D" uid="uid://pv7su232vrod" path="res://game/escenarios/escenario_1/tiles/Tiles separados/Piso.png" id="1_v5ncp"]
 [ext_resource type="Texture2D" uid="uid://dqomufwrkt66l" path="res://game/escenarios/escenario_1/tiles/tilesset/Arbol 1.png" id="2_nvcyk"]
@@ -19,7 +19,7 @@
 [ext_resource type="Texture2D" uid="uid://nvvhak4dbuua" path="res://game/escenarios/escenario_1/tiles/Tiles separados/Cesped Verdoso Azulado.png" id="17_6dwjh"]
 [ext_resource type="PackedScene" uid="uid://djsasicvj5pqv" path="res://game/Tiempo/mushroom.tscn" id="18_shlqh"]
 [ext_resource type="PackedScene" uid="uid://cac8sgcwm3rim" path="res://game/Tiempo/Espinas.tscn" id="19_eep62"]
-[ext_resource type="PackedScene" uid="uid://cfvj1ugq8hkw6" path="res://game/Tiempo/hongo_lateral.tscn" id="20_nvcyk"]
+[ext_resource type="PackedScene" path="res://game/Tiempo/hongo_lateral.tscn" id="20_nvcyk"]
 [ext_resource type="PackedScene" uid="uid://bseguv01w1s5a" path="res://game/Nivel 1/piso_cae.tscn" id="21_4ubk3"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_o27fy"]
