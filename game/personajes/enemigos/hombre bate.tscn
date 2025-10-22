@@ -1,4 +1,4 @@
-[gd_scene load_steps=21 format=3 uid="uid://cqhvfrne5j7gn"]
+[gd_scene load_steps=23 format=3 uid="uid://cqhvfrne5j7gn"]
 
 [ext_resource type="Script" uid="uid://deoigrrvxy6pb" path="res://game/personajes/enemigos/enemigo.gd" id="1_6qsvk"]
 [ext_resource type="Texture2D" uid="uid://jkcpxrryx620" path="res://game/personajes/enemigos/sprites/sprite-hombre bate.png" id="1_v7qpc"]
@@ -134,7 +134,13 @@ animations = [{
 }]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_o1d3i"]
-size = Vector2(189.5, 358)
+size = Vector2(126, 326)
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_6qsvk"]
+radius = 1140.05
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_0opsy"]
+radius = 86.0233
 
 [node name="hombre bate" type="CharacterBody2D"]
 position = Vector2(31, 5)
@@ -144,11 +150,23 @@ script = ExtResource("1_6qsvk")
 position = Vector2(-54.5, -32)
 scale = Vector2(2.03906, 3)
 sprite_frames = SubResource("SpriteFrames_ah0wl")
-animation = &"reposo"
+animation = &"ataque"
 autoplay = "reposo"
-frame_progress = 0.95794
+frame_progress = 0.247882
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(-77.25, -29)
+position = Vector2(-69, -13)
 shape = SubResource("RectangleShape2D_o1d3i")
 metadata/_edit_group_ = true
+
+[node name="Detector" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Detector"]
+position = Vector2(-39, -6)
+shape = SubResource("CircleShape2D_6qsvk")
+
+[node name="AttackArea" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="AttackArea"]
+position = Vector2(-72, -7)
+shape = SubResource("CircleShape2D_0opsy")

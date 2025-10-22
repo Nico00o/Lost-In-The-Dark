@@ -154,6 +154,8 @@ func _set_collision_enabled(character: CharacterBody2D, enabled: bool) -> void:
 			shape.disabled = not enabled
 
 func _physics_process(_delta):
+	if not camera:
+		return
 	var target = joseph if showing_joseph else marius
 	if target == null:
 		return

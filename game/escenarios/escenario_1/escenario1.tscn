@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=3 uid="uid://dh0eytik2vdkn"]
+[gd_scene load_steps=9 format=3 uid="uid://dh0eytik2vdkn"]
 
 [ext_resource type="PackedScene" uid="uid://buhyov4ntwj2b" path="res://game/escenarios/escenario_1/parallax/parallax_escenario1.tscn" id="1_6ofg3"]
 [ext_resource type="PackedScene" uid="uid://yftpqvxgasnp" path="res://game/escenarios/escenario_1/tiles/tilemapescenario1.tscn" id="2_3j1ud"]
@@ -7,8 +7,10 @@
 [ext_resource type="PackedScene" uid="uid://o555jbqws6us" path="res://game/menus/menu_principal/Causa.tscn" id="5_75aa8"]
 [ext_resource type="PackedScene" uid="uid://cxq4u34w02hhy" path="res://game/menus/menu_inventario/inventario.tscn" id="6_uxtjq"]
 [ext_resource type="PackedScene" uid="uid://b3yrambf2tmhm" path="res://game/menus/menu_inventario/hud.tscn" id="7_dtrnw"]
+[ext_resource type="PackedScene" uid="uid://cls2sa71ylhcm" path="res://game/personajes/enemigos/osomutado.tscn" id="8_hqssn"]
 
 [node name="Escenario1" type="Node2D"]
+metadata/_edit_horizontal_guides_ = [2401.0]
 
 [node name="Tilemapescenario1" parent="." instance=ExtResource("2_3j1ud")]
 position = Vector2(-23, 53)
@@ -30,13 +32,3 @@ transform = Transform2D(1, 0, 0, 1, 0, 0)
 
 [node name="PersonajesPrincipales" parent="." instance=ExtResource("3_3j1ud")]
 
-[node name="Camera2D2" type="Camera2D" parent="PersonajesPrincipales"]
-position = Vector2(-4285, 163)
-scale = Vector2(1.37209, 3.89145)
-anchor_mode = 0
-ignore_rotation = false
-zoom = Vector2(0.54, 0.56)
-limit_left = 0
-limit_top = 0
-limit_bottom = 720
-limit_smoothed = true
