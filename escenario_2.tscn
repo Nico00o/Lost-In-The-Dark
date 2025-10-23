@@ -12,11 +12,18 @@
 
 [node name="Escenario2" type="Node2D"]
 
+[node name="parallax_escanario2" parent="." instance=ExtResource("2_ohcvn")]
+
 [node name="barradevida" parent="." instance=ExtResource("7_xidxa")]
+
+[node name="Pausa" parent="." instance=ExtResource("8_o1tn4")]
+
+[node name="Inventario" parent="." instance=ExtResource("6_gfn1t")]
 
 [node name="HUD" parent="." instance=ExtResource("2_1v4cq")]
 
 [node name="PersonajesPrincipales" parent="." instance=ExtResource("3_dmn3s")]
+position = Vector2(-188, -328)
 
 [node name="Camera2D2" type="Camera2D" parent="PersonajesPrincipales"]
 position = Vector2(-4163, 185)
@@ -29,17 +36,9 @@ limit_top = 0
 limit_bottom = 720
 limit_smoothed = true
 
-[node name="Tilemapescenario2" parent="." instance=ExtResource("1_nyq8o")]
-
-[node name="parallax_escanario2" parent="." instance=ExtResource("2_ohcvn")]
-
-[node name="CanvasModulate" type="CanvasModulate" parent="."]
-color = Color(0.439958, 0.000416331, 0.515563, 1)
-
-[node name="ItemMundo" parent="." instance=ExtResource("4_1v4cq")]
-
 [node name="PopupRecogerItem" parent="." instance=ExtResource("5_7ajlq")]
 
-[node name="Inventario" parent="." instance=ExtResource("6_gfn1t")]
+[node name="Tilemapescenario2" parent="." instance=ExtResource("1_nyq8o")]
+position = Vector2(-27, 22)
 
-[node name="Pausa" parent="." instance=ExtResource("8_o1tn4")]
+[node name="ItemMundo" parent="." instance=ExtResource("4_1v4cq")]

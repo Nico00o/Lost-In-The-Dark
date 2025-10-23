@@ -3130,6 +3130,8 @@ texture_region_size = Vector2i(32, 32)
 tile_layout = 1
 tile_size = Vector2i(32, 32)
 physics_layer_0/collision_layer = 1
+custom_data_layer_0/name = "tipo"
+custom_data_layer_0/type = 4
 sources/7 = SubResource("TileSetAtlasSource_f2kbr")
 sources/8 = SubResource("TileSetAtlasSource_1xewf")
 sources/3 = SubResource("TileSetAtlasSource_atw2d")
@@ -8639,7 +8641,7 @@ sources/2 = SubResource("TileSetAtlasSource_8e258")
 [node name="Tilemapescenario1" type="Node2D"]
 metadata/_edit_horizontal_guides_ = [544.0]
 
-[node name="capa 1" type="TileMapLayer" parent="."]
+[node name="grass" type="TileMapLayer" parent="."]
 z_index = -10
 y_sort_enabled = true
 position = Vector2(131, -746)

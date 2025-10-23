@@ -214,7 +214,7 @@ animations = [{
 }]
 
 [node name="barradevida" type="CanvasLayer"]
-layer = 50
+layer = 120
 script = ExtResource("1_scm4n")
 
 [node name="TextureRectJoseph" type="TextureRect" parent="."]

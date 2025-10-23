@@ -42,15 +42,12 @@ limit_smoothed = true
 [node name="PopupRecogerItem" parent="." instance=ExtResource("8_v54ta")]
 layer = 128
 
-[node name="ItemMundo" parent="." instance=ExtResource("9_738av")]
-position = Vector2(306, 356)
-
 [node name="ItemMundo2" parent="." instance=ExtResource("9_738av")]
-position = Vector2(-222, 345)
+position = Vector2(5983, 50)
 id_objeto = 1
 
 [node name="ItemMundo3" parent="." instance=ExtResource("9_738av")]
-position = Vector2(-28, 350)
+position = Vector2(25226, -63)
 id_objeto = 4
 
 [node name="Tilemapescenario1" parent="." instance=ExtResource("9_v54ta")]

@@ -1,4 +1,4 @@
-[gd_scene load_steps=18 format=4 uid="uid://cbaxsemx4gw2x"]
+[gd_scene load_steps=17 format=4 uid="uid://cbaxsemx4gw2x"]
 
 [ext_resource type="Texture2D" uid="uid://cor3udpcms21y" path="res://game/escenarios/escenario_2/tiles/suelo cueva.png" id="1_ukeff"]
 [ext_resource type="Texture2D" uid="uid://c8l6ixqwi4to4" path="res://game/escenarios/escenario_2/tiles/Tiles Escenario2/Piedras (Decoracion).png" id="2_sbwpo"]
@@ -6,7 +6,6 @@
 [ext_resource type="Texture2D" uid="uid://bsmg4u2l2xhas" path="res://game/escenarios/escenario_2/tiles/Tiles Escenario2/Floor.png" id="4_sbwpo"]
 [ext_resource type="PackedScene" uid="uid://dd0nh4rl7lvpg" path="res://rio_.tscn" id="5_fcm2t"]
 [ext_resource type="Texture2D" uid="uid://bkmwjygpm5uyw" path="res://game/escenarios/escenario_2/tiles/objetos cueva.png" id="5_nx7gs"]
-[ext_resource type="PackedScene" uid="uid://f686u3vbjnlv" path="res://game/personajes/principales/escenas/personajes principales.tscn" id="6_fcm2t"]
 [ext_resource type="PackedScene" uid="uid://dmbmor57a2gdm" path="res://cascada.tscn" id="6_nx7gs"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_tpstw"]
@@ -4936,16 +4935,3 @@ scale = Vector2(2.58693, 1.01258)
 [node name="cascada2" parent="." instance=ExtResource("6_nx7gs")]
 visible = false
 position = Vector2(10299, -557)
-
-[node name="PersonajesPrincipales" parent="." instance=ExtResource("6_fcm2t")]
-
-[node name="Camera2D2" type="Camera2D" parent="PersonajesPrincipales"]
-position = Vector2(497, 175)
-scale = Vector2(1.37209, 3.89145)
-anchor_mode = 0
-ignore_rotation = false
-zoom = Vector2(0.54, 0.56)
-limit_left = 0
-limit_top = 0
-limit_bottom = 720
-limit_smoothed = true

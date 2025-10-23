@@ -133,3 +133,44 @@ func aplicar_impulso(fuerza: Vector2) -> void:
 
 	velocity = fuerza
 	move_and_slide()
+
+
+# ======================================================
+# 🧱 CAÍDA Y RESPAWN EN ÚLTIMO PASTO
+# ======================================================
+
+@onready var ray_suelo = $RaySuelo
+@export var limite_caida_y: float = 2000.0  # altura a la que se considera que cayó
+@export var dano_caida: int = 20
+var ultimo_tile_pasto: Vector2 = Vector2.ZERO
+
+func _process(delta):
+	# 🔹 Detectar el último tile de pasto tocado
+	if ray_suelo.is_colliding():
+		var collider = ray_suelo.get_collider()
+		if collider and collider is TileMap and collider.name == "Grass":
+			var tilemap: TileMap = collider
+			var cell = tilemap.local_to_map(ray_suelo.get_collision_point())
+			var layer = 0  # Si solo hay 1 layer, lo dejamos en 0
+			var tile_id = tilemap.get_cell(layer, cell)
+			if tile_id != -1:  # Tile válido
+				var tile_data = tilemap.tile_get_data(tile_id)
+				if tile_data and tile_data.get_custom_data("tipo") == "pasto":
+					var tile_center = tilemap.map_to_world(cell) + tilemap.cell_size / 2
+					ultimo_tile_pasto = tilemap.to_global(tile_center)
+
+	# 🔹 Detectar si se cayó del mapa
+	if global_position.y > limite_caida_y and is_alive:
+		_on_caida_fuera_del_mapa()
+
+
+func _on_caida_fuera_del_mapa():
+	print("☠️", name, "se cayó del escenario.")
+	recibir_danio(dano_caida)
+
+	if ultimo_tile_pasto != Vector2.ZERO:
+		print("🌿 Teletransportando a último pasto:", ultimo_tile_pasto)
+		global_position = ultimo_tile_pasto
+	else:
+		print("⚠️ No se detectó último pasto, respawn por defecto.")
+		global_position = Vector2(100, 100)
