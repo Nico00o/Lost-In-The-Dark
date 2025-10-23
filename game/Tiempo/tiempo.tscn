@@ -1,6 +1,13 @@
-[gd_scene load_steps=2 format=3 uid="uid://boyiqryke7wf8"]
+[gd_scene load_steps=3 format=3 uid="uid://boyiqryke7wf8"]
 
 [ext_resource type="Script" uid="uid://csul7x0suqu0x" path="res://game/Tiempo/control.gd" id="1_ly6pi"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_ly6pi"]
+font_size = 64
+outline_size = 5
+outline_color = Color(0.243137, 0.713726, 0.709804, 1)
+shadow_size = 30
+shadow_color = Color(0, 0, 0, 0.647059)
 
 [node name="TimerHUD" type="CanvasLayer"]
 
@@ -13,11 +20,12 @@ script = ExtResource("1_ly6pi")
 
 [node name="TiempoLabel" type="Label" parent="HUDControl"]
 layout_mode = 0
-offset_left = 980.0
-offset_top = 2.0
-offset_right = 1065.0
-offset_bottom = 25.0
-scale = Vector2(3.48745, 3.70342)
+offset_left = 1086.0
+offset_top = -1.0
+offset_right = 1425.0
+offset_bottom = 87.0
+scale = Vector2(1, 1.062)
 text = "Tiempo: 90"
+label_settings = SubResource("LabelSettings_ly6pi")
 
 [node name="Temporizador" type="Timer" parent="HUDControl"]

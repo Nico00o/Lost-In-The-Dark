@@ -1,4 +1,4 @@
-[gd_scene load_steps=7 format=3 uid="uid://chxrlprljyfo7"]
+[gd_scene load_steps=8 format=3 uid="uid://chxrlprljyfo7"]
 
 [ext_resource type="PackedScene" uid="uid://buhyov4ntwj2b" path="res://game/escenarios/escenario_1/parallax/parallax_escenario1.tscn" id="1_33xm1"]
 [ext_resource type="Script" uid="uid://bcvvtksxmi7vx" path="res://game/Tiempo/escenario_reloj.gd" id="1_fbbg8"]
@@ -6,6 +6,7 @@
 [ext_resource type="PackedScene" uid="uid://f686u3vbjnlv" path="res://game/personajes/principales/escenas/personajes principales.tscn" id="3_2ciss"]
 [ext_resource type="PackedScene" uid="uid://uxnd23h2vq6k" path="res://game/accesorios/barra de vida/barra devida.tscn" id="3_8ks60"]
 [ext_resource type="PackedScene" uid="uid://boyiqryke7wf8" path="res://game/Tiempo/tiempo.tscn" id="6_c2pa7"]
+[ext_resource type="Texture2D" uid="uid://de5yg8bpehbrh" path="res://game/Tiempo/pantallareloj(1).png" id="7_c2pa7"]
 
 [node name="Node2D" type="Node2D"]
 script = ExtResource("1_fbbg8")
@@ -31,3 +32,12 @@ limit_left = 0
 limit_top = 0
 limit_bottom = 720
 limit_smoothed = true
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+layer = 128
+
+[node name="TextureRect" type="TextureRect" parent="CanvasLayer"]
+offset_right = 40.0
+offset_bottom = 40.0
+scale = Vector2(0.666962, 0.668149)
+texture = ExtResource("7_c2pa7")

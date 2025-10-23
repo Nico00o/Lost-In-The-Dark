@@ -13,7 +13,7 @@ func _ready():
 	$AdicionalPN.visible = false  
 
 func _on_texture_button_pressed():
-	get_tree().change_scene_to_file("res://game/escenarios/escenario_1/escenario1.tscn")
+	get_tree().change_scene_to_file("res://game/cinematica/cinematica.tscn")
 
 func _on_texture_button_2_pressed():
 	$Botones.visible = false

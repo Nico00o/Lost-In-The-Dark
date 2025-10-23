@@ -216,7 +216,6 @@ func _physics_process(_delta):
 	camera_pos = camera_pos.lerp(desired_pos, camera_smooth)
 	camera.global_position = camera_pos
 
-
 # ======================================================
 # COOLDOWN
 # ======================================================

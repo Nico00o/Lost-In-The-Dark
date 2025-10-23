@@ -1,0 +1,23 @@
+[gd_scene load_steps=3 format=3 uid="uid://dy1j28e6ir8dc"]
+
+[ext_resource type="Script" uid="uid://dp3lecguxnajg" path="res://game/cinematica/cinematica.gd" id="1_jjtap"]
+[ext_resource type="VideoStream" uid="uid://dxo68rkbmlq68" path="res://game/cinematica/video.ogv" id="1_vd3fh"]
+
+[node name="cinematica" type="CanvasLayer"]
+script = ExtResource("1_jjtap")
+
+[node name="VideoStreamPlayer" type="VideoStreamPlayer" parent="."]
+z_index = 10
+offset_left = 160.0
+offset_top = -3.0
+offset_right = 1008.0
+offset_bottom = 633.0
+scale = Vector2(1.138, 1.138)
+stream = ExtResource("1_vd3fh")
+autoplay = true
+
+[node name="ColorRect" type="ColorRect" parent="."]
+z_index = 1
+offset_right = 1283.0
+offset_bottom = 721.0
+color = Color(0, 0, 0, 1)
