@@ -3,7 +3,9 @@ extends CharacterBody2D
 signal vida_cambiada(nombre_personaje: String, vida_actual: int)
 signal personaje_muerto(nombre_personaje: String)
 
-
+const Proyectil = preload("res://bala.tscn") # Ajusta esta ruta si es diferente
+@export var punto_disparo: Vector2 = Vector2(50, 0) # Posición relativa donde sale la bala
+@export var cooldown_disparo: float = 0.5 # Tiempo entre disparos
 @export var velocidad_mov : float = 230.0
 @export var gravedad : float = 900.0
 @export var fuerza_salto : float = 400.0
@@ -21,6 +23,7 @@ var dano = 12
 const max_health = 120
 var is_facing_right = true 
 var can_move: bool = true
+var puede_disparar: bool = true
 
 func curar_hp(cantidad: int):
 	health = min(max_health, health + cantidad)
@@ -41,7 +44,8 @@ func update_animations():
 func _physics_process(delta):
 	if not is_active or not is_alive or not can_move:
 		return
-
+	if Input.is_action_just_pressed("disparar") and puede_disparar:
+		_disparar()
 	# 🔹 TESTEO: para probar daño manual (presionar G)
 	if Input.is_action_just_pressed("golpe_test"):
 		recibir_danio(20)
@@ -174,3 +178,40 @@ func _on_caida_fuera_del_mapa():
 	else:
 		print("⚠️ No se detectó último pasto, respawn por defecto.")
 		global_position = Vector2(100, 100)
+
+func _disparar(): 
+	if not is_active or not is_alive or not puede_disparar:
+		return
+
+	# 1. Iniciar Cooldown
+	puede_disparar = false
+
+	# 2. Animación de disparo y bloquear movimiento temporalmente
+	can_move = false
+	animate_sprite.play("disparo") # Necesitas la animación "disparo"
+
+	# 3. Instanciar el proyectil
+	var proyectil_instance = Proyectil.instantiate()
+
+	# 4. Calcular la posición y dirección
+	# Multiplicamos por scale.x para reflejar la posición si el sprite está volteado
+	var offset_x = punto_disparo.x * scale.x
+	var spawn_pos = global_position + Vector2(offset_x, punto_disparo.y)
+
+	proyectil_instance.global_position = spawn_pos
+	# La dirección depende de si el sprite está volteado (scale.x > 0) o no
+	proyectil_instance.es_derecha = is_facing_right
+
+	# 5. Añadir al árbol de la escena (IMPORTANTE: Se añade al padre del nodo principal)
+	get_parent().add_child(proyectil_instance)
+
+	# 6. Esperar a que termine la animación de disparo
+	await animate_sprite.animation_finished
+
+	# 7. Volver al estado normal y desbloquear movimiento
+	can_move = true
+	update_animations()
+
+	# 8. Esperar el cooldown del disparo
+	await get_tree().create_timer(cooldown_disparo).timeout
+	puede_disparar = true

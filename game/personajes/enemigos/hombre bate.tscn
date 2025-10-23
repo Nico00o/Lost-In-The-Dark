@@ -142,7 +142,7 @@ radius = 1140.05
 [sub_resource type="CircleShape2D" id="CircleShape2D_0opsy"]
 radius = 86.0233
 
-[node name="hombre bate" type="CharacterBody2D"]
+[node name="hombre bate" type="CharacterBody2D" groups=["Enemies"]]
 position = Vector2(31, 5)
 script = ExtResource("1_6qsvk")
 

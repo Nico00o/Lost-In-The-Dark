@@ -1,9 +1,10 @@
-[gd_scene load_steps=5 format=3 uid="uid://qb24a13kwr1d"]
+[gd_scene load_steps=6 format=3 uid="uid://qb24a13kwr1d"]
 
 [ext_resource type="PackedScene" uid="uid://buhyov4ntwj2b" path="res://game/escenarios/escenario_1/parallax/parallax_escenario1.tscn" id="1_l6b30"]
-[ext_resource type="PackedScene" uid="uid://chcmum6spnowo" path="res://game/escenarios/escenario_1/tiles/Version2Escenario.tscn" id="2_4pe1q"]
+[ext_resource type="PackedScene" uid="uid://bx78u5o2taa4t" path="res://game/escenarios/escenario_1/tiles/Version2Escenario.tscn" id="2_4pe1q"]
 [ext_resource type="PackedScene" uid="uid://uxnd23h2vq6k" path="res://game/accesorios/barra de vida/barra devida.tscn" id="3_4pe1q"]
 [ext_resource type="PackedScene" uid="uid://f686u3vbjnlv" path="res://game/personajes/principales/escenas/personajes principales.tscn" id="3_7mibn"]
+[ext_resource type="PackedScene" uid="uid://cls2sa71ylhcm" path="res://game/personajes/enemigos/osomutado.tscn" id="5_7mibn"]
 
 [node name="Nivel 1" type="Node2D"]
 
@@ -25,3 +26,6 @@ limit_left = 0
 limit_top = 0
 limit_bottom = 720
 limit_smoothed = true
+
+[node name="osomutado" parent="." instance=ExtResource("5_7mibn")]
+position = Vector2(2069, 777)
