@@ -1,0 +1,44 @@
+[gd_scene load_steps=6 format=3 uid="uid://bph1jq7trpbdt"]
+
+[ext_resource type="Script" uid="uid://ccipviu8rru8a" path="res://arbolorio.gd" id="1_et4uh"]
+[ext_resource type="Texture2D" uid="uid://c1evdhiwd41wi" path="res://game/escenarios/escenario_2/tiles/Tiles Escenario2/Arbolorio_0001.png" id="2_o33al"]
+[ext_resource type="Texture2D" uid="uid://4thns3swhcst" path="res://game/escenarios/escenario_2/tiles/Tiles Escenario2/Arbolorio_0002.png" id="3_v2sfn"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_vgxv6"]
+size = Vector2(199, 88)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_yomex"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_o33al")
+}],
+"loop": true,
+"name": &"bounce",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("3_v2sfn")
+}],
+"loop": true,
+"name": &"idle",
+"speed": 5.0
+}]
+
+[node name="arbolorio" type="Node2D"]
+script = ExtResource("1_et4uh")
+
+[node name="Hit" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Hit"]
+position = Vector2(-10.5, 7)
+shape = SubResource("RectangleShape2D_vgxv6")
+
+[node name="Visual" type="Node2D" parent="."]
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Visual"]
+sprite_frames = SubResource("SpriteFrames_yomex")
+animation = &"idle"
+
+[node name="CooldownTimer" type="Timer" parent="."]
