@@ -1,0 +1,10 @@
+[gd_scene load_steps=3 format=3 uid="uid://btx4xsixsm47t"]
+
+[ext_resource type="PackedScene" uid="uid://dgkcvc54lkoth" path="res://parallax_escanario_2.tscn" id="1_a2ch2"]
+[ext_resource type="PackedScene" uid="uid://cbaxsemx4gw2x" path="res://tilemapescenario_2.tscn" id="2_2phfy"]
+
+[node name="Node2D" type="Node2D"]
+
+[node name="parallax_escanario2" parent="." instance=ExtResource("1_a2ch2")]
+
+[node name="Tilemapescenario2" parent="." instance=ExtResource("2_2phfy")]
